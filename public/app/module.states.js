@@ -9,8 +9,8 @@ app.config(function($stateProvider, $urlRouterProvider){
 			url: '/',
 			templateUrl: '/app/home/home.html',
 			controller: 'homeCtrl'
-		});
-
+		})
+		
 	$urlRouterProvider.otherwise('/');
 
 
