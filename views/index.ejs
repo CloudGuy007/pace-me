@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+	<title><%= title %></title>
+  	<script src="/bower_components/angular/angular.min.js"></script>
+  	<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+
+  	<script src="/app/module.js"></script>
+  	<script src="/app/module.states.js"></script>
+  	<script src="/app/home/home.controller.js"></script>
+
+    
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
   </head>
-  <body>
+  <body ng-app="paceMeApp">
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <ui-view></ui-view>
+
+
   </body>
 </html>

@@ -1,0 +1,22 @@
+{
+  "name": "epic1",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Sergio Prada <chechopradaster@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Czechh/pace-me",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.2.18"
+  }
+}
