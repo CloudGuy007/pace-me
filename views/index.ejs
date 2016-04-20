@@ -8,31 +8,30 @@
     <link rel="stylesheet" href="/components/css/normalize.css">
     <link rel="stylesheet" href="/components/css/skeleton.css">
     <link rel="stylesheet" href="app/home/home.css">
+    <link rel="stylesheet" href="/components/css/main.css">
 
   	<script src="/bower_components/angular/angular.min.js"></script>
   	<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-
-
 
   	<script src="/app/module.js"></script>
   	<script src="/app/module.states.js"></script>
   	<script src="/app/home/home.controller.js"></script>
 
 
-        <script src="/components/navbar/navbar.controller.js"></script>
-        <script src="/components/navbar/navbar.directive.js"></script>
-
-
+    <script src="/components/footer/footer.controller.js"></script>
+    <script src="/components/footer/footer.directive.js"></script>
+    <script src="/components/navbar/navbar.controller.js"></script>
+    <script src="/components/navbar/navbar.directive.js"></script>
 
     <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
   </head>
   <body ng-app="paceMeApp">
 
-
     <navbar></navbar>
 
     <ui-view></ui-view>
 
+    <footer-view></footer-view>
 
   </body>
 </html>
