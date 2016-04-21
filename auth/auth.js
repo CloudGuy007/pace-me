@@ -47,7 +47,6 @@ router.post('/phone', function(req, res) {
       var data = JSON.parse(responseData);
       console.log('responseData', responseData);
       var request_id = responseData.request_id;
-
     });
   });
 })

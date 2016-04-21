@@ -8,9 +8,7 @@ app.service('AuthService', function($http) {
     var number = {phone: phone}
     return $http.post('/auth/phone', number)
     .then(function(res) {
-      console.log(res);
-      this.request_id = res;
-      console.log();
+      console.log('first res: ', res);
     })
   }
 

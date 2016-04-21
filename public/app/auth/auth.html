@@ -1,6 +1,17 @@
 <h1>Auth</h1>
 
-<input type='number' ng-model='phone' placeholder='phone number'>
-<input type='number' ng-model='verifyCode' placeholder="code">
-<button ng-click='sendText(phone)'>Send Verification Text</button>
-<button ng-click='verifyPhone(verifyCode)'>Verify Phone</button>
+<div>
+  <input ng-hide='enterCode' type='text' ng-model='person.phone' placeholder='phone number'>
+  <input ng-show='enterCode' type='text' ng-model='verifyCode' placeholder="code">
+  <button ng-hide='enterCode' ng-click='sendText(phone)'>Send Verification Text</button>
+  <button ng-show='enterCode' ng-click='verifyPhone(verifyCode)'>Verify Phone</button>
+</div>
+
+<div>
+  <!-- person info name email password -->
+  <input ng-model='person.'
+</div>
+
+<div>
+  <!-- running info -->
+</div>
