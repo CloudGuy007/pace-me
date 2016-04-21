@@ -1,0 +1,24 @@
+.navbar {
+  transition-duration:0.5s;
+-webkit-transition-duration:0.5s;
+-mox-transition-duration:0.5s;
+transition:0.5s;
+}
+.navbar-default {
+  background-color: rgba(0,0,0,0);
+  border:0;
+}
+.navbar-default .navbar-nav>li>a{
+  color:#fff;
+  font-weight:100;
+}
+nav.sticky {
+	background-color:rgba(0,0,0,0.7);
+	top:0;
+	width:100%;
+	position:fixed;
+  padding:0;
+}
+nav.sticky .navbar-nav li a {
+  color:#fff;
+}

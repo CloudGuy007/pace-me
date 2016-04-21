@@ -1,3 +1,28 @@
+
 h1 {
   margin-top:10%;
+}
+h2 {
+  margin-top:15%;
+}
+.jumbotron {
+  background-color: #304A69;
+  height:500px;
+}
+.jumbotron h2 {
+  font-family: 'bariol_regular';
+  font-size:4.2em;
+  text-transform:uppercase;
+  text-align:center;
+  vertical-align:middle;
+  letter-spacing:1.5px;
+  color:#58CE87;
+}
+input {
+  outline:0 !important;
+}
+input[type="number"]{
+  width:80px;
+  vertical-align:middle;
+  font-size:24px;
 }
