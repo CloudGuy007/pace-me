@@ -1,1 +1,0 @@
-{"version":3,"sources":["app/admin/admin.module.js"],"names":[],"mappings":"AAAA;;AAEA,QAAQ,MAAR,CAAe,iBAAf,EAAkC,CAChC,gBADgC,EAEhC,WAFgC,CAAlC","file":"app/admin/admin.module.js","sourcesContent":["'use strict';\n\nangular.module('paceMeApp.admin', [\n  'paceMeApp.auth',\n  'ui.router'\n]);\n"],"sourceRoot":"/source/"}
