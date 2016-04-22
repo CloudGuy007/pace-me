@@ -21,7 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./index/index'));
 app.use('/users', require('./users/users'));
-app.use('/messages', require('./messages/messages'));
 app.use('/auth', require('./auth/auth'));
 
 // catch 404 and forward to error handler

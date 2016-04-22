@@ -1,3 +1,5 @@
+$navy1:#304A69;
+
 .navbar {
   transition-duration:0.5s;
 -webkit-transition-duration:0.5s;
@@ -5,7 +7,8 @@
 transition:0.5s;
 }
 .navbar-default {
-  background-color: rgba(0,0,0,0);
+  background-color: $navy1;
+  // background-color: rgba(0,0,0,0);
   border:0;
 }
 .navbar-default .navbar-nav>li>a{
