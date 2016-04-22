@@ -4,36 +4,52 @@
       <img ng-src='{{user.photo}}'>
       <h3>{{user.firstName}}&nbsp;{{user.lastName | limitTo:1}}.</h3>
       <p>{{user.age}} | {{user.gender}}</p>
-      <button class='btn'>Send a message</button>
-  </div>
-  <div class='row'>
-    <div class='col-xs-12 col-sm-8'>
-      <div class='card card-info'>
-        <h4>About Me</h4>
-        <hr>
-        <div><p class='about-me'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora odio praesentium quidem illo magni alias suscipit adipisci blanditiis amet magnam molestiae earum expedita quasi quia ex, debitis est similique. Harum aliquam quidem maiores
-          rem at, amet soluta nobis voluptatibus nisi consequatur, porro dolore omnis cupiditate architecto! Cum, non, mollitia?</p></div>
+      <button class='btn green' ng-click="open()">Send a message</button>
+    </div>
+    <div class='row'>
+      <div class='col-xs-12 col-sm-8'>
+        <div class='card card-info'>
+          <h4>About Me</h4>
+          <hr>
+          <div>
+            <p class='about-me'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora odio praesentium quidem illo magni alias suscipit adipisci blanditiis amet magnam molestiae earum expedita quasi quia ex, debitis est similique. Harum aliquam quidem
+              maiores rem at, amet soluta nobis voluptatibus nisi consequatur, porro dolore omnis cupiditate architecto! Cum, non, mollitia?</p>
+          </div>
+        </div>
       </div>
-      </div>
-    <div class='col-xs-12 col-sm-4'>
-      <div class='card card-info'>
-        <h4>Running</h4>
-        <hr>
-        <p>Training for a {{user.runEvent}}</p>
-        <p>Avg Mile Time: {{user.milePace}}</p>
-        <p>Weekly Miles: {{user.wklyMileage}}</p>
-        <p ng-if='user.fastestMile'>Fasest Mile: {{user.fastestMile}}</p>
-        <p ng-if='user.fastest5k'>Fastest 5k: {{user.fastest5k}}</p>
-        <p ng-if='user.fastest10k'>Fastest 10k: {{user.fastest5k}}</p>
-        <p ng-if='user.fastest15k'>Fastest 15k: {{user.fastest5k}}</p>
-        <p ng-if='user.fastestHlfMrthn'>Fastest half marathon: {{user.fastest5k}}</p>
-        <p ng-if='user.fastestMrthn'>Fastest marathon: {{user.fastest5k}}</p>
+      <div class='col-xs-12 col-sm-4'>
+        <div class='card card-info'>
+          <h4>Running</h4>
+          <hr>
+          <p>Training for a {{user.runEvent}}</p>
+          <p>Avg Mile Time: {{user.milePace}}</p>
+          <p>Weekly Miles: {{user.wklyMileage}}</p>
+          <p ng-if='user.fastestMile'>Fasest Mile: {{user.fastestMile}}</p>
+          <p ng-if='user.fastest5k'>Fastest 5k: {{user.fastest5k}}</p>
+          <p ng-if='user.fastest10k'>Fastest 10k: {{user.fastest5k}}</p>
+          <p ng-if='user.fastest15k'>Fastest 15k: {{user.fastest5k}}</p>
+          <p ng-if='user.fastestHlfMrthn'>Fastest half marathon: {{user.fastest5k}}</p>
+          <p ng-if='user.fastestMrthn'>Fastest marathon: {{user.fastest5k}}</p>
+        </div>
       </div>
     </div>
-
   </div>
-
-
-
-
 </div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Im a modal!</h3>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li ng-repeat="item in items">
+                <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+            </li>
+        </ul>
+        Selected: <b>{{ selected.item }}</b>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

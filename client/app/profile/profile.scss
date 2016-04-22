@@ -1,4 +1,5 @@
 $navy1:#304A69;
+$limeGreen: #58CE87;
 
 .profile {
   margin-top: 100px;
@@ -15,8 +16,21 @@ $navy1:#304A69;
   width: auto;
 }
 
-.profile-main button {
-  background-color: $navy1;
+button {
+  outline:none !important;
+  color:#fff;
+}
+button.green {
+  background-color: $limeGreen;
+  box-shadow: 2px 2px #499971;
+  border:none !important;
+
+  color:#fff;
+}
+button.green:active {
+  transform:translate(2px, 2px);
+  box-shadow:none;
+  color:#fff;
 }
 
 .card-info {
