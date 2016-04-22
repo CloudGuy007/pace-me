@@ -36,13 +36,18 @@ $limeGreen: #58CE87;
 }
 button {
   outline:none !important;
+
+  color:#fff;
 }
 button.green {
   background-color: $limeGreen;
-  box-shadow: 3px 3px #499971;
+  box-shadow: 2px 2px #499971;
   border:none !important;
+
+  color:#fff;
 }
 button.green:active {
-  transform:translate(3px, 3px);
+  transform:translate(2px, 2px);
   box-shadow:none;
+  color:#fff;
 }
