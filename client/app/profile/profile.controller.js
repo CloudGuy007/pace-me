@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('paceMeApp');
 
-app.controller('profileCtrl', function($scope, $uibModal, $log){
+app.controller('profileCtrl', function($scope, $uibModal, $log, ProfileService){
   $scope.user = {
     _id: '1',
     age: 29,
@@ -23,46 +23,32 @@ app.controller('profileCtrl', function($scope, $uibModal, $log){
   };
 
 
-  $scope.items = ['item1', 'item2', 'item3'];
 
- $scope.animationsEnabled = true;
-
- $scope.open = function (size) {
-
+$scope.animationsEnabled = true;
+ $scope.open = function() {
    var modalInstance = $uibModal.open({
      animation: $scope.animationsEnabled,
-     templateUrl: 'myModalContent.html',
+     templateUrl: 'profile.modal.html',
      controller: 'ModalInstanceCtrl',
-     size: size,
-     resolve: {
-       items: function () {
-         return $scope.items;
-       }
-     }
+     size: 0
    });
 
-   modalInstance.result.then(function (selectedItem) {
-     $scope.selected = selectedItem;
-   }, function () {
-     $log.info('Modal dismissed at: ' + new Date());
+   modalInstance.result.then(function() {
+     ProfileService.notifyUser()
+    //  $log.info('Modal dismissed at: ' + new Date());
    });
  };
 
  $scope.toggleAnimation = function () {
    $scope.animationsEnabled = !$scope.animationsEnabled;
  };
-
 });
 
-angular.module('paceMeApp').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
-
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
-
+app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
   $scope.ok = function () {
-    $uibModalInstance.close($scope.selected.item);
+    console.log('testing', $scope.testing);
+    //send message
+    $uibModalInstance.close();
   };
 
   $scope.cancel = function () {
