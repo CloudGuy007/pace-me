@@ -4,17 +4,27 @@ var app = angular.module('paceMeApp');
 
 app.service('AuthService', function($http) {
 
-  this.sendVerifyText = function(phone) {
-    var number = {phone: phone}
+  this.sendVerifyText = (phone) => {
+    var number = {phoneNumber: phone}
     return $http.post('/auth/phone', number)
-    .then(function(res) {
-      console.log('first res: ', res);
+    .then((res) => {
+      this.request_id = res.data.request_id;
+    }, function(err) {
+      console.log('err', err);
     })
   }
 
-  this.verifyNumber = function(pin) {
-    var code = {pin: pin}
+  this.verifyNumber = (pin) => {
+    var code = {
+      pin: pin,
+      request_id: this.request_id
+    };
     return $http.post('/auth/phone/verify', code)
+    .then(function(res) {
+      console.log('verify res', res);
+    }, function(err) {
+      console.log('err: ', err);
+    })
   }
 
 })
