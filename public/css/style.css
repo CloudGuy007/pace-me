@@ -23,6 +23,58 @@ body {
   font-weight: normal;
   font-style: normal; }
 
+.profile {
+  margin-top: 100px; }
+
+.profile-main {
+  text-align: center; }
+
+.profile-main img {
+  margin-bottom: 30px;
+  height: 200px;
+  width: auto; }
+
+.profile-main button {
+  background-color: #304A69; }
+
+.card-info {
+  height: 415px;
+  text-align: left;
+  overflow: scroll; }
+
+.about-me {
+  line-height: 2.5; }
+
+.card-info p {
+  font-size: 1.1em; }
+
+footer {
+  height: 300px; }
+
+.navbar {
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -mox-transition-duration: 0.5s;
+  transition: 0.5s; }
+
+.navbar-default {
+  background-color: transparent;
+  border: 0; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  font-weight: 100; }
+
+nav.sticky {
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  width: 100%;
+  position: fixed;
+  padding: 0; }
+
+nav.sticky .navbar-nav li a {
+  color: #fff; }
+
 h1 {
   margin-top: 10%; }
 
@@ -57,30 +109,3 @@ button {
 .blur {
   -webkit-filter: blur(6px);
   filter: blur(6px); }
-
-footer {
-  height: 300px; }
-
-.navbar {
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
-  -mox-transition-duration: 0.5s;
-  transition: 0.5s; }
-
-.navbar-default {
-  background-color: transparent;
-  border: 0; }
-
-.navbar-default .navbar-nav > li > a {
-  color: #fff;
-  font-weight: 100; }
-
-nav.sticky {
-  background-color: rgba(0, 0, 0, 0.7);
-  top: 0;
-  width: 100%;
-  position: fixed;
-  padding: 0; }
-
-nav.sticky .navbar-nav li a {
-  color: #fff; }
