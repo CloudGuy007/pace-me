@@ -1,7 +1,14 @@
+$white: #fff;
+$navy1:#304A69;
+
 body {
   position:relative;
   margin: 0 auto;
   font-family:'Helvetica', 'Arial', sans-serif;
+}
+
+.cursor {
+  cursor:pointer;
 }
 
 @font-face {

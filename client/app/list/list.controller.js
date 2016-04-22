@@ -13,7 +13,10 @@ app.controller('listCtrl', function($scope){
     distAway: '5 miles',
     wklyMileage: '30 mi',
     milePace: '8:00',
-    runEvent: '5k'
+    runEvent: '5k',
+    longestDistRun: 'half marathon',
+    fastestMileRun: '7:30'
+
   },
   {
   _id: '2',
@@ -28,7 +31,7 @@ app.controller('listCtrl', function($scope){
 },
 ];
 
-$scope.loggedIn = true;
+$scope.loggedIn = false;
 
   console.log("listCtrl");
 });

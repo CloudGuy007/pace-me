@@ -1,5 +1,7 @@
 $white: #fff;
-$navy1:#304A69;
+$navy1: #304A69;
+$limeGreen: #58CE87;
+
 h1 {
   margin-top:10%;
 }
@@ -17,7 +19,7 @@ h2 {
   text-align:center;
   vertical-align:middle;
   letter-spacing:1.5px;
-  color:#58CE87;
+  color: $limeGreen;
 }
 input {
   outline:0 !important;
