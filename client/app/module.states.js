@@ -28,7 +28,9 @@ app.config(function($stateProvider, $urlRouterProvider){
 
 	$urlRouterProvider.otherwise('/');
 
-
-
-
 })
+.run(function($rootScope){
+	$rootScope.$on('$stateChangeSuccess', function(event){
+		$rootScope.$broadcast('stateChange');
+	});
+});

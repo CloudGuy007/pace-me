@@ -3,7 +3,7 @@ $navy1:#304A69;
 .navbar {
   transition-duration:0.5s;
 -webkit-transition-duration:0.5s;
--mox-transition-duration:0.5s;
+-moz-transition-duration:0.5s;
 transition:0.5s;
 }
 .navbar-default {
@@ -24,4 +24,9 @@ nav.sticky {
 }
 nav.sticky .navbar-nav li a {
   color:#fff;
+}
+
+nav.profile-nav {
+  background-color: $navy1;
+  box-shadow:2px 0 #222;
 }
