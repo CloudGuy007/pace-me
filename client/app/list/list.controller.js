@@ -31,7 +31,7 @@ app.controller('listCtrl', function($scope){
 },
 ];
 
-$scope.loggedIn = false;
+$scope.loggedIn = true;
 
   console.log("listCtrl");
 });

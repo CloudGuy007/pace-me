@@ -29,7 +29,7 @@
           <div>{{user.milePace}}</div>
 
         </div>
-        <div class="new-view">
+        <div class="new-view" ui-sref="register">
           <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
         </div>
 
@@ -55,8 +55,12 @@
           <div>{{user.wkly}}</div>
           <div ng-if="user.runEvent">training for {{user.runEvent}}</div>
 
-          <button class="btn"></button>
+
         </div>
+
+                  <div class="new-view" ui-sref="profile">
+                    <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
+                  </div>
       </div>
     </div>
   </div>
