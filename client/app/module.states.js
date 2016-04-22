@@ -3,7 +3,13 @@
 
 var app = angular.module('paceMeApp')
 
-app.config(function($stateProvider, $urlRouterProvider){
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
+
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false,
+	});
+
 	$stateProvider
 		.state('home', {
 			url: '/',
@@ -27,8 +33,8 @@ app.config(function($stateProvider, $urlRouterProvider){
 		})
 
 	$urlRouterProvider.otherwise('/');
-
 })
+
 .run(function($rootScope){
 	$rootScope.$on('$stateChangeSuccess', function(event){
 		$rootScope.$broadcast('stateChange');
