@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('paceMeApp');
 
-app.controller('profileCtrl', function($scope, $uibModal, $log, ProfileService){
+app.controller('profileCtrl', function($scope, $uibModal, $log){
   $scope.user = {
     _id: '1',
     age: 29,
@@ -34,8 +34,7 @@ $scope.animationsEnabled = true;
    });
 
    modalInstance.result.then(function() {
-     ProfileService.notifyUser()
-    //  $log.info('Modal dismissed at: ' + new Date());
+     $log.info('Modal dismissed at: ' + new Date());
    });
  };
 
@@ -44,10 +43,10 @@ $scope.animationsEnabled = true;
  };
 });
 
-app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
+app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, ProfileService) {
   $scope.ok = function () {
-    console.log('testing', $scope.testing);
     //send message
+    ProfileService.notifyUser($scope.message)
     $uibModalInstance.close();
   };
 
