@@ -28,7 +28,7 @@ $scope.animationsEnabled = true;
  $scope.open = function() {
    var modalInstance = $uibModal.open({
      animation: $scope.animationsEnabled,
-     templateUrl: 'profile.modal.html',
+     templateUrl: 'myModalContent.html',
      controller: 'ModalInstanceCtrl',
      size: 0
    });

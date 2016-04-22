@@ -2,8 +2,8 @@
 
 var app = angular.module('paceMeApp');
 
-app.service('ProfileService', function() {
+app.service('ProfileService', function($http) {
   this.notifyUser = function() {
-    console.log('notified!');
+    return $http.post('/messages/new')
   }
 })
