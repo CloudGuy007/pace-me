@@ -1,7 +1,10 @@
 'use strict';
 var app = angular.module('paceMeApp');
 
-app.controller('listCtrl', function($scope){
+app.controller('listCtrl', function($scope, $state, $location, $anchorScroll){
+
+  console.log("current state", $state.current.name);
+
   $scope.users = [
     {
     _id: '1',
