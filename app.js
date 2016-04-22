@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var path = require('path')
 
 var app = express();
 
@@ -18,6 +19,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.all('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+})
 
 app.use('/', require('./index/index'));
 app.use('/users', require('./users/users'));
@@ -56,8 +61,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.all('/*', function(req, res) {
-  res.sendFile('index.html', { root: __dirname})
-})
 
 module.exports = app;
