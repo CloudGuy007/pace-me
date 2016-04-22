@@ -50,6 +50,10 @@ input[type="number"] {
   vertical-align: middle;
   font-size: 24px; }
 
+button {
+  border: 1px solid #fff !important;
+  color: #fff; }
+
 footer {
   height: 300px; }
 
