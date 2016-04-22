@@ -8,6 +8,7 @@ app.service('AuthService', function($http) {
     var number = {phoneNumber: phone}
     return $http.post('/auth/phone', number)
     .then((res) => {
+      //request_id is for nexmo, store to use for verifyNumber
       this.request_id = res.data.request_id;
     }, function(err) {
       console.log('err', err);

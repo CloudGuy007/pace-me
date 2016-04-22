@@ -13,10 +13,9 @@ router.post('/phone', function(req, res) {
   nexmo.verifyNumber({
     number: phone,
     brand: 'Pace Me'
-   }, function(req, response) {
+  }, function(req, response) {
     res.send(response)
   });
-
 })
 
 router.post('/phone/verify', function(req, res) {
@@ -24,11 +23,10 @@ router.post('/phone/verify', function(req, res) {
   var request_id = req.body.request_id;
   nexmo.checkVerifyRequest({
     request_id: request_id,
-    code:code
-  }, function(req, response){
+    code: code
+  }, function(req, response) {
     res.send(response)
-    });
-
+  });
 })
 
 
