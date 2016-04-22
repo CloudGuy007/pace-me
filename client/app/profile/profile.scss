@@ -1,0 +1,34 @@
+$navy1:#304A69;
+
+.profile {
+  margin-top: 100px;
+}
+
+
+.profile-main {
+  text-align: center;
+}
+
+.profile-main img {
+  margin-bottom: 30px;
+  height: 200px;
+  width: auto;
+}
+
+.profile-main button {
+  background-color: $navy1;
+}
+
+.card-info {
+  height: 415px;
+  text-align: left;
+  overflow: scroll;
+}
+
+.about-me {
+  line-height: 2.5;
+}
+
+.card-info p {
+  font-size: 1.1em;
+}

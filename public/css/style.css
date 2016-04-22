@@ -104,6 +104,31 @@ button.green:active {
   box-shadow: none;
   color: #fff; }
 
+.profile {
+  margin-top: 100px; }
+
+.profile-main {
+  text-align: center; }
+
+.profile-main img {
+  margin-bottom: 30px;
+  height: 200px;
+  width: auto; }
+
+.profile-main button {
+  background-color: #304A69; }
+
+.card-info {
+  height: 415px;
+  text-align: left;
+  overflow: scroll; }
+
+.about-me {
+  line-height: 2.5; }
+
+.card-info p {
+  font-size: 1.1em; }
+
 footer {
   height: 300px; }
 
