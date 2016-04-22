@@ -15,6 +15,11 @@ app.config(function($stateProvider, $urlRouterProvider){
 			templateUrl: '/html/auth.html',
 			controller: 'authCtrl'
 		})
+		.state('list', {
+			url: '/buddies',
+			templateUrl: '/html/list.html',
+			controller: 'listCtrl'
+		})
 
 	$urlRouterProvider.otherwise('/');
 

@@ -54,6 +54,10 @@ button {
   border: 1px solid #fff !important;
   color: #fff; }
 
+.blur {
+  -webkit-filter: blur(6px);
+  filter: blur(6px); }
+
 footer {
   height: 300px; }
 
