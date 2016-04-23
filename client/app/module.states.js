@@ -18,6 +18,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '/html/auth.html',
 			controller: 'authCtrl'
 		})
+
+
 		.state('list', {
 			url: '/buddies',
 			templateUrl: '/html/list.html',
