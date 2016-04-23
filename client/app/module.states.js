@@ -24,14 +24,14 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '/html/register.html',
 			controller: 'registerCtrl'
 		})
-		.state('register.phone', {
+		.state('register.initial', {
 			url: '',
-			templateUrl: '/html/register.phone.html',
+			templateUrl: '/html/register.initial.html',
 			controller: 'registerCtrl'
 		})
-		.state('register.person', {
-			url: '/your-info',
-			templateUrl: '/html/register.person.html',
+		.state('register.userInfo', {
+			url: '/user-info',
+			templateUrl: '/html/register.user-info.html',
 			controller: 'registerCtrl'
 		})
 		.state('register.run', {
@@ -39,9 +39,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '/html/register.run.html',
 			controller: 'registerCtrl'
 		})
-
-
-
 		.state('list', {
 			url: '/buddies',
 			templateUrl: '/html/list.html',
@@ -64,7 +61,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
 app.run(function($stormpath){
   $stormpath.uiRouter({
-    loginState: 'auth',
-    defaultPostLoginState: '/'
+    loginState: 'list',
+    defaultPostLoginState: 'profile'
   });
 });

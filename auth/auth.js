@@ -9,12 +9,10 @@ var uuid = require('uuid');
 var _ = require('lodash');
 var multer = require('multer');
 var upload = multer({ storage: multer.memoryStorage() });
-var AWS = require('aws-sdk'); 
-var s3 = new AWS.S3(); 
+var AWS = require('aws-sdk');
+var s3 = new AWS.S3();
 
 nexmo.initialize(process.env.NEXMO_API_KEY, process.env.NEXMO_API_SECRET);
-
-
 
 
 router.post('/phone', function(req, res) {
@@ -53,12 +51,10 @@ router.post('/upload', upload.single('photo'), function(req, res, next){
       else{
         console.log("Successfully uploaded data to myBucket/myKey");
           console.log("The URL is", url);
-      }    
+      }
     });
   res.sendStatus(200);
 });
-
-
 
 
 
