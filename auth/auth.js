@@ -15,6 +15,8 @@ var s3 = new AWS.S3();
 nexmo.initialize(process.env.NEXMO_API_KEY, process.env.NEXMO_API_SECRET);
 
 
+
+
 router.post('/phone', function(req, res) {
   var phone = req.body.phoneNumber;
   nexmo.verifyNumber({
