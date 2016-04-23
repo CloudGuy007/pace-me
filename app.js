@@ -5,11 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stormpath = require('express-stormpath');
+var path = require('path')
 require('dotenv').config();
 
 
 var app = express();
-
+//
 app.use(stormpath.init(app, {
   client: {
     apiKey: {
@@ -37,6 +38,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// app.all('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, 'public/index.html'))
+// })
 
 app.use('/', require('./index/index'));
 app.use('/users', require('./users/users'));
@@ -73,6 +78,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 
 
 module.exports = app;
