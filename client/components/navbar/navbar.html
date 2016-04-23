@@ -1,4 +1,6 @@
-<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navCtrl">
+
+<div ng-controller="navCtrl">
+<nav class="navbar navbar-default navbar-fixed-top" ng-class="{'sticky': sticky}">
   <a class="navbar-brand navbar-left" ui-sref="home">PaceMe</a>
 
   <div class="container">
@@ -21,3 +23,4 @@
    </ul>
   </div>
 </nav>
+</div>

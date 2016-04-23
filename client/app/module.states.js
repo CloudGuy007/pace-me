@@ -59,9 +59,9 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	});
 });
 
-app.run(function($stormpath){
-  $stormpath.uiRouter({
-    loginState: 'list',
-    defaultPostLoginState: 'profile'
-  });
-});
+// app.run(function($stormpath){
+//   $stormpath.uiRouter({
+//     loginState: 'list',
+//     defaultPostLoginState: 'profile'
+//   });
+// });
