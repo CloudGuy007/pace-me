@@ -10,7 +10,7 @@ require('dotenv').config();
 
 
 var app = express();
-//
+
 app.use(stormpath.init(app, {
   client: {
     apiKey: {
