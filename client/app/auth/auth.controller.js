@@ -13,4 +13,15 @@ app.controller('authCtrl', function($scope, AuthService){
 		AuthService.verifyNumber(code)
 	}
 
-})
+	$scope.uploadFile = function(files) {
+	    var fd = new FormData();
+	    fd.append("file", files[0]);
+
+	    AuthService.uploadPhoto(fd)
+	    .then(function(res) {
+	      console.log('Succes => ', res);
+	    }, function(err) {
+	      console.log('err: ', err);
+	    })
+	}
+});

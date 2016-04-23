@@ -20,9 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.all('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public/index.html'))
-})
+// app.all('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, 'public/index.html'))
+// })
 
 app.use('/', require('./index/index'));
 app.use('/users', require('./users/users'));

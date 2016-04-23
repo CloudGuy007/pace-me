@@ -28,4 +28,12 @@ app.service('AuthService', function($http) {
     })
   }
 
+  this.uploadPhoto = (file) => {
+    return $http.post('/auth/upload', file, {
+        withCredentials: true,
+        headers: {'Content-Type': undefined },
+        transformRequest: angular.identity
+    })
+  }
+
 })

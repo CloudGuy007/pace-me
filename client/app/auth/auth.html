@@ -1,17 +1,23 @@
 <h1>Auth</h1>
 
 <div>
-  <input  type='text' ng-model='person.phone' placeholder='phone number'>
-  <input  type='text' ng-model='verifyCode' placeholder="code">
-  <button  ng-click='sendText(person.phone)' class='btn green'>Send Verification Text</button>
-  <button  ng-click='verifyPhone(verifyCode)' class='btn green'>Verify Phone</button>
+	<input  type='text' ng-model='person.phone' placeholder='phone number'>
+	<input  type='text' ng-model='verifyCode' placeholder="code">
+	<button  ng-click='sendText(person.phone)' class='btn green'>Send Verification Text</button>
+	<button  ng-click='verifyPhone(verifyCode)' class='btn green'>Verify Phone</button>
 </div>
 
 <div class='login'>
-  <!-- person info name email password -->
+	<!-- person info name email password -->
 </div>
 
 <div class='register'>
-  <!-- running info -->
-  <div ui-view></div>
+	<!-- running info -->
+	<div ui-view></div>
 </div>
+
+<!-- Photo Upload Form -->
+<form action="/auth/upload" method='post' enctype='multipart/form-data'>
+	<input type="file" name="photo" id="photo" multiple=false>
+	<button type="submit">Submit</button>
+</form>
