@@ -34,3 +34,10 @@ app.config(function($stateProvider, $urlRouterProvider){
 		$rootScope.$broadcast('stateChange');
 	});
 });
+
+app.run(function($stormpath){
+  $stormpath.uiRouter({
+    loginState: 'auth',
+    defaultPostLoginState: '/'
+  });
+});
