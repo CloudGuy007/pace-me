@@ -52,21 +52,21 @@ $limeGreen: #58CE87;
 
 .parallax-layer-logo {
   position:fixed;
-  -webkit-transform: translateZ(-1px);
-  -ms-transform: translateZ(-1px);
-  transform: translateZ(-1px);
+  -webkit-transform: translateZ(-2px) scale(1);
+  -ms-transform: translateZ(-2px) scale(1);
+  transform: translateZ(-2px) scale(1);
   background-image: url('../img/home/layers/logo.png');
   text-align:center;
-  top:-20%;
-  z-index: -2;
+  top:-50%;
+  z-index: -3;
 }
 .parallax-layer-layer1 {
-  -webkit-transform: translateZ(-2px) scale(3);
-  -ms-transform: translateZ(-2px) scale(3);
-  transform: translateZ(-2px) scale(3);
+  -webkit-transform: translateZ(-1px) scale(2);
+  -ms-transform: translateZ(-1px) scale(2);
+  transform: translateZ(-1px) scale(2);
   background-image: url("../img/home/layers/layer1.png");
   margin-bottom:5%;
-  z-index: -3;
+  z-index: -2;
 }
 
 .parallax-layer-layer2 {
