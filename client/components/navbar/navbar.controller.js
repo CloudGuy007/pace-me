@@ -1,25 +1,29 @@
 var app = angular.module('paceMeApp');
 
-app.controller('navCtrl', function($scope, $state, $location, $anchorScroll){
+app.controller('navCtrl', function($scope, $state, $location, $anchorScroll) {
+$scope.sticky = false;
+  $scope.$on('stateChange', function() {
 
-  $scope.$on('stateChange', function(){
-    console.log("$location", $location.path());
-    if ($location.path() === '/buddies' || $location.path() === '/'){
-      $(document).ready(function(){
-             $(window).scroll(function() {
-               if ($(this).scrollTop() > 10){
-                 $('nav').addClass('sticky');
-               } else {
-                 $('nav').removeClass('sticky');
-               }
-             });
-      });
+    var nav = document.querySelector('nav');
+
+    function getScrollPosition() {
+      var scrollPos = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        nav.classList.add('sticky');
+        $scope.sticky = true;
+      } else {
+        nav.classList.remove('sticky');
+        $scope.sticky = false;
+      }
     }
     if ($location.path() === '/profile') {
-      $(document).ready(function(){
-          $('nav').removeClass('sticky').addClass('profile-nav');
-      });
+      $scope.sticky = false;
+    } else if ($location.path() === '/buddies' || $location.path() === '/') {
+      window.onscroll = getScrollPosition;
+
     }
+
+
   });
 
 });
