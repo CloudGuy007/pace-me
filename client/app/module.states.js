@@ -47,7 +47,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 		.state('profile', {
 			url: '/profile',
 			templateUrl: '/html/profile.html',
-			controller: 'profileCtrl'
+			controller: 'profileCtrl',
+			sp: {
+          authenticate: true
+        }
 		})
 
 	$urlRouterProvider.otherwise('/');
@@ -61,7 +64,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
 app.run(function($stormpath){
   $stormpath.uiRouter({
-    loginState: 'list',
+		loginState: 'login',
     defaultPostLoginState: 'profile'
   });
 });
