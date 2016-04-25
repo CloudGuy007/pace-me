@@ -18,6 +18,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '/html/login.html',
 			controller: 'loginCtrl'
 		})
+
 		.state('register', {
 			abstract: true,
 			url: '/register',
@@ -29,9 +30,14 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '/html/register.initial.html',
 			controller: 'registerCtrl'
 		})
-		.state('register.userInfo', {
+		.state('register.phone', {
+			url: '/phone',
+			templateUrl: '/html/register.phone.html',
+			controller: 'registerCtrl'
+		})
+		.state('register.person', {
 			url: '/user-info',
-			templateUrl: '/html/register.user-info.html',
+			templateUrl: '/html/register.person.html',
 			controller: 'registerCtrl'
 		})
 		.state('register.run', {
@@ -39,6 +45,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '/html/register.run.html',
 			controller: 'registerCtrl'
 		})
+
 		.state('list', {
 			url: '/buddies',
 			templateUrl: '/html/list.html',

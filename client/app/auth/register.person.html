@@ -1,0 +1,14 @@
+<h1>Person</h1>
+<form action="/auth/upload" method='post' enctype='multipart/form-data'>
+	<input type="file" name="photo" id="photo" multiple=false>
+</form>
+
+<form>
+	<div class='row'>
+		<div class='input-group col-xs-12 col-sm-6'>
+			<label>Tell us about yourself!</label>
+			<textarea class="form-control" rows="5" ng-model='person.about' placeholder='cool examples for about me section'></textarea>
+		</div>
+	</div>
+</form>
+<button class='btn green' ui-sref='register.run'>Next</button>

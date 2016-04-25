@@ -8,18 +8,19 @@ app.service('AuthService', function($http) {
     var number = {phoneNumber: phone}
     return $http.post('/auth/phone', number)
     .then((res) => {
+      console.log('servRes', res);
       //request_id is for nexmo, store to use for verifyNumber
       this.request_id = res.data.request_id;
-    }, function(err) {
-      console.log('err', err);
     })
   }
 
   this.verifyNumber = (pin) => {
+    console.log('pin', pin);
     var code = {
       pin: pin,
       request_id: this.request_id
     };
+    console.log(code);
     return $http.post('/auth/phone/verify', code)
     .then(function(res) {
       console.log('verify res', res);

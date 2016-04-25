@@ -84,4 +84,3 @@ gulp.task('development', ['clean', 'jsdev', 'statics', 'watch']);
 gulp.task('production', ['clean', 'jsprod', 'statics']);
 
 gulp.task('default', [process.env.NODE_ENV === 'production' ? 'production' : 'development']);
-
