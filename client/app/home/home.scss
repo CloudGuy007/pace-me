@@ -13,7 +13,7 @@ $limeGreen: #58CE87;
   margin-top: 50%;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #58CE87;
 }
 .parallax {
   height: 100vh;
@@ -52,12 +52,12 @@ $limeGreen: #58CE87;
 
 .parallax-layer-logo {
   position:fixed;
-  -webkit-transform: translateZ(-2px) scale(1);
-  -ms-transform: translateZ(-2px) scale(1);
-  transform: translateZ(-2px) scale(1);
+  -webkit-transform: translateZ(-2px) scale(1.1);
+  -ms-transform: translateZ(-2px) scale(1.1);
+  transform: translateZ(-2px) scale(1.1);
   background-image: url('../img/home/layers/logo.png');
   text-align:center;
-  top:-50%;
+  top:-15%;
   z-index: -3;
 }
 .parallax-layer-layer1 {
@@ -75,7 +75,7 @@ $limeGreen: #58CE87;
   -ms-transform: translateZ(-3px) scale(4);
   transform: translateZ(-3px) scale(4);
   background-image: url("../img/home/layers/layer2.png");
-  margin-top: 15%;
+  margin-top: -10%;
   z-index: -4;
 }
 
