@@ -2,122 +2,44 @@ $white: #fff;
 $navy1: #304A69;
 $limeGreen: #58CE87;
 /*parallax*/
-.scroll-fill {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  background-color: transparent;
-  opacity: 0.5;
-}
-.layer1-cover {
-  margin-top: 50%;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-}
-.layer1-cover .content{
-  margin-top:30%;
-}
-.parallax {
-  height: 100vh;
-  overflow-x: hidden;
-  -webkit-perspective: 1px;
-  -ms-perspective: 1px;
-  perspective: 1px;
-}
-.parallax-group {
-  position: relative;
-  height: 100vh;
-  overflow-scrolling: touch;
-  -webkit-overflow-scrolling: touch;
-  -webkit-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
 
-.parallax-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+#parallax {
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+}
+.layer {
   background-position: bottom center;
-  background-repeat: no-repeat;
   background-size: 100%;
-  height: 100%;
-}
-
-.parallax-layer-base {
-  -webkit-transform: translateZ(0);
-  height: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 800px;
+  position: fixed;
   z-index: -1;
 }
 
 .parallax-layer-logo {
-  position:fixed;
-  -webkit-transform: translateZ(-2px) scale(1.1);
-  -ms-transform: translateZ(-2px) scale(1.1);
-  transform: translateZ(-2px) scale(1.1);
   background-image: url('../img/home/layers/logo.png');
-  text-align:center;
-  top:-15%;
-  z-index: -3;
+  background-size:40%;
+
 }
-.parallax-layer-layer1 {
-  -webkit-transform: translateZ(-1px) scale(2);
-  -ms-transform: translateZ(-1px) scale(2);
-  transform: translateZ(-1px) scale(2);
+.parallax-layer-1 {
   background-image: url("../img/home/layers/layer1.png");
-  margin-bottom:5%;
-  z-index: -2;
-  width:100vw;
 }
-
-.parallax-layer-layer2 {
-  position: fixed;
-  -webkit-transform: translateZ(-3px) scale(4);
-  -ms-transform: translateZ(-3px) scale(4);
-  transform: translateZ(-3px) scale(4);
+.parallax-layer-2 {
   background-image: url("../img/home/layers/layer2.png");
-  margin-top: -10%;
-  z-index: -4;
-
-  width:100vw;
 }
-
-
 .parallax-layer-bg {
-  position: fixed;
-  -webkit-transform: translateZ(-5px) scale(6);
-  -ms-transform: translateZ(-5px) scale(6);
-  transform: translateZ(-5px) scale(6);
-  background-color:$navy1;
-  background-size: 100%;
-  height: 100vh;
-  z-index: -10;
-
-  width:100vw;
+background-color: $navy1;
 }
 
+/*home welcome*/
 
+section#welcome {
+  height:500px;
+  background-color: #fff;
+}
 
-h1 {
-  margin-top: 10%;
-}
-h2 {
-  margin-top: 15%;
-}
-.jumbotron {
-}
-.parallax h2 {
-  font-family: 'bariol_regular';
-  font-size: 4.2em;
-  text-transform: uppercase;
-  text-align: center;
-  vertical-align: middle;
-  letter-spacing: 1.5px;
-  color: $limeGreen;
-}
 input {
   outline: 0 !important;
 }
