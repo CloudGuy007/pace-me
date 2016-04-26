@@ -15,6 +15,7 @@ $scope.sticky = false;
         nav.classList.remove('sticky');
         $scope.sticky = false;
       }
+    }
 
 
     if ($location.path() === '/profile') {
@@ -22,9 +23,7 @@ $scope.sticky = false;
 
     } else if ($location.path() === '/buddies' || $location.path() === '/') {
       window.onscroll = getScrollPosition;
-
     }
-
 
   });
 
