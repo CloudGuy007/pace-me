@@ -7,7 +7,6 @@ app.controller('homeCtrl', function($scope){
     window.addEventListener('scroll', function (event) {
         var depth, layer, movement, translate3d;
         var topDistance = this.pageYOffset;
-				console.log("topDistane", topDistance);
         var layers = document.querySelectorAll('[data-type=\'parallax\']');
 				var len;
         for (var i = 0, len = layers.length; i < len; i++) {
