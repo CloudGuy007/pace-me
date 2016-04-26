@@ -4,32 +4,28 @@ var app = angular.module('paceMeApp');
 
 app.controller('registerCtrl', function($scope, $state, AuthService){
 
+	$scope.person = {};
+	console.log($scope.user);
+
+
+
+	$scope.$watch('person', function(newvalue, oldvalue) {
+		console.log('new value', newvalue);
+	})
 
 	// $scope.enteringCode = false;
 	$scope.sendText = function(number) {
 		console.log('number', number);
 		// console.log('number', $scope.test);
-		// $scope.enteringCode = true;
+		$scope.enteringCode = true;
 		AuthService.sendVerifyText(number)
-		.then(function() {
-			// $scope.enteringCode = true;
-		}, function(err) {
-			console.log('err', err);
-		})
 	}
 
 
 	$scope.verifyPhone = function(code) {
-		console.log(code);
 		AuthService.verifyNumber(code)
-		.then(function(res) {
-			console.log('ctrlRes');
-			$state.go('register.person')
-		}, function(err) {
-			console.log('err', err);
-		})
+		$state.go('register.person')
 	}
-
 
 
 	$scope.uploadFile = function(files) {
@@ -46,7 +42,10 @@ app.controller('registerCtrl', function($scope, $state, AuthService){
 
 
 	$scope.getUser = function() {
-		console.log('$scope.user', $scope.user);
+		$scope.person.email = $scope.user.email;
+		$scope.person.firstName = $scope.user.givenName;
+		$scope.person.lastName = $scope.user.surname;
+		console.log('$scope.person', $scope.person);
 	}
 
 })

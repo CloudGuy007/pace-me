@@ -15,14 +15,12 @@ app.service('AuthService', function($http) {
   }
 
   this.verifyNumber = (pin) => {
-    console.log('pin', pin);
     var code = {
       pin: pin,
       request_id: this.request_id
     };
-    console.log(code);
-    return $http.post('/auth/phone/verify', code)
-    .then(function(res) {
+    $http.post('/auth/phone/verify', code)
+    .then(function(res){
       console.log('verify res', res);
     }, function(err) {
       console.log('err: ', err);

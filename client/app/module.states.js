@@ -27,23 +27,19 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 		})
 		.state('register.initial', {
 			url: '',
-			templateUrl: '/html/register.initial.html',
-			controller: 'registerCtrl'
-		})
+			templateUrl: '/html/register.initial.html'
+			})
 		.state('register.phone', {
 			url: '/phone',
-			templateUrl: '/html/register.phone.html',
-			controller: 'registerCtrl'
+			templateUrl: '/html/register.phone.html'
 		})
 		.state('register.person', {
 			url: '/user-info',
-			templateUrl: '/html/register.person.html',
-			controller: 'registerCtrl'
+			templateUrl: '/html/register.person.html'
 		})
 		.state('register.run', {
 			url: '/your-running-info',
-			templateUrl: '/html/register.run.html',
-			controller: 'registerCtrl'
+			templateUrl: '/html/register.run.html'
 		})
 
 		.state('list', {

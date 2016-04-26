@@ -28,14 +28,18 @@ router.post('/phone', function(req, res) {
 })
 
 router.post('/phone/verify', function(req, res) {
-  console.log('req.body', req.body);
+  console.log('phone verification');
   var code = req.body.pin
   var request_id = req.body.request_id;
+  // res.send(req.body);
+  // console.log(req.body);
+  console.log(code);
+  console.log(request_id);
   nexmo.checkVerifyRequest({
     request_id: request_id,
     code: code
   }, function(req, response) {
-    console.log(response);
+    console.log('nexmo res', response);
     res.send(response)
   });
 })
