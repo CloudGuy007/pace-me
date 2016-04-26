@@ -34,6 +34,12 @@ $limeGreen: #58CE87;
 background-color: $navy1;
 }
 
+#parallax-mobile {
+  display: none;
+  background: url("../img/home/layers/mobile-bg.png") no-repeat center bottom/cover;
+  height: 320px;
+}
+
 /*home welcome*/
 
 #welcome {
@@ -55,4 +61,14 @@ input[type="number"] {
 button {
   border: 1px solid $white !important;
   color: $white;
+}
+
+@media only screen and (max-width: 768px) {
+  #parallax {
+    display: none;
+  }
+
+  #parallax-mobile {
+    display:block;
+  }
 }
