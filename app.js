@@ -8,6 +8,7 @@ var stormpath = require('express-stormpath');
 var path = require('path')
 require('dotenv').config();
 
+
 var app = express();
 
 app.use(stormpath.init(app, {
