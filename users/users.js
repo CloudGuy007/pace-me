@@ -90,14 +90,14 @@ router.put('/matches', function(req, res, next){
 
 //can be used to create or edit user
 router.post('/:id/me',function(req, res, next){
-  client.hmset(`user:${req.email}`, "firstName", `${req.firstName}`, "lastName", `${req.lastName}`,
-    "email", `${req.email}`, "photo", `${req.picture}`, "age", `${req.age}`, "gender", `${req.gender}`,
-    "phone", `${req.phone}`, "zipCode", `${req.zipCode}`, "about", `${req.about}`, "registered", `${req.registered}`,
-    "wklyMileage", `${req.wklyMileage}`, "runEvent", `${req.runEvent}`, "sixtyM", `${req.sixtyM}`,
-    "twoHundM", `${req.twoHundM}`, "fourHundM", `${req.fourHundM}`, "onemiPR", `${req.onemiPR}`,
-    "fivekPR", `${req.fivekPR}`, "tenkPR", `${req.tenkPR}`, "halfPR", `${req.halfPR}`, "marathonPR", `${req.marathonPR}`,
-    "milePace", `${req.milePace}`, "longitude", `${req.longitude}`, "latitude", `${req.latitude}`);
-  client.geoadd("UserLocs", req.longitude, req.latitude, `user:${req.email}`);
+  client.hmset(`user:${req.body.email}`, "firstName", `${req.body.firstName}`, "lastName", `${req.body.lastName}`,
+    "email", `${req.body.email}`, "photo", `${req.body.picture}`, "age", `${req.body.age}`, "gender", `${req.body.gender}`,
+    "phone", `${req.body.phone}`, "zipCode", `${req.body.zipCode}`, "about", `${req.body.about}`, "registered", `${req.body.registered}`,
+    "wklyMileage", `${req.body.wklyMileage}`, "runEvent", `${req.body.runEvent}`, "sixtyM", `${req.body.sixtyM}`,
+    "twoHundM", `${req.body.twoHundM}`, "fourHundM", `${req.body.fourHundM}`, "onemiPR", `${req.body.onemiPR}`,
+    "fivekPR", `${req.body.fivekPR}`, "tenkPR", `${req.body.tenkPR}`, "halfPR", `${req.body.halfPR}`, "marathonPR", `${req.body.marathonPR}`,
+    "milePace", `${req.body.milePace}`, "longitude", `${req.body.longitude}`, "latitude", `${req.body.latitude}`);
+  client.geoadd("UserLocs", req.body.longitude, req.body.latitude, `user:${req.body.email}`);
 	res.send('User Created and Updated!');
 });
 
