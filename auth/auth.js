@@ -29,15 +29,16 @@ router.post('/phone', function(req, res) {
 
 router.post('/phone/verify', function(req, res) {
   console.log('req.body', req.body);
-  var code = req.body.pin
-  var request_id = req.body.request_id;
-  nexmo.checkVerifyRequest({
-    request_id: request_id,
-    code: code
-  }, function(req, response) {
-    console.log(response);
-    res.send(response)
-  });
+  res.send('hi')
+  // var code = req.body.pin
+  // var request_id = req.body.request_id;
+  // nexmo.checkVerifyRequest({
+  //   request_id: request_id,
+  //   code: code
+  // }, function(req, response) {
+  //   console.log(response);
+  //   res.send(response)
+  // });
 })
 
 router.post('/upload', upload.single('photo'), function(req, res, next){
