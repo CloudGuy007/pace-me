@@ -12,3 +12,9 @@ footer .footer-content {
 #footer-logo {
   margin-top:35px;
 }
+
+@media only screen and (max-width: 768px) {
+  footer {
+    text-align:center;
+  }
+}
