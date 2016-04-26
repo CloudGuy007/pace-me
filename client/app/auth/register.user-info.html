@@ -1,0 +1,13 @@
+<h1>phone</h1>
+<div>
+	<form action="/auth/upload" method='post' enctype='multipart/form-data'>
+		<input type="file" name="photo" id="photo" multiple=false>
+		<button type="submit">Submit</button>
+	</form>
+	<input  type='text' ng-model='person.phone' placeholder='phone number'>
+	<input  type='text' ng-model='verifyCode' placeholder="code">
+	<button  ng-click='sendText(person.phone)' class='btn green'>Send Verification Text</button>
+	<button  ng-click='verifyPhone(verifyCode)' class='btn green'>Verify Phone</button>
+</div>
+<hr>
+<button class='btn green' ui-sref='register.run'>Next</button>
