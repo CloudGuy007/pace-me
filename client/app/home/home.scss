@@ -21,6 +21,7 @@ $limeGreen: #58CE87;
 .parallax-layer-logo {
   background-image: url('../img/home/layers/logo.png');
   background-size:40%;
+  margin-top:-25%;
 
 }
 .parallax-layer-1 {
@@ -35,9 +36,12 @@ background-color: $navy1;
 
 /*home welcome*/
 
-section#welcome {
+#welcome {
   height:500px;
   background-color: #fff;
+}
+.jumbotron {
+  margin-bottom:0;
 }
 
 input {
