@@ -5,13 +5,7 @@ var app = angular.module('paceMeApp');
 app.controller('registerCtrl', function($scope, $state, AuthService){
 
 	$scope.person = {};
-	console.log($scope.user);
 
-
-
-	$scope.$watch('person', function(newvalue, oldvalue) {
-		console.log('new value', newvalue);
-	})
 
 	// $scope.enteringCode = false;
 	$scope.sendText = function(number) {
