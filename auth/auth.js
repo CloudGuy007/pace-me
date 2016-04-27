@@ -46,7 +46,7 @@ router.post('/phone/verify', function(req, res) {
 })
 
 router.post('/upload', upload.single('file'), function(req, res, next){
-  console.log('req.file: ', req.file);
+  // console.log('req.file: ', req.file);
   var bucketName = process.env.AWS_BUCKET_NAME;
   var file = req.file;
   var filename = file.originalname;
@@ -55,11 +55,11 @@ router.post('/upload', upload.single('file'), function(req, res, next){
   var url = process.env.AWS_URL + bucketName + '/' + keyName;
   var params = { Bucket: bucketName, Key: keyName, Body: file.buffer, ACL: 'public-read' };
     s3.putObject(params, function(err, data) {
-      if (err) return res.status(400).send(err);
+      if (err) return res.status(400).send('whats up');
       else{
           console.log("The URL is", url);
           res.send(url);
-      }    
+      }
     });
 });
 

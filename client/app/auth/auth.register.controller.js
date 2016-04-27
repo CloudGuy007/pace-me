@@ -23,9 +23,10 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 		$state.go('register.person')
 	}
 
-    $scope.submit = function() {
-      if ($scope.form.file.$valid && $scope.file) {
-        $scope.upload($scope.file);
+    $scope.submit = function(file) {
+			console.log('file', file);
+      if (file) {
+        $scope.upload(file);
       }
     };
 
@@ -33,7 +34,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
     $scope.upload = function (file) {
         Upload.upload({
             url: 'auth/upload',
-            data: {file: file, 'username': $scope.username}
+            data: {file: file}
         }).then(function (res) {
             console.log('Success ' + res.config.data.file.name + 'uploaded. Response: ' + res.data);
         }, function (err) {
