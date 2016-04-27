@@ -24,7 +24,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService){
 		AuthService.verifyNumber(code)
 		.then(function(res) {
 			console.log('ctrlRes');
-			$state.go('register.person')
+			$state.go('register.run')
 		}, function(err) {
 			console.log('err', err);
 		})

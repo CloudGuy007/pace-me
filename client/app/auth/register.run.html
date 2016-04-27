@@ -1,7 +1,29 @@
+<div class="row">
+  <div class="col-xs-12">
+    Your Profile
+  </div>
+</div>
+<div class="row">
+  <div class='col-xs-12'>
+  <form action="/auth/upload" method='post' enctype='multipart/form-data'>
+    <input type="file" name="photo" id="photo" multiple=false>
+  </form>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="col-xs-12 run-dropdown">
+  <form>
+    <div class='row'>
+      <div class='input-group col-xs-12'>
+        <label>Tell us about yourself!</label>
+        <textarea class="form-control" rows="7" ng-model='person.about' placeholder='cool examples for about me section'></textarea>
+      </div>
+    </div>
+
+  </form>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="col-xs-12 run-dropdown">
       <div class="cs-select">
         <select class="cs-select cs-skin-underline" ng-model="person.milePace">
           <option value="" disabled selected>Average Mile Time</option>
@@ -21,7 +43,8 @@
           <option value="14">12:00+</option>
         </select>
       </div>
-    </div><!--end inner col-->
+    </div>
+    <!--end inner col-->
 
     <br>
     <div class="col-xs-12">
@@ -42,30 +65,33 @@
           <option value="12">80+ mi</option>
         </select>
       </div>
-    </div> <!--end inner col-->
-    </div> <!--end col-->
-
-    <div class="col-xs-12 col-sm-6">
-      <h3>Personal Records</h3>
-      <input class='form-control' ng-model='person.longestDistRun' placeholder='longest distance run'>
-      <input class='form-control' ng-model="person.onemiPR" type="text" placeholder='one mile'>
-      <h5>Sprint Distance</h5>
-      <input class='form-control' ng-model="person.sixtyM" type="text" placeholder='60m'>
-      <input class='form-control' ng-model="person.oneHundM" type="text" placeholder='100m'>
-      <input class='form-control' ng-model="person.twoHundM" type="text" placeholder='200m'>
-      <input class='form-control' ng-model="person.fourHundM" type="text" placeholder='400m'>
-      <h5>Long Distance</h5>
-      <input class='form-control' ng-model="person.fivekPR" type="text" placeholder='5K'>
-      <input class='form-control' ng-model="person.tenkPR" type="text" placeholder='10K'>
-      <input class='form-control' ng-model="person.halfPR" type="text" placeholder='half marathon'>
-      <input class='form-control' ng-model="person.marathonPR" type="text" placeholder='marathon'>
-
-
-
-
     </div>
+    <!--end inner col-->
+  </div>
+  <!--end col-->
 
-  </div> <!-- end row -->
+  <div class="col-xs-12 col-sm-6">
+    <h3>Personal Records</h3>
+    <input class='form-control' ng-model='person.longestDistRun' placeholder='longest distance run'>
+    <input class='form-control' ng-model="person.onemiPR" type="text" placeholder='one mile'>
+    <h5>Sprint Distance</h5>
+    <input class='form-control' ng-model="person.sixtyM" type="text" placeholder='60m'>
+    <input class='form-control' ng-model="person.oneHundM" type="text" placeholder='100m'>
+    <input class='form-control' ng-model="person.twoHundM" type="text" placeholder='200m'>
+    <input class='form-control' ng-model="person.fourHundM" type="text" placeholder='400m'>
+    <h5>Long Distance</h5>
+    <input class='form-control' ng-model="person.fivekPR" type="text" placeholder='5K'>
+    <input class='form-control' ng-model="person.tenkPR" type="text" placeholder='10K'>
+    <input class='form-control' ng-model="person.halfPR" type="text" placeholder='half marathon'>
+    <input class='form-control' ng-model="person.marathonPR" type="text" placeholder='marathon'>
+
+
+
+
+  </div>
+
+</div>
+<!-- end row -->
 
 
 <button class='btn green' ui-sref='profile' ng-click='getUser()'>Finish sign up</button>
