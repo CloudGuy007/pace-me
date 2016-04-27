@@ -89,7 +89,7 @@ router.put('/matches', function(req, res, next){
 });
 
 //can be used to create or edit user
-router.post('/:id/me',function(req, res, next){
+router.post('/me',function(req, res, next){
   client.hmset(`user:${req.body.email}`, "firstName", `${req.body.firstName}`, "lastName", `${req.body.lastName}`,
     "email", `${req.body.email}`, "photo", `${req.body.photo}`, "age", `${req.body.age}`, "gender", `${req.body.gender}`,
     "phone", `${req.body.phone}`, "zipCode", `${req.body.zipCode}`, "about", `${req.body.about}`, "registered", `${req.body.registered}`,
@@ -100,8 +100,23 @@ router.post('/:id/me',function(req, res, next){
     "longitude", `${req.body.longitude}`, "latitude", `${req.body.latitude}`);
   client.geoadd("UserLocs", req.body.longitude, req.body.latitude, `user:${req.body.email}`)
 });
-	res.send('User Created and Updated!');
+	res.send('User Created!');
 });
+
+router.put('/:email/me',function(req, res, next){
+  client.hmset(`user:${req.params.email}`, "firstName", `${req.body.firstName}`, "lastName", `${req.body.lastName}`,
+    "email", `${req.body.email}`, "photo", `${req.body.photo}`, "age", `${req.body.age}`, "gender", `${req.body.gender}`,
+    "phone", `${req.body.phone}`, "zipCode", `${req.body.zipCode}`, "about", `${req.body.about}`, "registered", `${req.body.registered}`,
+    "wklyMileage", `${req.body.wklyMileage}`, "runEvent", `${req.body.runEvent}`, "sixtyM", `${req.body.sixtyM}`,
+    "oneHundM", `${req.body.oneHundM}`,"twoHundM", `${req.body.twoHundM}`, "fourHundM", `${req.body.fourHundM}`,
+    "onemiPR", `${req.body.onemiPR}`, "fivekPR", `${req.body.fivekPR}`, "tenkPR", `${req.body.tenkPR}`, "halfPR", `${req.body.halfPR}`,
+    "marathonPR", `${req.body.marathonPR}`, "milePace", `${req.body.milePace}`, "longestDistRun", `${req.body.longestDistRun}`,
+    "longitude", `${req.body.longitude}`, "latitude", `${req.body.latitude}`);
+  client.geoadd("UserLocs", req.body.longitude, req.body.latitude, `user:${req.body.email}`)
+});
+	res.send('User Updated!');
+});
+
 
 
 module.exports = router;
