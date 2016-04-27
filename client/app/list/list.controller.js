@@ -1,9 +1,15 @@
 'use strict';
 var app = angular.module('paceMeApp');
 
-app.controller('listCtrl', function($scope, $state, $location, $anchorScroll){
+app.controller('listCtrl', function($scope, $state, ListService){
 
   console.log("current state", $state.current.name);
+
+
+    // $scope.viewProfile = function(index) {
+    //   console.log(viewProfile);
+    //   console.log(index);
+    // }
 
   $scope.users = [
     {
@@ -33,6 +39,9 @@ app.controller('listCtrl', function($scope, $state, $location, $anchorScroll){
   milePace: '7:30'
 },
 ];
+
+
+ListService.storeUsers($scope.users)
 
 $scope.loggedIn = true;
 

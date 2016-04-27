@@ -2,13 +2,26 @@
 
 var app = angular.module('paceMeApp');
 
-app.service('listService', function($http) {
+app.service('ListService', function($http) {
 
-  this.getInitial = function() {
-    //get initial group of users
-    return $http.get('/something')
+  this.getUsersGuest = (zip) => {
+
+    return $http.get(`/users/guest/${zip}`)
   }
 
+  this.getMatches = (email, radius) => {
+    return $http.get(`/users/matches/${email}/${radius}`)
+    // .then(function(res) {
+    //   this.users = res;
+    // })
+  }
 
+  this.storeUsers = (users) => {
+    this.users = users;
+  }
+  this.getStoredUsers = (users) => {
+    if(this.users) return this.users;
+    //make get request
+  }
 
 })

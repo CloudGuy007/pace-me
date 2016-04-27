@@ -16,7 +16,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="card col-xs-12" ng-repeat="user in users">
+    <div class="card col-xs-12" ng-repeat="user in users track by $index">
 
       <div ng-if="!loggedIn">
         <div class="col-xs-4">

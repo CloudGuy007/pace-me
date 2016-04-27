@@ -43,10 +43,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   res.sendFile(path.join(__dirname, 'public/index.html'))
 // })
 
-app.use('/', require('./index/index'));
-app.use('/users', require('./users/users'));
-app.use('/auth', require('./auth/auth'));
-app.use('/messages', require('./messages/messages'));
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/auth', require('./routes/auth'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
