@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+{   
+    "ignore": "public/*" 
+}
+=======
 {
   "ignore": "public"
 }
+>>>>>>> master
