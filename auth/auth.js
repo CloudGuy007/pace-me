@@ -8,6 +8,7 @@ require('dotenv').config();
 var uuid = require('uuid');
 var _ = require('lodash');
 var multer = require('multer');
+// var upload = multer({ dest: '../uploads' });
 var upload = multer({ storage: multer.memoryStorage() });
 var AWS = require('aws-sdk'); 
 var s3 = new AWS.S3(); 
@@ -38,8 +39,9 @@ router.post('/phone/verify', function(req, res) {
   });
 })
 
-router.post('/upload', upload.single('photo'), function(req, res, next){
-  var bucketName = 'testpaceme';
+router.post('/upload', upload.single('file'), function(req, res, next){
+  console.log('req.file: ', req.file);
+  var bucketName = process.env.AWS_BUCKET_NAME;
   var file = req.file;
   var filename = file.originalname;
   var ext = _.last(filename.split('.'))
@@ -47,15 +49,12 @@ router.post('/upload', upload.single('photo'), function(req, res, next){
   var url = process.env.AWS_URL + bucketName + '/' + keyName;
   var params = { Bucket: bucketName, Key: keyName, Body: file.buffer, ACL: 'public-read' };
     s3.putObject(params, function(err, data) {
-      if (err){
-        console.log(err)
-      }
+      if (err) return res.status(400).send(err);
       else{
-        console.log("Successfully uploaded data to myBucket/myKey");
           console.log("The URL is", url);
+          res.send(url);
       }    
     });
-  res.sendStatus(200);
 });
 
 

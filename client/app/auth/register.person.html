@@ -1,8 +1,24 @@
+
 <h1>person</h1>
+
 <!-- Photo Upload Form -->
-<form action="/auth/upload" method='post' enctype='multipart/form-data'>
-	<input type="file" name="photo" id="photo" multiple=false>
-	<button type="submit">Submit</button>
-	<div sp-registration-form></div>
+<!-- <div sp-registration-form></div> -->
+
+
+<form ng-app="fileUpload"  name="form">
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+			ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" 
+			ngf-resize="{width: 100, height: 100}">Select</div>
+		</div>
+		<div class="col-xs-6">
+			<!-- <div ngf-drop ng-model="files" class="drop-box">Drop</div>
+		</div>
+	</div>
+	Image thumbnail: <img ngf-thumbnail="file"> -->
+	<button class="btn btn-danger" type="submit" ng-click="submit()">submit</button>
 </form>
+
 <button class='btn green' ui-sref='register.run'>Next</button>
+
