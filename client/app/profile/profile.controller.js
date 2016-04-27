@@ -1,8 +1,11 @@
 'use strict';
 var app = angular.module('paceMeApp');
 
-app.controller('profileCtrl', function($scope, $uibModal, $log){
-  $scope.user = {
+app.controller('profileCtrl', function($scope, $uibModal, $log, ListService){
+
+  console.log('storedUsers', ListService.getStoredUsers())
+
+  $scope.person = {
     _id: '1',
     age: 29,
     gender: 'male',
@@ -21,7 +24,6 @@ app.controller('profileCtrl', function($scope, $uibModal, $log){
     fastestHlfMrthn: '3 hours',
     fastestMrthn: '5 hours'
   };
-
 
 
 $scope.animationsEnabled = true;

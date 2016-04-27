@@ -7,4 +7,9 @@ app.service('ProfileService', function($http) {
     // console.log(msg);
     return $http.post('/messages/new', msg)
   }
+
+  this.getProfile = function(email) {
+    return $http.get(`/users/${email}`)
+  }
+
 })
