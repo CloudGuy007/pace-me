@@ -29,6 +29,7 @@ router.post('/phone', function(req, res) {
 })
 
 router.post('/phone/verify', function(req, res) {
+
   console.log('phone verification');
   var code = req.body.pin
   var request_id = req.body.request_id;

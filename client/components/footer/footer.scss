@@ -1,3 +1,23 @@
 footer {
-  height:300px;
+  height:150px;
+  background-image:url('../img/home/layers/footer-bg.png');
+}
+footer h4 {
+  font-weight:bold;
+  font-size:16px;
+}
+footer .footer-content {
+  max-width:960px;
+  margin:0 auto;
+  color:#fff;
+  padding:2%;
+}
+#footer-logo {
+  margin-top:35px;
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    text-align:center;
+  }
 }

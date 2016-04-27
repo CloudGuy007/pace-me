@@ -20,7 +20,13 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 
 	$scope.verifyPhone = function(code) {
 		AuthService.verifyNumber(code)
-		$state.go('register.person')
+
+		.then(function(res) {
+			console.log('ctrlRes');
+			$state.go('register.run')
+		}, function(err) {
+			console.log('err', err);
+		})
 	}
 
     $scope.submit = function(file) {

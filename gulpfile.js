@@ -35,7 +35,13 @@ gulp.task('jsdev', ['clean'], function(cb) {
     gulp.src(['client/*.js','client/app/**/*.js', 'client/components/**/*.js'])
         .pipe(concat('bundle.js'))
         .pipe(gulp.dest('public/js'));
-    cb()
+    cb();
+});
+
+gulp.task('images', ['clean'], function(cb){
+  gulp.src(['client/app/**/*.png', 'client/app/**/*.jpg'])
+    .pipe(gulp.dest('public/img'));
+    cb();
 })
 
 gulp.task('assets', ['clean'], function(cb) {
@@ -73,7 +79,7 @@ gulp.task('index', ['clean'], function(cb) {
     cb();
 })
 
-gulp.task('statics', ['assets', 'bower', 'css', 'partials', 'index']);
+gulp.task('statics', ['assets', 'bower', 'css', 'partials', 'index', 'images']);
 
 gulp.task('watch', ['clean', 'jsdev', 'statics'], function() {
     gulp.watch(['client/**/*', '!client/bower_components/**/*'], ['default']);
