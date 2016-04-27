@@ -43,9 +43,9 @@ router.get('/:email/me', function(req, res, next){
 // });
 
 //get matches, must pass in email as email
-router.get('/matches/:email/:miles', function(req, res, next){
+router.get('/matches/:email/:radius', function(req, res, next){
   var deferred = Q.defer();
-  client.georadiusbymember("UserLocs", `user:${req.params.email}`, `${req.params.miles}`, "mi", "withdist", "ASC", function(err, users) {
+  client.georadiusbymember("UserLocs", `user:${req.params.email}`, `${req.params.radius}`, "mi", "withdist", "ASC", function(err, users) {
     var result = [];
     if(err) {
       deferred.reject(err);
