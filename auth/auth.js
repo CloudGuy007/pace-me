@@ -44,7 +44,6 @@ router.post('/phone/verify', function(req, res) {
     console.log('nexmo res', response);
     res.send(response)
   });
->>>>>>> master
 })
 
 router.post('/upload', upload.single('file'), function(req, res, next){
