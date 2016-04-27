@@ -22,7 +22,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 		AuthService.verifyNumber(code)
 		$state.go('register.person')
 	}
-	
+
     $scope.submit = function() {
       if ($scope.form.file.$valid && $scope.file) {
         $scope.upload($scope.file);
@@ -42,7 +42,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
     };
 
 
-});
+
 
 
 
@@ -53,4 +53,4 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 		console.log('$scope.person', $scope.person);
 	}
 
-})
+});
