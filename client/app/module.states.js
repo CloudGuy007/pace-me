@@ -18,29 +18,29 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '/html/login.html',
 			controller: 'loginCtrl'
 		})
+
 		.state('register', {
 			abstract: true,
 			url: '/register',
 			templateUrl: '/html/register.html',
 			controller: 'registerCtrl'
 		})
-		.state('register.phone', {
+		.state('register.initial', {
 			url: '',
-			templateUrl: '/html/register.phone.html',
-			controller: 'registerCtrl'
+			templateUrl: '/html/register.initial.html'
+			})
+		.state('register.phone', {
+			url: '/phone',
+			templateUrl: '/html/register.phone.html'
 		})
 		.state('register.person', {
-			url: '/your-info',
-			templateUrl: '/html/register.person.html',
-			controller: 'registerCtrl'
+			url: '/user-info',
+			templateUrl: '/html/register.person.html'
 		})
 		.state('register.run', {
 			url: '/your-running-info',
-			templateUrl: '/html/register.run.html',
-			controller: 'registerCtrl'
+			templateUrl: '/html/register.run.html'
 		})
-
-
 
 		.state('list', {
 			url: '/buddies',
@@ -50,7 +50,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 		.state('profile', {
 			url: '/profile',
 			templateUrl: '/html/profile.html',
-			controller: 'profileCtrl'
+			controller: 'profileCtrl',
+			sp: {
+          authenticate: true
+        }
 		})
 
 	$urlRouterProvider.otherwise('/');
@@ -64,7 +67,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
 app.run(function($stormpath){
   $stormpath.uiRouter({
-    loginState: 'auth',
-    defaultPostLoginState: '/'
+		loginState: 'login',
+    defaultPostLoginState: 'profile'
   });
 });

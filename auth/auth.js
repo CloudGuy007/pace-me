@@ -10,31 +10,37 @@ var _ = require('lodash');
 var multer = require('multer');
 // var upload = multer({ dest: '../uploads' });
 var upload = multer({ storage: multer.memoryStorage() });
-var AWS = require('aws-sdk'); 
-var s3 = new AWS.S3(); 
+var AWS = require('aws-sdk');
+var s3 = new AWS.S3();
 
 nexmo.initialize(process.env.NEXMO_API_KEY, process.env.NEXMO_API_SECRET);
 
 
-
-
 router.post('/phone', function(req, res) {
   var phone = req.body.phoneNumber;
+  console.log('req.body', req.body);
   nexmo.verifyNumber({
     number: phone,
     brand: 'Pace Me'
   }, function(req, response) {
+    console.log('response', response);
     res.send(response)
   });
 })
 
 router.post('/phone/verify', function(req, res) {
+  console.log('phone verification');
   var code = req.body.pin
   var request_id = req.body.request_id;
+  // res.send(req.body);
+  // console.log(req.body);
+  console.log(code);
+  console.log(request_id);
   nexmo.checkVerifyRequest({
     request_id: request_id,
     code: code
   }, function(req, response) {
+    console.log('nexmo res', response);
     res.send(response)
   });
 })
@@ -56,8 +62,6 @@ router.post('/upload', upload.single('file'), function(req, res, next){
       }    
     });
 });
-
-
 
 
 

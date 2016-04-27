@@ -1,4 +1,3 @@
-
 <h1>person</h1>
 
 <!-- Photo Upload Form -->
@@ -15,9 +14,17 @@
 		<div class="col-xs-6">
 			<!-- <div ngf-drop ng-model="files" class="drop-box">Drop</div>
 		</div>
+	
+		Image thumbnail: <img ngf-thumbnail="file"> -->
+		<button class="btn btn-danger" type="submit" ng-click="submit()">submit</button>
 	</div>
-	Image thumbnail: <img ngf-thumbnail="file"> -->
-	<button class="btn btn-danger" type="submit" ng-click="submit()">submit</button>
+	<div class='row'>
+		<div class='input-group col-xs-12 col-sm-6'>
+			<label>Tell us about yourself!</label>
+			<textarea class="form-control" rows="5" ng-model='person.about' placeholder='cool examples for about me section'></textarea>
+		</div>
+	</div>
+
 </form>
 
 <button class='btn green' ui-sref='register.run'>Next</button>

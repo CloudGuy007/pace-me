@@ -2,15 +2,25 @@
 
 var app = angular.module('paceMeApp');
 
-app.controller('registerCtrl', function($scope, AuthService, Upload, $timeout){
 
-	$scope.enterCode = false;
-	$scope.sendText = function(phone) {
-		AuthService.sendVerifyText(phone)
-		$scope.enterCode = true;
+app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $timeout){
+
+
+	$scope.person = {};
+
+
+	// $scope.enteringCode = false;
+	$scope.sendText = function(number) {
+		console.log('number', number);
+		// console.log('number', $scope.test);
+		$scope.enteringCode = true;
+		AuthService.sendVerifyText(number)
 	}
+
+
 	$scope.verifyPhone = function(code) {
 		AuthService.verifyNumber(code)
+		$state.go('register.person')
 	}
 	
     $scope.submit = function() {
@@ -19,7 +29,7 @@ app.controller('registerCtrl', function($scope, AuthService, Upload, $timeout){
       }
     };
 
-    // upload on file select or drop
+
     $scope.upload = function (file) {
         Upload.upload({
             url: 'auth/upload',
@@ -31,6 +41,16 @@ app.controller('registerCtrl', function($scope, AuthService, Upload, $timeout){
         });
     };
 
+
 });
 
-	
+
+
+	$scope.getUser = function() {
+		$scope.person.email = $scope.user.email;
+		$scope.person.firstName = $scope.user.givenName;
+		$scope.person.lastName = $scope.user.surname;
+		console.log('$scope.person', $scope.person);
+	}
+
+})

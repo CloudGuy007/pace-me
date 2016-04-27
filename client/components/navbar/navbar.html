@@ -1,15 +1,14 @@
-<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navCtrl">
+<div ng-controller="navCtrl">
+<nav class="navbar navbar-default navbar-fixed-top" scroll ng-class="{'sticky':sticky}">
   <a class="navbar-brand navbar-left" ui-sref="home">PaceMe</a>
-
   <div class="container">
-
     <ul class="nav navbar-nav navbar-right">
-
-        <li><a ui-sref="register.phone">Register</a></li>
-        <li><a ui-sref="login">Log In</a></li>
-        <li><a ui-sref="list">List</a></li>
-        <li><a ui-sref="profile">Profile</a></li>
-     <li class="dropdown">
+        <li><a ui-sref="register.initial" if-not-user>Register</a></li>
+        <li><a ui-sref="login" if-not-user>Log In</a></li>
+        <li><a ui-sref="list" if-user>List</a></li>
+        <li><a ui-sref="profile" if-user>Profile</a></li>
+        <li><a ui-sref="home" sp-logout if-user>Log Out</a></li>
+     <li class="dropdown" if-user>
        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Edit Profile<span class="caret"></span></a>
        <ul class="dropdown-menu">
          <li><a ui-sref="profile">Register</a></li>
@@ -21,3 +20,4 @@
    </ul>
   </div>
 </nav>
+</div>
