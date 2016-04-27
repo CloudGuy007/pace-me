@@ -26,8 +26,8 @@ router.get('/', function(req, res, next) {
 });
 
 //get current users info, must pass in email as id
-router.get('/:id/me', function(req, res, next){
-  client.hgetall(`user:${req.params.id}`, function(err, userInfo) {
+router.get('/:email/me', function(req, res, next){
+  client.hgetall(`user:${req.params.email}`, function(err, userInfo) {
     if(err) {
       res.send(err);
     }
@@ -37,10 +37,15 @@ router.get('/:id/me', function(req, res, next){
 });
 
 
-//get matches, must pass in email as id
-router.get('/:id/matches', function(req, res, next){
+// //matches for guests
+// router.get("/guest/:zip", function(req, res, next) {
+//
+// });
+
+//get matches, must pass in email as email
+router.get('/matches/:email/:miles', function(req, res, next){
   var deferred = Q.defer();
-  client.georadiusbymember("UserLocs", `user:${req.params.id}`, 20, "mi", "withdist", "ASC", function(err, users) {
+  client.georadiusbymember("UserLocs", `user:${req.params.email}`, `${req.params.miles}`, "mi", "withdist", "ASC", function(err, users) {
     var result = [];
     if(err) {
       deferred.reject(err);
@@ -72,8 +77,8 @@ router.get('/:id/matches', function(req, res, next){
 });
 
 //get specific user.  must pass in email as id
-router.get('/:id/runbuddy', function(req, res, next){
-  client.hgetall(`user:${req.params.id}`, function(err, userInfo) {
+router.get('/:email/runbuddy', function(req, res, next){
+  client.hgetall(`user:${req.params.email}`, function(err, userInfo) {
     if(err) {
       res.send(err);
     }
@@ -89,7 +94,7 @@ router.put('/matches', function(req, res, next){
 });
 
 //can be used to create or edit user
-router.post('/me',function(req, res, next){
+router.post('/new',function(req, res, next){
   client.hmset(`user:${req.body.email}`,
     "firstName", `${req.body.firstName}`,
     "lastName", `${req.body.lastName}`,
