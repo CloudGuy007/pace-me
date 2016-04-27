@@ -27,11 +27,9 @@ app.service('AuthService', function($http) {
     })
   }
 
-  this.uploadPhoto = (newResource) => {
-    console.log(newResource);
-  //   return $http.post('/auth/upload', {
-  //             uploadName: newResource.newUploadName,
-  //             upload: newResource.newUpload });
+  this.newUser = (user) => {
+    return $http.post('/users/new', user)
   }
+
 
 })

@@ -17,7 +17,6 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 		AuthService.sendVerifyText(number)
 	}
 
-
 	$scope.verifyPhone = function(code) {
 		AuthService.verifyNumber(code)
 
