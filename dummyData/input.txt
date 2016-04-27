@@ -1,0 +1,30 @@
+[
+  '{{repeat(100)}}',
+  {
+    email: '{{email()}}',
+    firstName: '{{firstName()}}',
+    photo: 'https://randomuser.me/api/portraits/men/{{integer(1, 99)}}.jpg',
+    age: '{{integer(20, 40)}}',
+    lastName: '{{surname()}}',
+    gender: 'male',
+    phone: '+1 {{phone()}}',
+    zipCode: '{{integer(100, 10000)}}',
+    about: '{{lorem(1, "paragraphs")}}',
+    registered: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+    wklyMileage: '{{integer(1, 80)}}',
+    runEvent: '{{integer(1, 50)}}k',
+    sixtyM: '{{integer(6, 20)}}',
+    oneHundM: '{{integer(9, 40)}}',
+    twoHundM: '{{integer(19, 80)}}',
+    fourHundM: '{{integer(43, 200)}}',
+    onemiPR: '{{integer(180, 1200)}}',
+    fivekPR: '{{integer(720, 3600)}}',
+    tenkPR: '{{integer(3000, 7200)}}',
+    halfPR: '{{integer(3600, 46800)}}',
+    marathonPR: '{{integer(7200, 93)}}',
+    milePace: '{{integer(210,1200)}}',
+    longestDistRun: '{{integer(1, 50)}}k'
+    longitude: '{{floating(-122.600001, -121.6)}}',
+    latitude: '{{floating(38.100001, 36.93)}}'
+  }
+]
