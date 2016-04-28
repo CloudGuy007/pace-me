@@ -22,26 +22,6 @@ app.controller('listCtrl', function($scope, $state, ListService) {
       });
   }
 
-  function fadeIn(el) {
-  el.style.opacity = 0;
-
-  var last = +new Date();
-  var tick = function() {
-    el.style.opacity = +el.style.opacity + (new Date() - last) / 400;
-    last = +new Date();
-
-    if (+el.style.opacity < 1) {
-      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-    }
-  };
-
-  tick();
-}
-
-function addClass(el, className) {
-  if (el.classList) el.classList.add(className);
-  else if (!hasClass(el, className)) el.className += ' ' + className;
-}
 
     $scope.getGuestMatches = function(zip){
       if (zip.length === 5) {
@@ -49,7 +29,8 @@ function addClass(el, className) {
         .then(function(res){
           var jumbo = document.querySelector('div.jumbotron');
           jumbo.classList.remove('fullview');
-          
+          jumbo.classList.add('slide-up');
+
           console.log("guest data", res.data);
           $scope.runners = res.data;
         })

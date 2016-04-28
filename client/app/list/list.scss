@@ -1,7 +1,7 @@
 $limeGreen: #58CE87;
 .jumbotron {
-  -webkit-transition: height .3s ease-in-out;
- transition: all .3s ease-in-out;
+  -webkit-transition: height .2s ease-in-out;
+ transition: all .2s ease-in-out;
  height: 300px;
 }
 .jumbotron.fullview {
@@ -12,11 +12,11 @@ $limeGreen: #58CE87;
     margin-top: 25%;
   }
 }
-
-.fullview.slideup {
-  height:200px;
+.jumbotron.slide-up {
+    -webkit-transition: height .2s ease-in-out;
+   transition: all .2s ease-in-out;
+   height: 300px;
 }
-
 
 #listInput {
   width: 380px;
