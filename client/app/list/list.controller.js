@@ -1,49 +1,49 @@
 'use strict';
 var app = angular.module('paceMeApp');
 
-app.controller('listCtrl', function($scope, $state, ListService){
+app.controller('listCtrl', function($scope, $state, ListService) {
 
   console.log("current state", $state.current.name);
 
+  $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
+  console.log("loggedIn", $scope.loggedIn);
+  // $scope.viewProfile = function(index) {
+  //   console.log(viewProfile);
+  //   console.log(index);
+  // }
 
-    // $scope.viewProfile = function(index) {
-    //   console.log(viewProfile);
-    //   console.log(index);
-    // }
+  console.log("$scope.user", $scope.user);
 
-  $scope.users = [
-    {
-    _id: '1',
-    age: 29,
-    gender: 'male',
-    photo: 'http://static.wixstatic.com/media/62e31f_826fec17ef6440b0b60475eb824dfdad.gif',
-    firstName: 'Sean',
-    lastName: 'Smith',
-    distAway: '5 miles',
-    wklyMileage: '30 mi',
-    milePace: '8:00',
-    runEvent: '5k',
-    longestDistRun: 'half marathon',
-    fastestMileRun: '7:30'
+  if ($scope.loggedIn) {
+    ListService.getMatches($scope.user.email, 10)
+      .then(function(res) {
+        console.log("res.data", res.data);
+        $scope.runners = res.data;
+      }, function(err) {
+        console.log("err", err);
+      });
+  }
 
-  },
-  {
-  _id: '2',
-  age: 26,
-  gender: 'female',
-  photo: 'https://assets.vg247.com/current//2016/02/taylor_swift_1.jpg',
-  firstName: 'Taylor',
-  lastName: 'Swift',
-  distAway: '15 miles',
-  wklyMileage: '10 mi',
-  milePace: '7:30'
-},
-];
+    $scope.getGuestMatches = function(zip){
+      if (zip.length === 5){
+        ListService.getMatchesGuest(zip)
+        .then(function(res){
+          console.log("guest data", res.data);
+          $scope.runners = res.data;
+        })
+      }
+
+    }
 
 
-ListService.storeUsers($scope.users)
 
-$scope.loggedIn = true;
 
+
+  // ListService.storeUsers($scope.users);
+
+  // $scope.viewProfile = function(user){
+  //   console.log("user", user);
+  //   ListServce.storeUsers(user);
+  // }
   console.log("listCtrl");
 });

@@ -4,8 +4,7 @@ var app = angular.module('paceMeApp');
 
 app.service('ListService', function($http) {
 
-  this.getUsersGuest = (zip) => {
-
+  this.getMatchesGuest = (zip) => {
     return $http.get(`/users/guest/${zip}`)
   }
 
@@ -19,6 +18,7 @@ app.service('ListService', function($http) {
   this.storeUsers = (users) => {
     this.users = users;
   }
+
   this.getStoredUsers = (users) => {
     if(this.users) return this.users;
     //make get request

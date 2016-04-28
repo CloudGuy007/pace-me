@@ -3,7 +3,7 @@ var app = angular.module('paceMeApp');
 
 app.controller('profileCtrl', function($scope, $uibModal, $log, ListService){
 
-  console.log('storedUsers', ListService.getStoredUsers())
+  console.log('storedUsers', ListService.getStoredUsers($scope.user))
 
   $scope.person = {
     _id: '1',
