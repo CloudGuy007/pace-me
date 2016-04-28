@@ -5620,7 +5620,7 @@ mockUsers.forEach(function(obj) {
     "onemiPR", `${obj.onemiPR}`, "fivekPR", `${obj.fivekPR}`, "tenkPR", `${obj.tenkPR}`, "halfPR", `${obj.halfPR}`,
     "marathonPR", `${obj.marathonPR}`, "milePace", `${obj.milePace}`, "longestDistRun", `${obj.longestDistRun}`,
     "longitude", `${obj.longitude}`, "latitude", `${obj.latitude}`);
-  client.geoadd("UserLocs", obj.longitude, obj.latitude, `user:${obj.email}`)
+  client.geoadd("UserLocs", obj.longitude, obj.latitude, `user:${obj._id}`)
 });
 
 client.quit();
