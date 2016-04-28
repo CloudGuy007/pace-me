@@ -41,12 +41,12 @@
         <p>Training for a {{runner.runEvent}}</p>
         <p>Avg Mile Time: {{runner.milePace}}</p>
         <p>Weekly Miles: {{runner.wklyMileage}}</p>
-        <p ng-if='runner.fastestMile'>Fastest Mile: {{runner.onemiPR}}</p>
-        <p ng-if='runner.fastest5k'>Fastest 5k: {{runner.fastest5k}}</p>
-        <p ng-if='runner.fastest10k'>Fastest 10k: {{runner.fastest5k}}</p>
-        <p ng-if='runner.fastest15k'>Fastest 15k: {{runner.fastest5k}}</p>
-        <p ng-if='runner.fastestHlfMrthn'>Fastest half marathon: {{runner.fastest5k}}</p>
-        <p ng-if='runner.fastestMrthn'>Fastest marathon: {{runner.fastest5k}}</p>
+        <p ng-if='runner.fastestMile'>Fastest Mile: {{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.fastest5k'>Fastest 5k: {{runner.fastest5k | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.fastest10k'>Fastest 10k: {{runner.fastest5k | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.fastest15k'>Fastest 15k: {{runner.fastest5k | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.fastestHlfMrthn'>Fastest half marathon: {{runner.fastest5k | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.fastestMrthn'>Fastest marathon: {{runner.fastest5k | minutes2Seconds | date:'mm:ss'}}</p>
       </div>
     </div>
   </div>

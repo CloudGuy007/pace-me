@@ -67,7 +67,7 @@
         <div class="col-xs-8">
           <div>{{runner.firstName}} {{runner.lastName}}</div>
           <div>Distance: {{runner.dist}}</div>
-          <div>Mile Pace: {{runner.milePace}}</div>
+          <div>Mile Pace: {{runner.milePace | minutes2Seconds | date:'mm:ss'}} - {{runner.milePace}}</div>
           <div>Weekly Mileage: {{runner.wkly}}</div>
           <div ng-if="runner.runEvent">training for {{runner.runEvent}}</div>
         </div>
