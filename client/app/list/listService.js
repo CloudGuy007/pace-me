@@ -8,8 +8,8 @@ app.service('ListService', function($http) {
     return $http.get(`/users/guest/${zip}`)
   }
 
-  this.getMatches = (email, radius) => {
-    return $http.get(`/users/matches/${email}/${radius}`)
+  this.getMatches = (id, radius) => {
+    return $http.get(`/users/matches/${id}/${radius}`)
     // .then(function(res) {
     //   this.users = res;
     // })
