@@ -48,7 +48,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			controller: 'listCtrl'
 		})
 		.state('profile', {
-			url: '/profile',
+			url: '/profile/{email}',
 			templateUrl: '/html/profile.html',
 			controller: 'profileCtrl',
 			sp: {

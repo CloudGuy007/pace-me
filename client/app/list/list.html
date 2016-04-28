@@ -1,68 +1,85 @@
+<div class="jumbotron" ng-class="{'fullview': !$scope.runners}">
+  <div class="container">
+    <div class="row header text-center">
+      <h2>
+        find a buddy
+      </h2>
 
-<div class="jumbotron">
-<div class="container">
-  <div class="row header text-center">
-    <h2>
-      find a buddy
-    </h2>
+      <div class="col-xs-12" ng-if="!loggedIn">
+        <input type="text" placeholder="enter zip code" id="listInput" ng-model="guest.zip" ng-change="getGuestMatches(guest.zip)">
+        <br>
+        <button class="btn green" ng-click="">submit</button>
+      </div>
 
-    <input type="text" placeholder="enter zip code" id="listInput">
-    <Br>
-    <button class="btn green">submit</button>
+      <div class="col-xs-12" ng-if="loggedIn">
+        <select class="cs-select cs-skin-underline" ng-model="listView.radius" ng-change="newRadius(listView.radius)">
+          <option value="" disabled selected>Radius</option>
+          <option value="10">within 10 mi</option>
+          <option value="15">within 15 mi</option>
+          <option value="20">within 20 mi</option>
+          <option value="30">within 30 mi</option>
+          <option value="40">within 40 mi</option>
+          <option value="50">within 50 mi</option>
+        </select>
+        <br>
+        <!-- <button class="btn green" ng-click="">submit</button> -->
 
+            Radius  {{listView.radius}}
+      </div>
+
+
+    </div>
   </div>
-</div>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="card col-xs-12" ng-repeat="user in users track by $index">
+    users {{listView.radius}} miles away.
+    <div class="card col-xs-12" ng-repeat="runner in runners track by $index">
 
       <div ng-if="!loggedIn">
         <div class="col-xs-4">
-          <img class="blur" ng-src="{{user.photo}}" width="100%">
+          <img class="blur" ng-src="{{runner.photo}}" width="100%">
         </div>
         <div class="col-xs-8 list-info">
 
-          <div>{{user.firstName}}</div>
-          <div>{{user.distAway}}</div>
-          <div>{{user.milePace}}</div>
+          <div> {{runner.firstName}}</div>
+          <div>Distance Away: {{runner.dist}}</div>
+          <div>Mile Pace: {{runner.milePace}}</div>
 
         </div>
         <div class="new-view" ui-sref="register">
           <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
         </div>
-
       </div>
+      <!--end if !loggedIn-->
 
       <div ng-if="loggedIn">
         <div class="col-xs-4">
-          <img ng-src="{{user.photo}}" width="100%">
+          <img ng-src="{{runner.photo}}" width="100%">
           <br>
-
           <div>
-            {{user.gender}}
+            {{runner.gender}}
           </div>
-
           <div>
-            {{user.age}}
+            {{runner.age}}
           </div>
         </div>
         <div class="col-xs-8">
-          <div>{{user.firstName}} {{user.lastName}}</div>
-          <div>{{user.distAway}}</div>
-          <div>{{user.milePace}}</div>
-          <div>{{user.wkly}}</div>
-          <div ng-if="user.runEvent">training for {{user.runEvent}}</div>
-
-
+          <div>{{runner.firstName}} {{runner.lastName}}</div>
+          <div>Distance: {{runner.dist}}</div>
+          <div>Mile Pace: {{runner.milePace}}</div>
+          <div>Weekly Mileage: {{runner.wkly}}</div>
+          <div ng-if="runner.runEvent">training for {{runner.runEvent}}</div>
         </div>
-
-                  <div class="new-view" ui-sref="profile">
-                    <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
-                  </div>
+        <div class="new-view" ng-click="viewProfile(runner)">
+          <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
+        </div>
       </div>
+      <!--end if loggedIn-->
     </div>
+    <!--end card-->
   </div>
+  <!--end row-->
 </div>
-</div>
+<!--end container-->
