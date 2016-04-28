@@ -47,6 +47,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
             data: {file: file}
         }).then(function (res) {
             console.log('Success ' + res.config.data.file.name + 'uploaded. Response: ' + res.data);
+						$scope.runner.photo = res.data;
         }, function (err) {
             console.log('Error status: ' + err.status);
         });
@@ -63,6 +64,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 		$scope.runner.lastName = $scope.user.surname;
 		let id = $scope.user.href.split('/');
 		$scope.runner.id = id[id.length-1];
+		$scope.runner.sixtyM ? $scope.runner.sixtyM : "--"
 		console.log('$scope.runner', $scope.runner);
 	}
 

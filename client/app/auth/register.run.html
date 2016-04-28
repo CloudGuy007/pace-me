@@ -3,6 +3,20 @@
     Your Profile
   </div>
 </div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <input placeholder='gender' ng-model='runner.gender'>
+    <label>Gender</label>
+    <input placeholder='Age' type='number' ng-model='runner.age'>
+    <label>Age</label>
+    <input placeholder='zip' type='number' ng-model='runner.zip'>
+    <label>zip</label>
+  </div>
+</div>
+
+<hr>
+
 <div class="row">
   <div class='col-xs-12'>
     <form ng-app="fileUpload" name="photoform" ng-submit='submit(file)'>
@@ -15,9 +29,9 @@
 
         </div>
       </div>
+      {{file}}
     </form>
 
-    {{file}}
     <!-- <div ngf-drop ng-model="files" class="drop-box">Drop</div>
     		</div>
 
