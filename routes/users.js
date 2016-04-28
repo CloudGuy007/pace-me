@@ -88,7 +88,7 @@ router.get('/matches/:email/:radius', function(req, res, next){
             res.send(err);
             return;
           }
-          result.pop();
+          result.shift();
           console.log('RESULT', result);
           deferred.resolve(result);
           res.send(result);
