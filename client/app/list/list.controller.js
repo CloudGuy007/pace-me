@@ -7,18 +7,22 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   console.log("current state", $state.current.name);
   console.log("scope user", $scope.user);
 
+  var hsplits = $scope.user.href.split('/');
+  var id = hsplits[hsplits.length - 1];
+  
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
-  console.log("loggedIn", $scope.loggedIn);
-  // $scope.viewProfile = function(index) {
-  //   console.log(viewProfile);
-  //   console.log(index);
-  // }
-  let id = $scope.user.href.split('/');
-  id = id[id.length-1];
 
-  console.log("$scope.user", $scope.user);
+  $scope.sortMilePace = function(runner){
+    return Math.abs(runner.milePace - $scope.loggedInUser.milePace);
+  }
 
   if ($scope.loggedIn) {
+    ListService.getUserStats(id)
+    .then(function(stats){
+      $scope.loggedInUser = stats.data;
+    }, function(err){
+      console.log(err);
+    });
     ListService.getMatches(id, 10)
       .then(function(res) {
         console.log("res.data", res.data);
@@ -39,9 +43,6 @@ app.controller('listCtrl', function($scope, $state, ListService) {
     }
 
     $scope.newRadius = function(radius){
-
-
-
       ListService.getMatches(id, radius)
         .then(function(res) {
           console.log("res.data", res.data);
