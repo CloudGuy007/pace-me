@@ -63,10 +63,10 @@ router.get("/guest/:zipcode", function(req, res, next) {
     })
 })
 
-//get matches, must pass in email as email
-router.get('/matches/:email/:radius', function(req, res, next){
+//get matches, must pass in id in params
+router.get('/matches/:id/:radius', function(req, res, next){
   var deferred = Q.defer();
-  client.georadiusbymember("UserLocs", `user:${req.params.email}`, `${req.params.radius}`, "mi", "withdist", "ASC", function(err, users) {
+  client.georadiusbymember("UserLocs", `user:${req.params.id}`, `${req.params.radius}`, "mi", "withdist", "ASC", function(err, users) {
     var result = [];
     if(err) {
       res.send(err);
@@ -99,9 +99,9 @@ router.get('/matches/:email/:radius', function(req, res, next){
   return deferred.promise;
 });
 
-//get specific user.  must pass in email as id
-router.get('/:email', function(req, res, next){
-  client.hgetall(`user:${req.params.email}`, function(err, userInfo) {
+//get specific user.  must pass id
+router.get('/:id', function(req, res, next){
+  client.hgetall(`user:${req.params.id}`, function(err, userInfo) {
     if(err) {
       res.send(err);
       return;
@@ -113,7 +113,7 @@ router.get('/:email', function(req, res, next){
 
 //can be used to create or edit user
 router.post('/new',function(req, res, next){
-  client.hmset(`user:${req.body.email}`,
+  client.hmset(`user:${req.body._id}`,
     "firstName", `${req.body.firstName}`,
     "lastName", `${req.body.lastName}`,
     "email", `${req.body.email}`,
@@ -140,13 +140,13 @@ router.post('/new',function(req, res, next){
     "longitude", `${req.body.longitude}`,
     "latitude", `${req.body.latitude}`);
   //add the user to the UserLocs geodata
-  client.geoadd("UserLocs", req.body.longitude, req.body.latitude, `user:${req.body.email}`);
+  client.geoadd("UserLocs", req.body.longitude, req.body.latitude, `user:${req.body._id}`);
 	res.send('User Created!');
 });
 
 //edit user
-router.put('/:email',function(req, res, next){
-  client.hmset(`user:${req.body.email}`,
+router.put('/:id',function(req, res, next){
+  client.hmset(`user:${req.params.id}`,
     "firstName", `${req.body.firstName}`,
     "lastName", `${req.body.lastName}`,
     "email", `${req.body.email}`,
@@ -173,7 +173,7 @@ router.put('/:email',function(req, res, next){
     "longitude", `${req.body.longitude}`,
     "latitude", `${req.body.latitude}`);
   //update the user to the UserLocs geodata
-  client.geoadd("UserLocs", req.body.longitude, req.body.latitude, `user:${req.body.email}`)
+  client.geoadd("UserLocs", req.body.longitude, req.body.latitude, `user:${req.params.id}`)
 	res.send('User Updated!');
 });
 
