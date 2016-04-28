@@ -4,31 +4,44 @@
 <div class='container profile'>
   <div class='profile-main row'>
     <div class='col-xs-12 card'>
+      <div class="editUser cursor" ng-if="editable" ng-click="editBasics(runner)">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </div>
       <img ng-src='{{runner.photo}}'>
       <h3>{{runner.firstName}}&nbsp;{{runner.lastName | limitTo:1}}.</h3>
       <p>{{runner.age}} | {{runner.gender}}</p>
+      user username {{user.username}}<Br>
+      user email {{user.email}}
+      <br><br>
+      runner {{runner.email}}
       <button class='btn green' ng-click="open()">Send a message</button>
     </div>
     <div class='row'>
       <div class='col-xs-12 col-sm-8'>
         <div class='card card-info'>
+          <div class="editUser cursor" ng-if="editable" ng-click="editAbout(runner)">
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </div>
           <h4>About Me</h4>
           <hr>
           <div>
-            <p class='about-me'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora odio praesentium quidem illo magni alias suscipit adipisci blanditiis amet magnam molestiae earum expedita quasi quia ex, debitis est similique. Harum aliquam quidem
-              maiores rem at, amet soluta nobis voluptatibus nisi consequatur, porro dolore omnis cupiditate architecto! Cum, non, mollitia?</p>
+            <p class='about-me'>{{runner.about}}</p>
           </div>
         </div>
       </div>
 
     <div class='col-xs-12 col-sm-4'>
       <div class='card card-info'>
+
+        <div class="editUser cursor" ng-if="editable" ng-click="editRun(runner)">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </div>
         <h4>Running</h4>
         <hr>
         <p>Training for a {{runner.runEvent}}</p>
         <p>Avg Mile Time: {{runner.milePace}}</p>
         <p>Weekly Miles: {{runner.wklyMileage}}</p>
-        <p ng-if='runner.fastestMile'>Fastest Mile: {{runner.fastestMile}}</p>
+        <p ng-if='runner.fastestMile'>Fastest Mile: {{runner.onemiPR}}</p>
         <p ng-if='runner.fastest5k'>Fastest 5k: {{runner.fastest5k}}</p>
         <p ng-if='runner.fastest10k'>Fastest 10k: {{runner.fastest5k}}</p>
         <p ng-if='runner.fastest15k'>Fastest 15k: {{runner.fastest5k}}</p>
@@ -39,7 +52,8 @@
   </div>
 </div>
 
-<script type="text/ng-template" id="myModalContent.html">
+<!--TEXT MESSAGE MODAL-->
+<script type="text/ng-template" id="sendMessage.html">
     <div class="modal-header">
         <h3 class="modal-title">Send a Message</h3>
     </div>
@@ -49,6 +63,83 @@
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+<!--BASICS MODAL-->
+<script type="text/ng-template" id="basics.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Info</h3>
+    </div>
+    <div class="modal-body">
+
+      <label>Name:</label>
+      <input type="text" ng-model="runner.firstName">
+      <input type="text" ng-model="runner.lastName">
+      <label>Email: </label>
+      <input type="text" ng-model="runner.email">
+
+      <label>Age: </label>
+      <input type="text" ng-model="runner.age" placeholder="average mile pace">
+
+      <label>Gender: </label>
+      <input type="text" ng-model="runner.gender" placeholder="weekly mileage">
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+<!--BIO MODAL-->
+<script type="text/ng-template" id="bio.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Bio</h3>
+    </div>
+    <div class="modal-body">
+      <label for="comment">Bio</label>
+      <textarea class="form-control" rows="5" ng-model="runner.about" placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora odio praesentium quidem illo magni alias suscipit adipisci blanditiis amet magnam molestiae earum expedita quasi quia ex, debitis est similique. Harum aliquam quidem maiores rem at, amet soluta nobis voluptatibus nisi consequatur, porro dolore omnis cupiditate architecto! Cum, non, mollitia?'></textarea>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+<!--RUNNER STATS MODAL-->
+<script type="text/ng-template" id="runModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Run Stats</h3>
+    </div>
+    <div class="modal-body">
+
+      <label>training for: </label>
+      <input type="text" ng-model="runner.runEvent">
+
+      <label>average one-mile pace</label>
+      <input type="text" ng-model="runner.milePace" placeholder="average mile pace">
+
+      <label>weekly mileage</label>
+      <input type="text" ng-model="runner.wklyMileage" placeholder="weekly mileage">
+
+      <label>1 Mile PR</label>
+      <input type="text" ng-model="runCopy.onemiPR" placeholder="fastest mile">
+
+      <label>5K PR</label>
+      <input type="text" ng-model='runner.fivekPR' placeholder="5K PR">
+
+      <label>10K PR</label>
+      <input type="text" ng-model='runner.tenkPR' placeholder="10K PR">
+
+      <label>Half Marathon PR</label>
+      <input type="text" ng-model='runner.halfPR' placeholder="Half Marathon PR">
+
+      <label>Marathon PR</label>
+      <input type="text" ng-model='runner.marathonPR' placeholder="Marathon PR">
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="saveRun(runner)">Save</button>
         <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
     </div>
 </script>

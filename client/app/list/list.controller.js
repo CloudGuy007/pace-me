@@ -25,14 +25,13 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   }
 
     $scope.getGuestMatches = function(zip){
-      if (zip.length === 5){
+      if (zip.length === 5) {
         ListService.getMatchesGuest(zip)
         .then(function(res){
           console.log("guest data", res.data);
           $scope.runners = res.data;
         })
       }
-
     }
 
     $scope.newRadius = function(radius){
@@ -43,7 +42,6 @@ app.controller('listCtrl', function($scope, $state, ListService) {
         }, function(err) {
           console.log("err", err);
         });
-      
     }
 
 

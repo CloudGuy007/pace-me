@@ -145,6 +145,7 @@ router.post('/new',function(req, res, next){
 
 //edit user
 router.put('/:email',function(req, res, next){
+  console.log("req.body", req.body);
   client.hmset(`user:${req.body.email}`,
     "firstName", `${req.body.firstName}`,
     "lastName", `${req.body.lastName}`,
