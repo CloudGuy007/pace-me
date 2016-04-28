@@ -3,7 +3,6 @@ var app = angular.module('paceMeApp');
 
 app.controller('listCtrl', function($scope, $state, ListService) {
 
-  debugger;
 
   console.log("current state", $state.current.name);
   console.log("scope user", $scope.user);
@@ -14,11 +13,13 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   //   console.log(viewProfile);
   //   console.log(index);
   // }
+  let id = $scope.user.href.split('/');
+  id = id[id.length-1];
 
   console.log("$scope.user", $scope.user);
 
   if ($scope.loggedIn) {
-    ListService.getMatches($scope.user.email, 10)
+    ListService.getMatches(id, 10)
       .then(function(res) {
         console.log("res.data", res.data);
         $scope.runners = res.data;
@@ -38,7 +39,10 @@ app.controller('listCtrl', function($scope, $state, ListService) {
     }
 
     $scope.newRadius = function(radius){
-      ListService.getMatches($scope.user.email, radius)
+
+
+
+      ListService.getMatches(id, radius)
         .then(function(res) {
           console.log("res.data", res.data);
           $scope.runners = res.data;
