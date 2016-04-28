@@ -10,8 +10,7 @@
       <img ng-src='{{runner.photo}}'>
       <h3>{{runner.firstName}}&nbsp;{{runner.lastName | limitTo:1}}.</h3>
       <p>{{runner.age}} | {{runner.gender}}</p>
-      user username {{user.username}}<Br>
-      user email {{user.email}}
+
       <br><br>
       runner {{runner.email}}
       <button class='btn green' ng-click="open()">Send a message</button>
@@ -41,12 +40,16 @@
         <p>Training for a {{runner.runEvent}}</p>
         <p>Avg Mile Time: {{runner.milePace}}</p>
         <p>Weekly Miles: {{runner.wklyMileage}}</p>
-        <p ng-if='runner.fastestMile'>Fastest Mile: {{runner.onemiPR}}</p>
-        <p ng-if='runner.fastest5k'>Fastest 5k: {{runner.fastest5k}}</p>
-        <p ng-if='runner.fastest10k'>Fastest 10k: {{runner.fastest5k}}</p>
-        <p ng-if='runner.fastest15k'>Fastest 15k: {{runner.fastest5k}}</p>
-        <p ng-if='runner.fastestHlfMrthn'>Fastest half marathon: {{runner.fastest5k}}</p>
-        <p ng-if='runner.fastestMrthn'>Fastest marathon: {{runner.fastest5k}}</p>
+        <p ng-if='runner.longestDistRun'>Longest Distance Run: {{runner.longestDistRun}}</p>
+        <p ng-if='runner.onemiPR'>Fastest Mile: {{runner.onemiPR}}</p>
+        <p ng-if='runner.fivekPR'>Fastest 5k: {{runner.fivekPR}}</p>
+        <p ng-if='runner.tenkPR'>Fastest 10k: {{runner.tenkPR}}</p>
+        <p ng-if='runner.halfPR'>Fastest half marathon: {{runner.halfPR}}</p>
+        <p ng-if='runner.marathonPR'>Fastest marathon: {{runner.marathonPR}}</p>
+        <p ng-if='runner.sixtyM'>60 Meter PR: {{runner.sixtyM}}</p>
+        <p ng-if='runner.oneHundM'>100 Meter PR: {{runner.oneHundM}}</p>
+        <p ng-if='runner.twoHundM'>200 Meter PR: {{runner.twoHundM}}</p>
+        <p ng-if='runner.fourHundM'>400 Meter PR: {{runner.fourHundM}}</p>
       </div>
     </div>
   </div>
