@@ -12,7 +12,8 @@ app.service('ProfileService', function($http) {
     return $http.get(`/users/${email}`)
   }
 
-  this.editProfile = (user) => {
+  this.saveProfile = (user) => {
+    var email = user.email;
     return $http.put(`/users/${email}`, user)
   }
 

@@ -3,7 +3,10 @@ var app = angular.module('paceMeApp');
 
 app.controller('listCtrl', function($scope, $state, ListService) {
 
+  debugger;
+
   console.log("current state", $state.current.name);
+  console.log("scope user", $scope.user);
 
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
   console.log("loggedIn", $scope.loggedIn);
@@ -25,14 +28,13 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   }
 
     $scope.getGuestMatches = function(zip){
-      if (zip.length === 5){
+      if (zip.length === 5) {
         ListService.getMatchesGuest(zip)
         .then(function(res){
           console.log("guest data", res.data);
           $scope.runners = res.data;
         })
       }
-
     }
 
     $scope.newRadius = function(radius){
@@ -43,7 +45,6 @@ app.controller('listCtrl', function($scope, $state, ListService) {
         }, function(err) {
           console.log("err", err);
         });
-      
     }
 
 
