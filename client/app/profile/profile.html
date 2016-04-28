@@ -4,9 +4,9 @@
 <div class='container profile'>
   <div class='profile-main row'>
     <div class='col-xs-12 card'>
-      <img ng-src='{{person.photo}}'>
-      <h3>{{person.firstName}}&nbsp;{{person.lastName | limitTo:1}}.</h3>
-      <p>{{person.age}} | {{person.gender}}</p>
+      <img ng-src='{{runner.photo}}'>
+      <h3>{{runner.firstName}}&nbsp;{{runner.lastName | limitTo:1}}.</h3>
+      <p>{{runner.age}} | {{runner.gender}}</p>
       <button class='btn green' ng-click="open()">Send a message</button>
     </div>
     <div class='row'>
@@ -25,15 +25,15 @@
       <div class='card card-info'>
         <h4>Running</h4>
         <hr>
-        <p>Training for a {{person.runEvent}}</p>
-        <p>Avg Mile Time: {{person.milePace}}</p>
-        <p>Weekly Miles: {{person.wklyMileage}}</p>
-        <p ng-if='person.fastestMile'>Fastest Mile: {{person.fastestMile}}</p>
-        <p ng-if='person.fastest5k'>Fastest 5k: {{person.fastest5k}}</p>
-        <p ng-if='person.fastest10k'>Fastest 10k: {{person.fastest5k}}</p>
-        <p ng-if='person.fastest15k'>Fastest 15k: {{person.fastest5k}}</p>
-        <p ng-if='person.fastestHlfMrthn'>Fastest half marathon: {{person.fastest5k}}</p>
-        <p ng-if='person.fastestMrthn'>Fastest marathon: {{person.fastest5k}}</p>
+        <p>Training for a {{runner.runEvent}}</p>
+        <p>Avg Mile Time: {{runner.milePace}}</p>
+        <p>Weekly Miles: {{runner.wklyMileage}}</p>
+        <p ng-if='runner.fastestMile'>Fastest Mile: {{runner.fastestMile}}</p>
+        <p ng-if='runner.fastest5k'>Fastest 5k: {{runner.fastest5k}}</p>
+        <p ng-if='runner.fastest10k'>Fastest 10k: {{runner.fastest5k}}</p>
+        <p ng-if='runner.fastest15k'>Fastest 15k: {{runner.fastest5k}}</p>
+        <p ng-if='runner.fastestHlfMrthn'>Fastest half marathon: {{runner.fastest5k}}</p>
+        <p ng-if='runner.fastestMrthn'>Fastest marathon: {{runner.fastest5k}}</p>
       </div>
     </div>
   </div>

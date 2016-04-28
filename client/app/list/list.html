@@ -52,7 +52,7 @@
           <div>Weekly Mileage: {{runner.wkly}}</div>
           <div ng-if="runner.runEvent">training for {{runner.runEvent}}</div>
         </div>
-        <div class="new-view" ui-sref="profile" ng-click="viewProfile(runner)">
+        <div class="new-view" ng-click="viewProfile(runner)">
           <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
         </div>
       </div> <!--end if loggedIn-->

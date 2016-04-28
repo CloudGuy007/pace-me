@@ -36,14 +36,13 @@ app.controller('listCtrl', function($scope, $state, ListService) {
     }
 
 
-
-
-
   // ListService.storeUsers($scope.users);
 
-  // $scope.viewProfile = function(user){
-  //   console.log("user", user);
-  //   ListServce.storeUsers(user);
-  // }
+  $scope.viewProfile = function(user){
+    console.log("user", user);
+    $state.go('profile', {
+      'email': user.email
+    })
+  }
   console.log("listCtrl");
 });
