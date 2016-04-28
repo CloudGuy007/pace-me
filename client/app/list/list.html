@@ -1,12 +1,13 @@
-<div class="jumbotron" ng-class="{'fullview': !$scope.runners}">
+<div class="jumbotron" ng-class="{'fullview': !user}">
   <div class="container">
     <div class="row header text-center">
       <h2>
         find a buddy
+        {{guest}}
       </h2>
 
       <div class="col-xs-12" ng-if="!loggedIn">
-        <input type="text" placeholder="enter zip code" id="listInput" ng-model="guest.zip" ng-change="getGuestMatches(guest.zip)">
+        <input type="text" placeholder="enter zip code" id="listInput" maxlength="5" ng-model="guest.zip" ng-change="getGuestMatches(guest.zip)">
         <br>
         <button class="btn green" ng-click="">submit</button>
       </div>
@@ -34,7 +35,7 @@
 <div class="container">
   <div class="row">
     users {{listView.radius}} miles away.
-    <div class="card col-xs-12" ng-repeat="runner in runners track by $index">
+    <div class="card col-xs-12" ng-repeat="runner in runners | orderBy: sortMilePace track by $index">
 
       <div ng-if="!loggedIn">
         <div class="col-xs-4">
@@ -67,8 +68,8 @@
         <div class="col-xs-8">
           <div>{{runner.firstName}} {{runner.lastName}}</div>
           <div>Distance: {{runner.dist}}</div>
-          <div>Mile Pace: {{runner.milePace}}</div>
-          <div>Weekly Mileage: {{runner.wkly}}</div>
+          <div>Mile Pace: {{runner.milePace | minutes2Seconds | date:'mm:ss'}}</div>
+          <div>Weekly Mileage: {{runner.wklyMileage}}</div>
           <div ng-if="runner.runEvent">training for {{runner.runEvent}}</div>
         </div>
         <div class="new-view" ng-click="viewProfile(runner)">

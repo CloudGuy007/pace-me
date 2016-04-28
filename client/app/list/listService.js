@@ -15,6 +15,10 @@ app.service('ListService', function($http) {
     // })
   }
 
+  this.getUserStats = (id) => {
+    return $http.get(`/users/${id}`)
+  }
+
   this.storeUsers = (users) => {
     this.users = users;
   }
