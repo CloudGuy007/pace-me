@@ -17,7 +17,7 @@ client.on("error", function (err) {
 
 //sample route:
 router.get('/', function(req, res, next) {
-  client.hgetall("user:kellymclaughlin@strezzo.com", function(err, userInfo) {
+  client.hgetall("user:halliealexander@brainclip.com", function(err, userInfo) {
     if(err) {
       res.send(err);
       return;
