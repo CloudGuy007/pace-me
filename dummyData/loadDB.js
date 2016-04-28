@@ -5612,7 +5612,7 @@ var mockUsers = [
 ]
 
 mockUsers.forEach(function(obj) {
-  client.hmset(`user:${obj.email}`, "firstName", `${obj.firstName}`, "lastName", `${obj.lastName}`,
+  client.hmset(`user:${obj._id}`, "firstName", `${obj.firstName}`, "lastName", `${obj.lastName}`,
     "email", `${obj.email}`, "photo", `${obj.photo}`, "age", `${obj.age}`, "gender", `${obj.gender}`,
     "phone", `${obj.phone}`, "zipCode", `${obj.zipCode}`, "about", `${obj.about}`, "registered", `${obj.registered}`,
     "wklyMileage", `${obj.wklyMileage}`, "runEvent", `${obj.runEvent}`, "sixtyM", `${obj.sixtyM}`,

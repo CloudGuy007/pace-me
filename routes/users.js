@@ -104,6 +104,7 @@ router.get('/:email', function(req, res, next){
   client.hgetall(`user:${req.params.email}`, function(err, userInfo) {
     if(err) {
       res.send(err);
+      return;
     }
     res.send(userInfo);
   })
