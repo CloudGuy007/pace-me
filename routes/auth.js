@@ -17,6 +17,7 @@ nexmo.initialize(process.env.NEXMO_API_KEY, process.env.NEXMO_API_SECRET);
 
 
 router.post('/phone', function(req, res) {
+  console.log('phone send text');
   var phone = req.body.phoneNumber;
   console.log('req.body', req.body);
   nexmo.verifyNumber({
@@ -29,7 +30,6 @@ router.post('/phone', function(req, res) {
 })
 
 router.post('/phone/verify', function(req, res) {
-
   console.log('phone verification');
   var code = req.body.pin
   var request_id = req.body.request_id;
