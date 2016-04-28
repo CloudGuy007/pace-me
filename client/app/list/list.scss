@@ -1,52 +1,67 @@
 $limeGreen: #58CE87;
+.jumbotron {
+  -webkit-transition: height .3s ease-in-out;
+ transition: all .3s ease-in-out;
+ height: 300px;
+}
+.jumbotron.fullview {
+  height: 100vh;
+}
+.jumbotron.fullview {
+  h2 {
+    margin-top: 25%;
+  }
+}
+
+.fullview.slideup {
+  height:200px;
+}
+
 
 #listInput {
-  width:380px;
-  outline:0;
+  width: 380px;
+  outline: 0;
   color: $limeGreen;
   background-color: rgba(0,0,0,0);
-  border:1px solid $limeGreen;
+  border: 1px solid $limeGreen;
 }
-::-webkit-input-placeholder {
-   color: $limeGreen;
+ ::-webkit-input-placeholder {
+  color: $limeGreen;
 }
-
 .card {
-  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  border-radius:5px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  border-radius: 5px;
   margin: 15px 0;
-  padding:30px;
+  padding: 30px;
 }
-
 .blur {
   -webkit-filter: blur(6px);
-  filter: blur(6px);
+  filter:blur(6px);
 }
 .black {
-  color:#000;
+  color: #000;
 }
-.new-view{
-  position:absolute;
-  bottom:20px;
-  right:20px;
+.new-view {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
-.list-info{
-  position:relative;
-  height:100%;
+.list-info {
+  position: relative;
+  height: 100%;
 }
 button {
-  outline:none !important;
-  color:#fff;
+  outline: none !important;
+  color: #fff;
 }
 button.green {
   background-color: $limeGreen;
   box-shadow: 2px 2px #499971;
-  border:none !important;
-
-  color:#fff;
+  border: none !important;
+  color: #fff;
 }
 button.green:active {
-  transform:translate(2px, 2px);
-  box-shadow:none;
-  color:#fff;
+  transform: translate(2px, 2px);
+  box-shadow: none;
+  color: #fff;
 }
