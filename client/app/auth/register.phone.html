@@ -1,9 +1,9 @@
 <h1>Phone</h1>
 <div>
 	<form>
-	<input type='text' ng-model='person.phone' placeholder='Phone Number'>
+	<input type='text' ng-model='runner.phone' placeholder='Phone Number'>
 	<input type='text' ng-model='verifyCode' placeholder="Enter the 4 digit code we texted you">
-	<button ng-click='sendText(person.phone)' class='btn green'>Send Verification Text</button>
+	<button ng-click='sendText(runner.phone)' class='btn green'>Send Verification Text</button>
 	<button ng-click='verifyPhone(verifyCode)' class='btn green'>Verify Phone</button>
 </form>
 </div>

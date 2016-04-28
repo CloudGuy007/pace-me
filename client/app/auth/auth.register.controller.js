@@ -4,15 +4,10 @@ var app = angular.module('paceMeApp');
 
 
 app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $timeout){
-
-
-	$scope.person = {};
-
+	$scope.runner = {};
 
 	// $scope.enteringCode = false;
 	$scope.sendText = function(number) {
-		console.log('number', number);
-		// console.log('number', $scope.test);
 		$scope.enteringCode = true;
 		AuthService.sendVerifyText(number)
 	}
@@ -21,7 +16,6 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 		AuthService.verifyNumber(code)
 
 		.then(function(res) {
-			console.log('ctrlRes');
 			$state.go('register.run')
 		}, function(err) {
 			console.log('err', err);
@@ -29,7 +23,6 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 	}
 
     $scope.submit = function(file) {
-			console.log('file', file);
       if (file) {
         $scope.upload(file);
       }
@@ -53,10 +46,12 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 
 
 	$scope.getUser = function() {
-		$scope.person.email = $scope.user.email;
-		$scope.person.firstName = $scope.user.givenName;
-		$scope.person.lastName = $scope.user.surname;
-		console.log('$scope.person', $scope.person);
+		$scope.runner.email = $scope.user.email;
+		$scope.runner.firstName = $scope.user.givenName;
+		$scope.runner.lastName = $scope.user.surname;
+		let id = $scope.user.href.split('/');
+		$scope.runner.id = id[id.length-1];
+		console.log('$scope.runner', $scope.runner);
 	}
 
 });

@@ -3,7 +3,10 @@ var app = angular.module('paceMeApp');
 
 app.controller('listCtrl', function($scope, $state, ListService) {
 
+  debugger;
+
   console.log("current state", $state.current.name);
+  console.log("scope user", $scope.user);
 
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
   console.log("loggedIn", $scope.loggedIn);
