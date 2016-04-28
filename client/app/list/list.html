@@ -1,14 +1,32 @@
-<div class="jumbotron">
+<div class="jumbotron" ng-class="{'fullview': !$scope.runners}">
   <div class="container">
     <div class="row header text-center">
       <h2>
-      find a buddy
-      {{runner}}
-    </h2>
+        find a buddy
+      </h2>
 
-      <input type="text" placeholder="enter zip code" id="listInput" ng-model="guest.zip" ng-change="getGuestMatches(guest.zip)">
-      <Br>
-      <button class="btn green" ng-click="">submit</button>
+      <div class="col-xs-12" ng-if="!loggedIn">
+        <input type="text" placeholder="enter zip code" id="listInput" ng-model="guest.zip" ng-change="getGuestMatches(guest.zip)">
+        <br>
+        <button class="btn green" ng-click="">submit</button>
+      </div>
+
+      <div class="col-xs-12" ng-if="loggedIn">
+        <select class="cs-select cs-skin-underline" ng-model="listView.radius" ng-change="newRadius(listView.radius)">
+          <option value="" disabled selected>Radius</option>
+          <option value="10">within 10 mi</option>
+          <option value="15">within 15 mi</option>
+          <option value="20">within 20 mi</option>
+          <option value="30">within 30 mi</option>
+          <option value="40">within 40 mi</option>
+          <option value="50">within 50 mi</option>
+        </select>
+        <br>
+        <!-- <button class="btn green" ng-click="">submit</button> -->
+
+            Radius  {{listView.radius}}
+      </div>
+
 
     </div>
   </div>
@@ -16,6 +34,7 @@
 
 <div class="container">
   <div class="row">
+    users {{listView.radius}} miles away.
     <div class="card col-xs-12" ng-repeat="runner in runners track by $index">
 
       <div ng-if="!loggedIn">
@@ -32,7 +51,8 @@
         <div class="new-view" ui-sref="register">
           <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
         </div>
-      </div> <!--end if !loggedIn-->
+      </div>
+      <!--end if !loggedIn-->
 
       <div ng-if="loggedIn">
         <div class="col-xs-4">
@@ -55,7 +75,11 @@
         <div class="new-view" ng-click="viewProfile(runner)">
           <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
         </div>
-      </div> <!--end if loggedIn-->
-    </div> <!--end card-->
-  </div> <!--end row-->
-</div> <!--end container-->
+      </div>
+      <!--end if loggedIn-->
+    </div>
+    <!--end card-->
+  </div>
+  <!--end row-->
+</div>
+<!--end container-->

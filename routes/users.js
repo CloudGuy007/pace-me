@@ -66,7 +66,7 @@ router.get("/guest/:zipcode", function(req, res, next) {
 //get matches, must pass in email as email
 router.get('/matches/:email/:radius', function(req, res, next){
   var deferred = Q.defer();
-  client.georadiusbymember("UserLocs", `user:${req.params.email}`, `${req.params.radius}`, "mi", "withdist", "ASC", function(err, users) {
+  client.georadiusbymember("UserLocs", `user:${req.params.email}`, `${req.params.radius}`, "mi", "withdist", "DESC", function(err, users) {
     var result = [];
     if(err) {
       res.send(err);
@@ -88,7 +88,7 @@ router.get('/matches/:email/:radius', function(req, res, next){
             res.send(err);
             return;
           }
-          result.shift();
+          result.pop();
           console.log('RESULT', result);
           deferred.resolve(result);
           res.send(result);
