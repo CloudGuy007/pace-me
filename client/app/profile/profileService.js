@@ -13,8 +13,9 @@ app.service('ProfileService', function($http) {
   }
 
   this.saveProfile = (user) => {
-    var email = user.email;
-    return $http.put(`/users/${email}`, user)
+    console.log("saveProfile user", user);
+    var id = user._id;
+    return $http.put(`/users/${id}`, user)
   }
 
 })

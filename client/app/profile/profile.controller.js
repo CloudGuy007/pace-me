@@ -3,12 +3,15 @@ var app = angular.module('paceMeApp');
 
 app.controller('profileCtrl', function($scope, $state, $uibModal, $log, ListService, ProfileService) {
 
+console.log("$scope.user", $scope.user);
   ProfileService.getProfile($state.params.id)
     .then(function(res) {
       $scope.runner = res.data;
+      var id = $scope.user.href.split('/');
+      id = id[id.length-1];
       console.log("$scope.runner", $scope.runner);
       console.log("res data", res.data);
-        if ($state.params.id != $scope.runner._id){
+        if (id != $scope.runner._id){
           $scope.editable = false;
         } else {
           $scope.editable = true;
@@ -79,14 +82,33 @@ app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileS
     $uibModalInstance.dismiss('cancel');
   };
 
-  $scope.saveRunner = function(runner){
-
+  $scope.saveBasics = function(runner){
     ProfileService.saveProfile(runner)
     .then(function(res){
-      console.log("edit profile res", res);
-
     }, function(err){
       console.error("edit profile error:", err);
     });
+
+    $uibModalInstance.close();
+  }
+
+  $scope.saveBio = function(runner){
+    ProfileService.saveProfile(runner)
+    .then(function(res){
+    }, function(err){
+      console.error("edit profile error:", err);
+    });
+
+    $uibModalInstance.close();
+  }
+
+  $scope.saveRun = function(runner){
+    ProfileService.saveProfile(runner)
+    .then(function(res){
+    }, function(err){
+      console.error("edit profile error:", err);
+    });
+
+    $uibModalInstance.close();
   }
 });
