@@ -2,19 +2,14 @@
 var app = angular.module('paceMeApp');
 
 app.controller('listCtrl', function($scope, $state, ListService) {
-
-
   console.log("current state", $state.current.name);
   console.log("scope user", $scope.user);
 
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
   console.log("loggedIn", $scope.loggedIn);
-  // $scope.viewProfile = function(index) {
-  //   console.log(viewProfile);
-  //   console.log(index);
-  // }
+
   let id = $scope.user.href.split('/');
-  id = id[id.length-1];
+  id = id[id.length - 1];
 
   console.log("$scope.user", $scope.user);
 
@@ -28,33 +23,27 @@ app.controller('listCtrl', function($scope, $state, ListService) {
       });
   }
 
-    $scope.getGuestMatches = function(zip){
-      if (zip.length === 5) {
-        ListService.getMatchesGuest(zip)
-        .then(function(res){
+  $scope.getGuestMatches = function(zip) {
+    if (zip.length === 5) {
+      ListService.getMatchesGuest(zip)
+        .then(function(res) {
           console.log("guest data", res.data);
           $scope.runners = res.data;
         })
-      }
     }
+  }
 
-    $scope.newRadius = function(radius){
+  $scope.newRadius = function(radius) {
+    ListService.getMatches(id, radius)
+      .then(function(res) {
+        console.log("res.data", res.data);
+        $scope.runners = res.data;
+      }, function(err) {
+        console.log("err", err);
+      });
+  }
 
-
-
-      ListService.getMatches(id, radius)
-        .then(function(res) {
-          console.log("res.data", res.data);
-          $scope.runners = res.data;
-        }, function(err) {
-          console.log("err", err);
-        });
-    }
-
-
-  // ListService.storeUsers($scope.users);
-
-  $scope.viewProfile = function(user){
+  $scope.viewProfile = function(user) {
     console.log("user", user);
     $state.go('profile', {
       'email': user.email
