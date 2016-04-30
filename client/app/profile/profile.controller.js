@@ -9,8 +9,6 @@ console.log("$scope.user", $scope.user);
       $scope.runner = res.data;
       var id = $scope.user.href.split('/');
       id = id[id.length-1];
-      console.log("$scope.runner", $scope.runner);
-      console.log("res data", res.data);
         if (id != $scope.runner._id){
           $scope.editable = false;
         } else {
