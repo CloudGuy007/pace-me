@@ -3,12 +3,12 @@ var app = angular.module('paceMeApp');
 
 app.controller('profileCtrl', function($scope, $state, $uibModal, $log, ListService, ProfileService) {
 
-  var userEmail = $scope.user.email;
-
-  ProfileService.getProfile($state.params.email)
+  ProfileService.getProfile($state.params.id)
     .then(function(res) {
       $scope.runner = res.data;
-        if (userEmail != $scope.runner.email){
+      console.log("$scope.runner", $scope.runner);
+      console.log("res data", res.data);
+        if ($state.params.id != $scope.runner._id){
           $scope.editable = false;
         } else {
           $scope.editable = true;

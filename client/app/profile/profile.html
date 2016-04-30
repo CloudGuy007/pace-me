@@ -38,18 +38,18 @@
         <h4>Running</h4>
         <hr>
         <p>Training for a {{runner.runEvent}}</p>
-        <p>Avg Mile Time: {{runner.milePace}}</p>
+        <p>Avg Mile Time: {{runner.milePace | minutes2Seconds | date:'mm:ss'}}</p>
         <p>Weekly Miles: {{runner.wklyMileage}}</p>
         <p ng-if='runner.longestDistRun'>Longest Distance Run: {{runner.longestDistRun}}</p>
-        <p ng-if='runner.onemiPR'>Fastest Mile: {{runner.onemiPR}}</p>
-        <p ng-if='runner.fivekPR'>Fastest 5k: {{runner.fivekPR}}</p>
-        <p ng-if='runner.tenkPR'>Fastest 10k: {{runner.tenkPR}}</p>
-        <p ng-if='runner.halfPR'>Fastest half marathon: {{runner.halfPR}}</p>
-        <p ng-if='runner.marathonPR'>Fastest marathon: {{runner.marathonPR}}</p>
-        <p ng-if='runner.sixtyM'>60 Meter PR: {{runner.sixtyM}}</p>
-        <p ng-if='runner.oneHundM'>100 Meter PR: {{runner.oneHundM}}</p>
-        <p ng-if='runner.twoHundM'>200 Meter PR: {{runner.twoHundM}}</p>
-        <p ng-if='runner.fourHundM'>400 Meter PR: {{runner.fourHundM}}</p>
+        <p ng-if='runner.onemiPR'>Fastest Mile: {{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.fivekPR'>Fastest 5k: {{runner.fivekPR | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.tenkPR'>Fastest 10k: {{runner.tenkPR | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.halfPR'>Fastest half marathon: {{runner.halfPR | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.marathonPR'>Fastest marathon: {{runner.marathonPR | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.sixtyM'>60 Meter PR: {{runner.sixtyM | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.oneHundM'>100 Meter PR: {{runner.oneHundM | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.twoHundM'>200 Meter PR: {{runner.twoHundM | minutes2Seconds | date:'mm:ss'}}</p>
+        <p ng-if='runner.fourHundM'>400 Meter PR: {{runner.fourHundM | minutes2Seconds | date:'mm:ss'}}</p>
       </div>
     </div>
   </div>

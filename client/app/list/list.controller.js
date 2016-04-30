@@ -2,6 +2,7 @@
 var app = angular.module('paceMeApp');
 
 app.controller('listCtrl', function($scope, $state, ListService) {
+
   console.log("current state", $state.current.name);
   console.log("scope user", $scope.user);
 
@@ -11,9 +12,20 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   let id = $scope.user.href.split('/');
   id = id[id.length - 1];
 
-  console.log("$scope.user", $scope.user);
+
+  $scope.sortMilePace = function(runner){
+    return Math.abs(runner.milePace - $scope.loggedInUser.milePace);
+  }
 
   if ($scope.loggedIn) {
+    var hsplits = $scope.user.href.split('/');
+    var id = hsplits[hsplits.length - 1];
+    ListService.getUserStats(id)
+    .then(function(stats){
+      $scope.loggedInUser = stats.data;
+    }, function(err){
+      console.log(err);
+    });
     ListService.getMatches(id, 10)
       .then(function(res) {
         console.log("res.data", res.data);
@@ -21,8 +33,9 @@ app.controller('listCtrl', function($scope, $state, ListService) {
       }, function(err) {
         console.log("err", err);
       });
-  }
+    }
 
+<<<<<<< HEAD
   $scope.getGuestMatches = function(zip) {
     if (zip.length === 5) {
       ListService.getMatchesGuest(zip)
@@ -30,6 +43,30 @@ app.controller('listCtrl', function($scope, $state, ListService) {
           console.log("guest data", res.data);
           $scope.runners = res.data;
         })
+=======
+    $scope.getGuestMatches = function(zip){
+      if (zip.length === 5) {
+        ListService.getMatchesGuest(zip)
+        .then(function(res){
+          var jumbo = document.querySelector('div.jumbotron');
+          jumbo.classList.remove('fullview');
+          jumbo.classList.add('slide-up');
+
+          console.log("guest data", res.data);
+          $scope.runners = res.data;
+        })
+      }
+    }
+
+    $scope.newRadius = function(radius){
+      ListService.getMatches(id, radius)
+        .then(function(res) {
+          console.log("res.data", res.data);
+          $scope.runners = res.data;
+        }, function(err) {
+          console.log("err", err);
+        });
+>>>>>>> b5dac1c3d648097e8df9d8b883d8da2a4cbafd73
     }
   }
 
@@ -46,7 +83,7 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   $scope.viewProfile = function(user) {
     console.log("user", user);
     $state.go('profile', {
-      'email': user.email
+      'id': user._id
     })
   }
   console.log("listCtrl");
