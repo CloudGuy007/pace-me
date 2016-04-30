@@ -9,8 +9,6 @@ console.log("$scope.user", $scope.user);
       $scope.runner = res.data;
       var id = $scope.user.href.split('/');
       id = id[id.length-1];
-      console.log("$scope.runner", $scope.runner);
-      console.log("res data", res.data);
         if (id != $scope.runner._id){
           $scope.editable = false;
         } else {
@@ -70,45 +68,3 @@ console.log("$scope.user", $scope.user);
     $scope.runner = runner;
   }
 }); //end profileCtrl
-
-app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileService) {
-  $scope.ok = function() {
-    //send message
-    ProfileService.notifyUser($scope.message)
-    $uibModalInstance.close();
-  };
-
-  $scope.cancel = function() {
-    $uibModalInstance.dismiss('cancel');
-  };
-
-  $scope.saveBasics = function(runner){
-    ProfileService.saveProfile(runner)
-    .then(function(res){
-    }, function(err){
-      console.error("edit profile error:", err);
-    });
-
-    $uibModalInstance.close();
-  }
-
-  $scope.saveBio = function(runner){
-    ProfileService.saveProfile(runner)
-    .then(function(res){
-    }, function(err){
-      console.error("edit profile error:", err);
-    });
-
-    $uibModalInstance.close();
-  }
-
-  $scope.saveRun = function(runner){
-    ProfileService.saveProfile(runner)
-    .then(function(res){
-    }, function(err){
-      console.error("edit profile error:", err);
-    });
-
-    $uibModalInstance.close();
-  }
-});
