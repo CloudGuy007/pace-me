@@ -4,7 +4,7 @@ $limeGreen: #58CE87;
 /*parallax*/
 
 #parallax {
-  height: 800px;
+  height: 100vh;
   overflow: hidden;
   position: relative;
 }
@@ -13,7 +13,7 @@ $limeGreen: #58CE87;
   background-size: 100%;
   background-repeat: no-repeat;
   width: 100%;
-  height: 800px;
+  height: 100vh;
   position: fixed;
   z-index: -1;
 }
@@ -22,16 +22,24 @@ $limeGreen: #58CE87;
   background-image: url('../img/home/layers/logo.png');
   background-size:40%;
   margin-top:-25%;
-
 }
 .parallax-layer-1 {
   background-image: url("../img/home/layers/layer1.png");
 }
 .parallax-layer-2 {
   background-image: url("../img/home/layers/layer2.png");
+  margin-top:-1%;
+}
+.parallax-layer-running-man {
+  background-image: url("../img/home/layers/running-man.png");
+  background-size:8%;
+  margin-top:-10%;
+}
+.parallax-layer-overlay {
+  background-image: url("../img/home/layers/overlay.png");
 }
 .parallax-layer-bg {
-background-color: $navy1;
+background-color: #333;
 }
 
 #parallax-mobile {
@@ -43,8 +51,14 @@ background-color: $navy1;
 /*home welcome*/
 
 #welcome {
+  position:relative;
   height:500px;
   background-color: #fff;
+  margin-top:-1px;
+}
+#welcome img {
+  position:absolute;
+  top:0;
 }
 .jumbotron {
   margin-bottom:0;
