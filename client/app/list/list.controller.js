@@ -9,10 +9,6 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
   console.log("loggedIn", $scope.loggedIn);
 
-  let id = $scope.user.href.split('/');
-  id = id[id.length - 1];
-
-
   $scope.sortMilePace = function(runner){
     return Math.abs(runner.milePace - $scope.loggedInUser.milePace);
   }
@@ -57,7 +53,7 @@ app.controller('listCtrl', function($scope, $state, ListService) {
         }, function(err) {
           console.log("err", err);
         });
-    
+
   }
 
   $scope.newRadius = function(radius) {
