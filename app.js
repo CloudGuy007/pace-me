@@ -20,10 +20,24 @@ app.use(stormpath.init(app, {
   },
   application: {
     href: process.env.STORMPATH_APPLICATION_HREF
+  },
+  web: {
+    register: {
+      form: {
+        fields: {
+          givenName: {
+            enabled: false
+          },
+          surname: {
+            enabled: false
+          }
+        }
+      }
+    }
   }
 }));
 
-app.on('stormpath.ready', function () {
+app.on('stormpath.ready', function() {
   console.log('stormpath ready!');
 });
 
@@ -34,8 +48,13 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({ extended: false , limit: '50mb'}));
+app.use(bodyParser.json({
+  limit: '50mb'
+}));
+app.use(bodyParser.urlencoded({
+  extended: false,
+  limit: '50mb'
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -1,65 +1,40 @@
-<div class="row reg-template">
-  <div class="col-xs-12">
-    Your Profile
-  </div>
-</div>
 
+<div class="container">
+
+  <h1>Running Stats</h1>
 <div class="row">
-  <div class="col-xs-12">
-    <label>Gender</label>
-    <input placeholder='gender' ng-model='runner.gender'>
-
-    <label>Age</label>
-    <input placeholder='Age' type='number' ng-model='runner.age'>
-
-    <label>Zip</label>
-    <input placeholder='zip' type='number' ng-model='runner.zip'>
-  </div>
-</div>
-
-<hr>
-
-<div class="row">
-  <div class='col-xs-12'>
-    <form ng-app="fileUpload" name="photoform" ng-submit='submit(file)'>
-      <div class="row">
-        <div class="col-xs-6">
-          <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Select</div>
-        </div>
-        <div class="col-xs-6">
-          <button class="btn btn-danger">submit</button>
-
-        </div>
-      </div>
-      {{file}}
-    </form>
-
-    <!-- <div ngf-drop ng-model="files" class="drop-box">Drop</div>
-    		</div>
-
-    		Image thumbnail: <img ngf-thumbnail="file"> -->
-
-    <form>
-      <div class='row'>
-        <div class='input-group col-xs-12 col-sm-6'>
-          <label>Tell us about yourself!</label>
-          <textarea class="form-control" rows="5" ng-model='runner.about' placeholder='cool examples for about me section'></textarea>
-        </div>
-      </div>
-
-    </form>
-
+      <div class="col-xs-12">
+        <div class="col-xs-12">
+        <h3>Personal Records</h3>
+        <input class='form-control auth' ng-model='runner.longestDistRun' placeholder='longest distance run'>
+        <input class='form-control auth' ng-model="runner.onemiPR" type="text" placeholder='one mile'>
     </div>
-  </div>
+          <div class="col-xs-12 col-sm-6">
+        <h4>Sprint Distance</h4>
+        <input class='form-control auth' ng-model="runner.sixtyM" type="text" placeholder='60m'>
+        <input class='form-control auth' ng-model="runner.oneHundM" type="text" placeholder='100m'>
+        <input class='form-control auth' ng-model="runner.twoHundM" type="text" placeholder='200m'>
+        <input class='form-control auth' ng-model="runner.fourHundM" type="text" placeholder='400m'>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <h4>Long Distance</h4>
+        <input class='form-control auth' ng-model="runner.fivekPR" type="text" placeholder='5K'>
+        <input class='form-control auth' ng-model="runner.tenkPR" type="text" placeholder='10K'>
+        <input class='form-control auth' ng-model="runner.halfPR" type="text" placeholder='half marathon'>
+        <input class='form-control auth' ng-model="runner.marathonPR" type="text" placeholder='marathon'>
+      </div>
+
+      </div>
+    </div> <!--end row-->
 
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="col-xs-12 run-dropdown">
+    <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-6 run-dropdown">
         <div class="cs-select">
-          <select class="cs-select cs-skin-underline" ng-model="runner.milePace">
+          <select class="cs-select cs-skin-slide" ng-model="runner.milePace">
             <option value="" disabled selected>Average Mile Time</option>
-            <option value="1">5:00</option>
-            <option value="2">5:30</option>
+
+            <option value="2">5:30/ under</option>
             <option value="3">6:00</option>
             <option value="4">6:30</option>
             <option value="5">7:00</option>
@@ -72,16 +47,16 @@
             <option value="12">10:30</option>
             <option value="13">11:00</option>
             <option value="14">11:30</option>
-            <option value="15">12:00+</option>
+            <option value="14">12:00 + </option>
           </select>
         </div>
       </div>
       <!--end inner col-->
 
-      <br>
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-6">
+
         <div class="cs-select">
-          <select class="cs-select cs-skin-underline" ng-model="runner.wklyMileage">
+          <select class="cs-select cs-skin-slide" ng-model="runner.wklyMileage">
             <option value="" disabled selected>Weekly Mileage</option>
             <option value="1">0-5 mi</option>
             <option value="2">6-10 mi</option>
@@ -97,33 +72,18 @@
             <option value="12">80+ mi</option>
           </select>
         </div>
+        <button class='btn green register-finish' ui-sref='profile' ng-click='getUser()'>Finish sign up</button>
+
       </div>
       <!--end inner col-->
     </div>
     <!--end col-->
 
-    <div class="col-xs-12 col-sm-6">
-      <h3>Personal Records</h3>
-      <input class='form-control' ng-model='runner.longestDistRun' placeholder='longest distance run'>
-      <input class='form-control' ng-model="runner.onemiPR" type="text" placeholder='one mile'>
-      <h5>Sprint Distance</h5>
-      <input class='form-control' ng-model="runner.sixtyM" type="text" placeholder='60m'>
-      <input class='form-control' ng-model="runner.oneHundM" type="text" placeholder='100m'>
-      <input class='form-control' ng-model="runner.twoHundM" type="text" placeholder='200m'>
-      <input class='form-control' ng-model="runner.fourHundM" type="text" placeholder='400m'>
-      <h5>Long Distance</h5>
-      <input class='form-control' ng-model="runner.fivekPR" type="text" placeholder='5K'>
-      <input class='form-control' ng-model="runner.tenkPR" type="text" placeholder='10K'>
-      <input class='form-control' ng-model="runner.halfPR" type="text" placeholder='half marathon'>
-      <input class='form-control' ng-model="runner.marathonPR" type="text" placeholder='marathon'>
-
-    </div>
-
   </div>
   <!-- end row -->
+</div>
 
 
-  <button class='btn green' ui-sref='profile' ng-click='getUser()'>Finish sign up</button>
   <script>
     (function() {
       [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function(el) {
