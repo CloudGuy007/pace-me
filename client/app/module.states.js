@@ -68,6 +68,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 app.run(function($stormpath){
   $stormpath.uiRouter({
 		loginState: 'login',
-    defaultPostLoginState: 'profile'
+    defaultPostLoginState: 'list'
   });
 });

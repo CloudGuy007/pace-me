@@ -1,3 +1,5 @@
+$limeGreen: #58CE87;
+
 .run-dropdown {
   height:300px;
 }
@@ -7,6 +9,28 @@
 li {
   margin-bottom:0;
 }
-#register {
-  margin-top:100px;
+
+.drop-box{
+	border: 2px dotted black;
+}
+.register-views, .login-view {
+	height:100vh;
+}
+.reg-template {
+  margin-top:20%;
+}
+.reg-template h3, .reg-template h2 {
+  color:#fff;
+}
+input.auth {
+  width:100%;
+  text-align:center;
+  background-color: rgba(255,255,255,0);
+  border: 1px solid $limeGreen;
+  color:$limeGreen;
+  padding: 6px 12px;
+  border-radius:5px;
+}
+::-webkit-input-placeholder {
+ color: $limeGreen !important;
 }

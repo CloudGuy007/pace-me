@@ -25,10 +25,12 @@ $limeGreen: #58CE87;
 }
 .parallax-layer-1 {
   background-image: url("../img/home/layers/layer1.png");
+  z-index:2;
 }
 .parallax-layer-2 {
   background-image: url("../img/home/layers/layer2.png");
   margin-top:-1%;
+  z-index:0;
 }
 .parallax-layer-running-man {
   background-image: url("../img/home/layers/running-man.png");
@@ -37,9 +39,11 @@ $limeGreen: #58CE87;
 }
 .parallax-layer-overlay {
   background-image: url("../img/home/layers/overlay.png");
+  z-index:-1;
 }
 .parallax-layer-bg {
 background-color: #333;
+z-index:-2;
 }
 
 #parallax-mobile {
@@ -56,6 +60,9 @@ background-color: #333;
   background-color: #fff;
   margin-top:-1px;
 }
+#welcome h2 {
+  color:#000;
+}
 #welcome img {
   position:absolute;
   top:0;
@@ -64,8 +71,27 @@ background-color: #333;
   margin-bottom:0;
 }
 
+.home-btn {
+  position:absolute;
+  top:60%;
+  width:100%;
+  text-align:center;
+  z-index:3;
+}
+.home-btn button {
+  text-align:center;
+  font-size:1.5em;
+  padding: 30px 20px;
+  line-height:1px;
+}
+
 input {
   outline: 0 !important;
+  padding: 6px 12px;
+  height:40px;
+  border-radius:5px;
+  box-shadow:none;
+  margin: 7px;
 }
 input[type="number"] {
   width: 80px;

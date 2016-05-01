@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row reg-template">
   <div class="col-xs-12">
     Your Profile
   </div>
@@ -6,12 +6,14 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <input placeholder='gender' ng-model='runner.gender'>
     <label>Gender</label>
-    <input placeholder='Age' type='number' ng-model='runner.age'>
+    <input placeholder='gender' ng-model='runner.gender'>
+
     <label>Age</label>
+    <input placeholder='Age' type='number' ng-model='runner.age'>
+
+    <label>Zip</label>
     <input placeholder='zip' type='number' ng-model='runner.zip'>
-    <label>zip</label>
   </div>
 </div>
 
@@ -114,9 +116,6 @@
       <input class='form-control' ng-model="runner.tenkPR" type="text" placeholder='10K'>
       <input class='form-control' ng-model="runner.halfPR" type="text" placeholder='half marathon'>
       <input class='form-control' ng-model="runner.marathonPR" type="text" placeholder='marathon'>
-
-
-
 
     </div>
 

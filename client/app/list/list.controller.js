@@ -9,9 +9,9 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
   console.log("loggedIn", $scope.loggedIn);
 
-  $scope.sortMilePace = function(runner){
-    return Math.abs(runner.milePace - $scope.loggedInUser.milePace);
-  }
+  // $scope.sortMilePace = function(runner){
+  //   return Math.abs(runner.milePace - $scope.loggedInUser.milePace);
+  // }
 
   if ($scope.loggedIn) {
     var hsplits = $scope.user.href.split('/');

@@ -2,8 +2,7 @@
   <div class="container">
     <div class="row header text-center">
       <h2>
-        find a buddy
-        {{guest}}
+        search for runners nearby
       </h2>
 
       <div class="col-xs-12" ng-if="!loggedIn">
@@ -13,6 +12,7 @@
       </div>
 
       <div class="col-xs-12" ng-if="loggedIn">
+        <div class="cs-select">
         <select class="cs-select cs-skin-underline" ng-model="listView.radius" ng-change="newRadius(listView.radius)">
           <option value="" disabled selected>Radius</option>
           <option value="10">within 10 mi</option>
@@ -22,9 +22,8 @@
           <option value="40">within 40 mi</option>
           <option value="50">within 50 mi</option>
         </select>
-        <br>
-        <!-- <button class="btn green" ng-click="">submit</button> -->
-            Radius  {{listView.radius}}
+      </div>
+
       </div>
 
 
@@ -47,7 +46,7 @@
           <div>Mile Pace: {{runner.milePace}}</div>
 
         </div>
-        <div class="new-view" ui-sref="register">
+        <div class="new-view" ui-sref="register.initial">
           <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
         </div>
       </div>
@@ -83,3 +82,11 @@
   <!--end row-->
 </div>
 <!--end container-->
+
+<script>
+  (function() {
+    [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function(el) {
+      new SelectFx(el);
+    });
+  })();
+</script>

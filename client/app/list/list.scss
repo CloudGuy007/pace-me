@@ -10,7 +10,12 @@ $limeGreen: #58CE87;
 .jumbotron.fullview {
   h2 {
     margin-top: 25%;
+    font-weight:100;
   }
+}
+.jumbotron h2 {
+
+  color:#fff;
 }
 .jumbotron.slide-up {
     -webkit-transition: height .2s ease-in-out;
@@ -19,7 +24,7 @@ $limeGreen: #58CE87;
 }
 
 #listInput {
-  width: 380px;
+  width: 450px;
   outline: 0;
   color: $limeGreen;
   background-color: rgba(0,0,0,0);

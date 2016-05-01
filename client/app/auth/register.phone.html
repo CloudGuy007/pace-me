@@ -1,10 +1,15 @@
 <h1>Phone</h1>
-<div>
-	<form>
-	<input ng-hide='enterPin' type='text' ng-model='runner.phone' placeholder='Phone Number'>
-	<input ng-show='enterPin' type='text' ng-model='verifyCode' placeholder="Enter the 4 digit code we texted you">
-	<button ng-hide='enterPin' ng-click='sendText(runner.phone)' class='btn green'>Send Verification Text</button>
-	<button ng-show='enterPin' ng-click='verifyPhone(verifyCode)' class='btn green'>Verify Phone</button>
-</form>
-<div ng-show='wrongPin'><h3>Wrong code</h3></div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+			<form>
+				<input ng-hide='enterPin' class="auth" type='text' ng-model='runner.phone' placeholder='Phone Number'>
+				<input ng-show='enterPin' class="auth" type='text' ng-model='verifyCode' placeholder="Enter the 4 digit code we texted you">
+				<button ng-hide='enterPin' ng-click='sendText(runner.phone)' class='btn green auth'>Send Verification Text</button>
+				<button ng-show='enterPin' ng-click='verifyPhone(verifyCode)' class='btn green auth'>Verify Phone</button>
+			</form>
+			<div ng-show='wrongPin'>
+				<h3>Wrong code</h3></div>
+		</div>
+	</div>
 </div>
