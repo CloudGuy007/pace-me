@@ -29,10 +29,12 @@ $limeGreen: #58CE87;
   color: $limeGreen;
 }
 .card {
+  background-color: $limeGreen;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   border-radius: 5px;
   margin: 15px 0;
   padding: 30px;
+  height: 400px;
 }
 .blur {
   -webkit-filter: blur(6px);
