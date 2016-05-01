@@ -1,14 +1,14 @@
 $navy1:#304A69;
-
-.navbar {
-  transition-duration:0.5s;
--webkit-transition-duration:0.5s;
--moz-transition-duration:0.5s;
-transition:0.5s;
+$limeGreen: #58CE87;
+nav {
+  transition-duration:1s;
+-webkit-transition-duration:1s;
+-moz-transition-duration:1s;
+transition:1s;
 }
 .navbar-default {
-  background-color: $navy1;
-  // background-color: rgba(0,0,0,0);
+  // background-color: $navy1;
+  background-color: rgba(0,0,0,0);
   border:0;
 }
 .navbar-default .navbar-nav>li>a{
@@ -25,8 +25,49 @@ nav.sticky {
 nav.sticky .navbar-nav li a {
   color:#fff;
 }
-
 nav.profile-nav {
   background-color: $navy1;
   box-shadow:2px 0 #222;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  background-color: rgba(0,0,0,0);
+  color:#fff;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  color:$limeGreen;
+}
+.dropdown-menu {
+  background-color: rgba(0,0,0,0);
+  border: none;
+  box-shadow: none;
+}
+.dropdown-menu>li {
+  width:100%;
+  // border-bottom:1px dotted #ccc;
+}
+.dropdown-menu>li:first-child {
+  // border-top:1px dotted #ccc;
+
+}
+.dropdown-menu>li:hover  {
+  background-color: rgba(0,0,0,0);
+}
+.dropdown-menu > li > a {
+  color:#fff;
+  text-align:right;
+  padding: 10px 15px;
+  background: url('../img/home/layers/arrow.png') no-repeat 25% 50%;
+  background-size:10%;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+  background-color:rgba(0,0,0,0);
+  color:#18B3B7;
+  background: url('../img/home/layers/arrow2.png') no-repeat 25% 50%;
+}
+.navbar-brand {
+  -webkit-transition: 5s;
+  transition: 5s;
+}
+.logoshort {
+  display:none;
 }
