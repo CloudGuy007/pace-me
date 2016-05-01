@@ -37,6 +37,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			url: '/user-info',
 			templateUrl: '/html/register.person.html'
 		})
+		.state('register.bio', {
+			url:'/bio',
+			templateUrl: '/html/register.bio.html'
+		})
 		.state('register.run', {
 			url: '/your-running-info',
 			templateUrl: '/html/register.run.html'

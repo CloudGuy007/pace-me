@@ -28,6 +28,10 @@ h1, h3, h2, h4, h5 {
 h1 {
   margin-top:100px;
 }
+input[type="number"] {
+  width:100%;
+  font-size:auto;
+}
 input.auth {
   width:100%;
   text-align:center;
@@ -48,15 +52,17 @@ input.auth {
 .register-finish {
   float:right;
 }
+hr {
+  color:#ccc;
+}
 div.cs-select {
   background: rgba(0,0,0,0);
   width:100%;
   text-align:center;
-  padding:5%;
   max-width:none;
 }
-.cs-skin-underline .cs-options {
-  background-color:#222;
+.cs-skin-slide {
+  padding: 5%;
 }
 .cs-skin-slide.cs-active::before {
   -webkit-transform: scale3d(1,6,1);
