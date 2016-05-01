@@ -35,15 +35,6 @@ app.controller('listCtrl', function($scope, $state, ListService) {
       });
     }
 
-<<<<<<< HEAD
-  $scope.getGuestMatches = function(zip) {
-    if (zip.length === 5) {
-      ListService.getMatchesGuest(zip)
-        .then(function(res) {
-          console.log("guest data", res.data);
-          $scope.runners = res.data;
-        })
-=======
     $scope.getGuestMatches = function(zip){
       if (zip.length === 5) {
         ListService.getMatchesGuest(zip)
@@ -66,8 +57,7 @@ app.controller('listCtrl', function($scope, $state, ListService) {
         }, function(err) {
           console.log("err", err);
         });
->>>>>>> b5dac1c3d648097e8df9d8b883d8da2a4cbafd73
-    }
+    
   }
 
   $scope.newRadius = function(radius) {
