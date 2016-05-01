@@ -7,4 +7,5 @@ var app = angular.module('paceMeApp',
   'stormpath',
   'stormpath.templates',
   'ngFileUpload',
-  'angularFileUpload'])
+  'angularFileUpload',
+  'ngAnimate'])

@@ -103,6 +103,39 @@ button {
   color: $white;
 }
 
+[ui-view] {
+  min-height:100vh;
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position: absolute;
+  -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+}
+
+[ui-view].ng-enter {
+  left:-100%;
+  opacity: 1;
+}
+
+[ui-view].ng-enter-active {
+  left:0;
+  opacity: 0;
+}
+
+[ui-view].ng-leave {
+  left:0;
+  opacity: 1;
+}
+
+[ui-view].ng-leave-active {
+  left:100%;
+  opacity: 0;
+}
+
+
 @media only screen and (max-width: 768px) {
   #parallax {
     display: none;
