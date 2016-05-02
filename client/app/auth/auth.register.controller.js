@@ -23,7 +23,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
       .then(function(res) {
         if (res.data.status === "16") return $scope.wrongPin = true;
         if (res.data.status !== "0") return console.log(res)
-        $state.go('register.run')
+        $state.go('register.bio')
       }, function(err) {
         console.log('err', err);
       })
@@ -34,7 +34,6 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
       $scope.upload(file);
     }
   };
-
 
   $scope.upload = function(file) {
     Upload.upload({
@@ -51,11 +50,13 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
     });
   };
 
+  $scope.goToRunStats = function(runner){
+    $state.go('register.run');
+  }
+
   $scope.getUser = function() {
     $scope.runner.email = $scope.user.email;
-    $scope.runner.firstName = $scope.user.givenName;
-    $scope.runner.lastName = $scope.user.surname;
-
+    console.log("$scope.user", $scope.user);
     let id = $scope.user.href.split('/');
     $scope.runner._id = id[id.length - 1];
 

@@ -15,12 +15,12 @@ $limeGreen: #58CE87;
   width: 100%;
   height: 100vh;
   position: fixed;
-  z-index: -1;
+  z-index: 1;
 }
 
 .parallax-layer-logo {
   background-image: url('../img/home/layers/logo.png');
-  background-size:40%;
+  background-size:30%;
   margin-top:-25%;
 }
 .parallax-layer-1 {
@@ -30,7 +30,7 @@ $limeGreen: #58CE87;
 .parallax-layer-2 {
   background-image: url("../img/home/layers/layer2.png");
   margin-top:-1%;
-  z-index:0;
+  z-index:1;
 }
 .parallax-layer-running-man {
   background-image: url("../img/home/layers/running-man.png");
@@ -39,11 +39,11 @@ $limeGreen: #58CE87;
 }
 .parallax-layer-overlay {
   background-image: url("../img/home/layers/overlay.png");
-  z-index:-1;
+  z-index:1;
 }
 .parallax-layer-bg {
 background-color: #333;
-z-index:-2;
+z-index:1;
 }
 
 #parallax-mobile {
@@ -59,6 +59,7 @@ z-index:-2;
   height:500px;
   background-color: #fff;
   margin-top:-1px;
+  z-index:2;
 }
 #welcome h2 {
   color:#000;
@@ -91,13 +92,9 @@ input {
   height:40px;
   border-radius:5px;
   box-shadow:none;
-  margin: 7px;
+  margin: 7px auto;
 }
-input[type="number"] {
-  width: 80px;
-  vertical-align: middle;
-  font-size: 24px;
-}
+
 button {
   border: 1px solid $white !important;
   color: $white;

@@ -1,4 +1,10 @@
 $limeGreen: #58CE87;
+[ui-view]{
+  // background: url('../img/home/layers/bg1.png');
+  background-color:#fff;
+  background-size:100%;
+  background-attachment:fixed;
+}
 .jumbotron {
   -webkit-transition: height .2s ease-in-out;
  transition: all .2s ease-in-out;
@@ -34,12 +40,12 @@ $limeGreen: #58CE87;
   color: $limeGreen;
 }
 .card {
-  background-color: $limeGreen;
+  background-color: #333;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   border-radius: 5px;
   margin: 15px 0;
-  padding: 30px;
-  height: 400px;
+  padding: 15px;
+  height: 450px;
 }
 .blur {
   -webkit-filter: blur(6px);
@@ -49,13 +55,28 @@ $limeGreen: #58CE87;
   color: #000;
 }
 .new-view {
+  background: url('../img/home/layers/arrow3.png') no-repeat;
   position: absolute;
   bottom: 20px;
-  right: 20px;
+  right: 10px;
+  width:50px;
+  height:50px;
+}
+.new-view:hover{
+  background: url('../img/home/layers/arrow4.png') no-repeat;
+
 }
 .list-info {
   position: relative;
   height: 100%;
+}
+.fa {
+  color:#fff;
+}
+.runner {
+  color:#fff;
+  text-align:center;
+  margin-top:5px;
 }
 button {
   outline: none !important;
@@ -71,4 +92,15 @@ button.green:active {
   transform: translate(2px, 2px);
   box-shadow: none;
   color: #fff;
+}
+.cs-skin-underline .cs-options {
+  background-color: #222;
+  color:#fff;
+}
+.cs-skin-underline > span {
+  color:#fff;
+  border-bottom:1px dotted #ccc;
+}
+.cs-skin-underline ul span::before {
+  height:0;
 }

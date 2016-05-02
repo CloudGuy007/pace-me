@@ -1,5 +1,9 @@
 $limeGreen: #58CE87;
-
+$navy1: #304A69;
+$lightblue: #18B3B7;
+.register-views[ui-view] {
+  background-color:#222;
+}
 .run-dropdown {
   height:300px;
 }
@@ -19,13 +23,22 @@ li {
 .reg-template {
   margin-top:20%;
 }
-.reg-template h3, .reg-template h2 {
+h1, h3, h2, h4, h5 {
   color:#fff;
+}
+
+h1 {
+  margin-top:100px;
+}
+input[type="number"] {
+  width:100%;
+  font-size:auto;
 }
 input.auth {
   width:100%;
   text-align:center;
   background-color: rgba(255,255,255,0);
+  // background-color: $navy1;
   border: 1px solid $limeGreen;
   color:$limeGreen;
   padding: 6px 12px;
@@ -33,4 +46,57 @@ input.auth {
 }
 ::-webkit-input-placeholder {
  color: $limeGreen !important;
+}
+
+.run-dropdown {
+  height:auto;
+}
+.register-finish {
+  float:right;
+}
+hr {
+  color:#ccc;
+}
+div.cs-select {
+  background: rgba(0,0,0,0);
+  width:100%;
+  text-align:center;
+  max-width:none;
+}
+.cs-skin-slide {
+  padding: 5%;
+}
+.cs-skin-slide.cs-active::before {
+  -webkit-transform: scale3d(1,6,1);
+  transform: scale3d(1,6,1);
+}
+.cs-skin-slide .cs-options {
+	background: transparent;
+	height: auto;
+	top:70px;
+	left: 50%;
+  padding:0;
+	-webkit-transform: translate3d(-50%,-60%,0);
+	transform: translate3d(-50%,-60%,0);
+}
+.cs-select .cs-options {
+	position: absolute;
+	overflow: visible;
+}
+.cs-select span {
+  display:inline;
+}
+.cs-select li {
+  padding:5px;
+}
+.cs-skin-slide .cs-options li span:hover, .cs-skin-slide .cs-options li.cs-focus span, .cs-skin-slide .cs-options li.cs-selected span {
+  color:$limeGreen;
+}
+.cs-skin-slide > span::after, .cs-skin-slide.cs-active > span::after {
+  color:$limeGreen;
+}
+div.cs-skin-slide::before {
+  background-color:#222;
+  border:1px solid $limeGreen;
+  border-radius:5px;
 }
