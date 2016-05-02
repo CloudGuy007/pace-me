@@ -26,6 +26,8 @@ app.controller('listCtrl', function($scope, $state, ListService) {
       .then(function(res) {
         console.log("res.data", res.data);
         $scope.runners = res.data;
+        
+
       }, function(err) {
         console.log("err", err);
       });

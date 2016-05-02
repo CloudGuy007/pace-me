@@ -1,3 +1,4 @@
+<div class="bg-one">
 <div class="jumbotron" ng-class="{'fullview': !user}">
   <div class="container">
     <div class="row header text-center">
@@ -33,16 +34,16 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4" ng-repeat="runner in runners | orderBy: sortMilePace track by $index">
+    <div class="col-xs-12 col-sm-4 col-md-3" ng-repeat="runner in runners | orderBy: sortMilePace track by $index">
       <div class="card">
-      <div ng-if="!loggedIn">
+      <div ng-if="!loggedIn" class="runner">
         <div class="col-xs-12">
+          <h3>{{runner.firstName}}<h3>
           <img class="blur" ng-src="{{runner.photo}}" width="100%">
         </div>
         <div class="col-xs-12 list-info">
 
-          <div> {{runner.firstName}}</div>
-          <div>Distance Away: {{runner.dist}}</div>
+          <div>{{runner.dist}} miles away</div>
           <div>Mile Pace: {{runner.milePace}}</div>
 
         </div>
@@ -52,26 +53,30 @@
       </div>
       <!--end if !loggedIn-->
 
-      <div ng-if="loggedIn">
+      <div ng-if="loggedIn" class="runner">
         <div class="col-xs-12">
+          <h3 >{{runner.firstName}} {{runner.lastName}}</h3>
+
           <img ng-src="{{runner.photo}}" width="100%">
-          <br>
-          <div>
-            {{runner.gender}}
-          </div>
-          <div>
+          <br><br>
+          <h3>
+            <span class="fa fa-mars" aria-hidden="true" ng-show="runner.gender === 'male'"></span>
+            <span class="fa fa-venus" aria-hidden="true" ng-show="runner.gender === 'female'"></span>
+
+          </h3>
+          <h4>
             {{runner.age}}
-          </div>
+          </h4>
+          <hr>
+
         </div>
         <div class="col-xs-12">
-          <div>{{runner.firstName}} {{runner.lastName}}</div>
           <div>Distance: {{runner.dist}}</div>
           <div>Mile Pace: {{runner.milePace | minutes2Seconds | date:'mm:ss'}}</div>
           <div>Weekly Mileage: {{runner.wklyMileage}}</div>
           <div ng-if="runner.runEvent">training for {{runner.runEvent}}</div>
         </div>
-        <div class="new-view" ng-click="viewProfile(runner)">
-          <i class="fa fa-arrow-circle-right fa-3x black cursor" aria-hidden="true"></i>
+        <div class="new-view cursor" ng-click="viewProfile(runner)">
         </div>
       </div>
       <!--end if loggedIn-->
@@ -82,6 +87,7 @@
   <!--end row-->
 </div>
 <!--end container-->
+</div>
 
 <footer-view></footer-view>
 
