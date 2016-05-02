@@ -59,6 +59,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
           authenticate: true
         }
 		})
+		.state('admin', {
+			url: '/admin',
+			templateUrl: '/html/admin.html',
+			controller: 'adminCtrl'
+		})
 
 	$urlRouterProvider.otherwise('/');
 })
