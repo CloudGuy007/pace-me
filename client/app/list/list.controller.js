@@ -38,32 +38,24 @@ app.controller('listCtrl', function($scope, $state, ListService) {
           var jumbo = document.querySelector('div.jumbotron');
           jumbo.classList.remove('fullview');
           jumbo.classList.add('slide-up');
-
           console.log("guest data", res.data);
           $scope.runners = res.data;
         })
       }
     }
 
-    $scope.newRadius = function(radius){
-      ListService.getMatches(id, radius)
-        .then(function(res) {
-          console.log("res.data", res.data);
-          $scope.runners = res.data;
-        }, function(err) {
-          console.log("err", err);
-        });
+    $scope.items = [{name:'10', value: 10}, {name:'20', value:20}, {name:'30', value:30}];
+    $scope.newRadius = function(){
+      console.log("$scope.selectedRadius", $scope.selectedRadius);
 
-  }
-
-  $scope.newRadius = function(radius) {
-    ListService.getMatches(id, radius)
-      .then(function(res) {
-        console.log("res.data", res.data);
-        $scope.runners = res.data;
-      }, function(err) {
-        console.log("err", err);
-      });
+      // ListService.getMatches(id, radius)
+      //   .then(function(res) {
+      //     console.log("$scopelist view");
+      //     console.log("res.data", res.data);
+      //     $scope.runners = res.data;
+      //   }, function(err) {
+      //     console.log("err", err);
+      //   });
   }
 
   $scope.viewProfile = function(user) {
@@ -71,6 +63,10 @@ app.controller('listCtrl', function($scope, $state, ListService) {
     $state.go('profile', {
       'id': user._id
     })
+  }
+
+  $scope.getRadius = function(){
+    console.log("getting radius?");
   }
   console.log("listCtrl");
 });
