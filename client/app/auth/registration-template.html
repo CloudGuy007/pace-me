@@ -18,7 +18,6 @@
     <form class="form-horizontal" ng-hide="!viewModel || (created && !authenticating)" ng-submit="submit()">
       <div class="form-group" ng-repeat="field in viewModel.form.fields">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-
           <input class="form-control auth" name="{{field.name}}" id="sp-{{field.name}}" type="{{field.type}}" ng-model="formModel[field.name]" placeholder="{{field.placeholder}}" ng-disabled="creating" ng-required="field.required">
         </div>
       </div>

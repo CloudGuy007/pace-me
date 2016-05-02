@@ -93,3 +93,14 @@ button.green:active {
   box-shadow: none;
   color: #fff;
 }
+.cs-skin-underline .cs-options {
+  background-color: #222;
+  color:#fff;
+}
+.cs-skin-underline > span {
+  color:#fff;
+  border-bottom:1px dotted #ccc;
+}
+.cs-skin-underline ul span::before {
+  height:0;
+}

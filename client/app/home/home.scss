@@ -91,13 +91,9 @@ input {
   height:40px;
   border-radius:5px;
   box-shadow:none;
-  margin: 7px;
+  margin: 7px auto;
 }
-input[type="number"] {
-  width: 80px;
-  vertical-align: middle;
-  font-size: 24px;
-}
+
 button {
   border: 1px solid $white !important;
   color: $white;
