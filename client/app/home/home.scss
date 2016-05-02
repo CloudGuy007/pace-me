@@ -30,7 +30,7 @@ $limeGreen: #58CE87;
 .parallax-layer-2 {
   background-image: url("../img/home/layers/layer2.png");
   margin-top:-1%;
-  z-index:0;
+  z-index:1;
 }
 .parallax-layer-running-man {
   background-image: url("../img/home/layers/running-man.png");
@@ -59,6 +59,7 @@ z-index:1;
   height:500px;
   background-color: #fff;
   margin-top:-1px;
+  z-index:2;
 }
 #welcome h2 {
   color:#000;

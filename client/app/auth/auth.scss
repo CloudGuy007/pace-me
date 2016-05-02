@@ -1,7 +1,9 @@
 $limeGreen: #58CE87;
 $navy1: #304A69;
 $lightblue: #18B3B7;
-
+.register-views[ui-view] {
+  background-color:#222;
+}
 .run-dropdown {
   height:300px;
 }
