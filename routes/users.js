@@ -91,7 +91,6 @@ router.get('/matches/:id/:radius', function(req, res, next) {
             return;
           }
           result.shift();
-          console.log('RESULT', result);
           deferred.resolve(result);
           res.send(result);
         });
@@ -184,6 +183,11 @@ router.put('/:id',function(req, res, next){
   client.geoadd("UserLocs", req.body.longitude, req.body.latitude, `user:${req.params.id}`)
 	res.send('User Updated!');
 });
+
+router.delete('/delete/:id', function(req, res) {
+  console.log('id', req.params.id);
+  res.send(req.body)
+})
 
 
 
