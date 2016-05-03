@@ -64,7 +64,7 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   }
 
   $scope.viewProfile = function(user) {
-    console.log("user", user);
+    console.log("view Profile", user);
     $state.go('profile', {
       'id': user._id
     })

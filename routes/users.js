@@ -135,6 +135,7 @@ router.post('/new', function(req, res, next) {
     if (err) return res.send(err)
     var locObj = data.results[0].geometry.location; //locObj =  {lat: x, lng: y}
     client.hmset(`user:${req.body._id}`,
+      "_id", `${req.body._id}`,
       "firstName", `${req.body.firstName}`,
       "lastName", `${req.body.lastName}`,
       "email", `${req.body.email}`,
