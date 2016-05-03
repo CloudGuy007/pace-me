@@ -32,7 +32,9 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
       })
   }
 
-  $scope.submit = function(file) {
+  $scope.uploadPhoto = function(file) {
+    console.log("submit file", file);
+
     if (file) {
       $scope.upload(file);
     }

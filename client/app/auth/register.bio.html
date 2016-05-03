@@ -6,7 +6,6 @@
 
 <div class="row">
 
-<form>
   <div class="col-xs-6">
     <input class="form-control auth" placeholder="first name" ng-model="runner.firstName">
     <input class="form-control auth" placeholder="last name" ng-model="runner.lastName">
@@ -27,12 +26,17 @@
 <hr>
 
 <div class="row">
+
+  <h4>{{file}}</h4>
   <div class='col-xs-12'>
     <div class="col-xs-12 col-sm-4">
       <h3>Upload A Photo</h3>
-      <form ng-app="fileUpload" name="photoform" ng-submit='submit(file)'>
-        <button class="btn green" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="200" ngf-resize="{width: 200, height: 200}">
-          <h5>upload</h5></button>
+      <form ng-app="fileUpload" name="photoform" ng-submit='uploadPhoto(file)'>
+        <button class="btn green">save photo</button>
+      </form>
+      <button type="button" class="btn green" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="200" ngf-resize="{width: 200, height: 200}">
+        <h5>browse</h5>
+      </button>
         <br>
         <br>
         <img ngf-src="file" width="200" alt="">
@@ -46,13 +50,11 @@
         </div>
 
       <br><br>
-      <button class="btn green register-finish" ng-click="goToRunStats(runner)">submit</button>
+      <button type="button" class="btn green register-finish" ng-click="goToRunStats(runner)">submit</button>
 
-            </form>
 
     </div>
   </div>
-  </form>
 
   <button ui-sref="register.run">run</button>
 

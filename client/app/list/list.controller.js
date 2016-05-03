@@ -3,6 +3,8 @@ var app = angular.module('paceMeApp');
 
 app.controller('listCtrl', function($scope, $state, ListService) {
 
+  $scope.runners = [];
+
   console.log("current state", $state.current.name);
   console.log("scope user", $scope.user);
 
