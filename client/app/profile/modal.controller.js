@@ -10,8 +10,6 @@ app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileS
     id = id[id.length-1];
     $scope.message.phone = number;
     $scope.message.link = id;
-    console.log("$scope.message", $scope.message);
-    console.log("number", number);
     ProfileService.notifyUser(message)
     .then(function(res){
       console.log("text messages res", res);
