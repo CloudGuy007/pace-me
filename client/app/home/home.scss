@@ -8,6 +8,9 @@ $limeGreen: #58CE87;
   overflow: hidden;
   position: relative;
 }
+.parallax-bg {
+  background-color: #333;
+}
 .layer {
   background-position: bottom center;
   background-size: 100%;
@@ -17,20 +20,28 @@ $limeGreen: #58CE87;
   position: fixed;
   z-index: 1;
 }
-
+p {
+  font-family:'Helvetica','Arial', sans-serif;
+  font-size:16px;
+  line-height:20px;
+}
 .parallax-layer-logo {
   background-image: url('../img/home/layers/logo.png');
   background-size:30%;
   margin-top:-25%;
 }
+.parallax-layer-0 {
+  background-image: url("../img/home/layers/layer0.png");
+}
 .parallax-layer-1 {
   background-image: url("../img/home/layers/layer1.png");
-  z-index:2;
 }
 .parallax-layer-2 {
   background-image: url("../img/home/layers/layer2.png");
   margin-top:-1%;
-  z-index:1;
+}
+.parallax-layer-3 {
+  background-image: url("../img/home/layers/layer3.png");
 }
 .parallax-layer-running-man {
   background-image: url("../img/home/layers/running-man.png");
@@ -39,11 +50,11 @@ $limeGreen: #58CE87;
 }
 .parallax-layer-overlay {
   background-image: url("../img/home/layers/overlay.png");
-  z-index:1;
+
 }
 .parallax-layer-bg {
 background-color: #333;
-z-index:1;
+
 }
 
 #parallax-mobile {
@@ -54,7 +65,7 @@ z-index:1;
 
 /*home welcome*/
 
-#welcome {
+#welcome, #newSection{
   position:relative;
   height:500px;
   background-color: #fff;
@@ -65,8 +76,6 @@ z-index:1;
   color:#000;
 }
 #welcome img {
-  position:absolute;
-  top:0;
 }
 .jumbotron {
   margin-bottom:0;

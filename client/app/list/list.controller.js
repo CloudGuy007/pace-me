@@ -7,11 +7,11 @@ app.controller('listCtrl', function($scope, $state, ListService) {
 
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
 
-  $scope.sortMilePace = function(runner) {
-    return Math.abs(runner.milePace - $scope.loggedInUser.milePace);
-  }
 
   if ($scope.loggedIn) {
+    $scope.sortMilePace = function(runner) {
+      return Math.abs(runner.milePace - $scope.loggedInUser.milePace);
+    }
     console.log("$scope.user", $scope.user);
     var hsplits = $scope.user.href.split('/');
     var id = hsplits[hsplits.length - 1];
