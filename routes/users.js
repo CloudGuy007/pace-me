@@ -202,6 +202,8 @@ router.put('/:id',function(req, res, next){
 });
 
 router.delete('/delete/:id', function(req, res) {
+  client.zrem("UserLocs", `user:${req.params.id}`);
+  client.del(`user:${req.params.id}`);
   var accountHref = `https://api.stormpath.com/v1/accounts/${req.params.id}`;
   sclient.getAccount(accountHref, function(err, account) {
     if(err) return res.status(400).send(err);
