@@ -107,6 +107,7 @@ router.get('/matches/:id/:radius', function(req, res, next) {
             res.send(err);
             return;
           }
+          // Giving user also in array
           result.shift();
           deferred.resolve(result);
           res.send(result);
