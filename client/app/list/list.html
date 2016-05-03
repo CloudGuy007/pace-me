@@ -44,7 +44,7 @@
       <div ng-if="!loggedIn" class="runner">
         <div class="col-xs-12">
           <h3>{{runner.firstName}}<h3>
-          <img class="blur" ng-src="{{runner.photo}}" width="100%">
+          <div class="card-img"><img class="blur" ng-src="{{runner.photo}}" width="100%"></div>
         </div>
         <div class="col-xs-12 list-info">
 
@@ -71,7 +71,7 @@
 
           </h4>
           <br>
-          <img ng-src="{{runner.photo}}" width="100%">
+          <div class="card-img"><img ng-src="{{runner.photo}}" width="100%"></div>
           <br><br>
           <div class="col-xs-12">
             <div class="gray"><strong>Location:</strong> {{runner.dist | distance}}</div>
@@ -85,7 +85,7 @@
 
           </div>
         </div>
-      
+
       </div>
       <!--end if loggedIn-->
     </div>
