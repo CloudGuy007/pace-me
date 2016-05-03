@@ -8,6 +8,7 @@ app.controller('listCtrl', function($scope, $state, ListService, $uibModal, $log
 
   $scope.runners = [];
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
+  console.log('$scope.user looged: ', $scope.loggedInUser);
 
 
   if ($scope.loggedIn) {
@@ -27,8 +28,6 @@ app.controller('listCtrl', function($scope, $state, ListService, $uibModal, $log
       .then(function(res) {
         console.log("res.data", res.data);
         $scope.runners = res.data;
-
-
       }, function(err) {
         console.log("err", err);
       });

@@ -16,6 +16,8 @@
           <div class="">
             <!-- <select class="" ng-options="item.value as item.name for item in items" ng-model="selectedRadius" ng-change="newRadius()">
         </select> -->
+        
+        <h2>You are looking for runners near ZIP : {{loggedInUser.zipCode}}</h2>
 
         <select class="" ng-model="selectedRadius" ng-change="newRadius(selectedRadius)">
           <option value="10" selected>within 10 miles</option>
