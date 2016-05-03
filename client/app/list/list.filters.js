@@ -19,7 +19,7 @@ app.filter('paceDiff', function() {
 		var min = Math.floor(absTime / 60);
 		var seconds = absTime - min * 60;
 
-		if(seconds < 10) {
+		if(seconds < 10) {mast
 			var diff = min + ':0' + seconds
 		} else {
 			var diff = min + ':' + seconds;

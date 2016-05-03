@@ -13,7 +13,7 @@
           <i class="fa fa-mars profile" ng-if="runner.gender === 'male'"></i>
           <i class="fa fa-venus" ng-if="runner.gender === 'female'"></i></h3>
         </div>
-        <button class='btn green' ng-click="open()">Send a message</button>
+        <button class='btn green' ng-click="open(runner)">Send a message</button>
     </div>
 
     <div class="col-xs-12 col-sm-9">
@@ -71,10 +71,10 @@
   </div>
   <div class="modal-body">
     <label for="comment">Text</label>
-    <textarea class="form-control" rows="5" placeholder='Hey I saw your profile, want to run tomorrow?'></textarea>
+    <textarea class="form-control" rows="5" ng-model="message.message" maxlength="140" placeholder='Hey I saw your profile, want to run tomorrow?'></textarea>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-primary" type="button" ng-click="sendMessage(message)">OK</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
   </div>
 </script>
@@ -98,6 +98,8 @@
 
     <label>Gender: </label>
     <input type="text" ng-model="runner.gender" placeholder="weekly mileage">
+
+
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="saveBasics(runner)">OK</button>
@@ -115,6 +117,9 @@
   <div class="modal-body">
     <label for="comment">Bio</label>
     <textarea class="form-control" rows="5" ng-model="runner.about" placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora odio praesentium quidem illo magni alias suscipit adipisci blanditiis amet magnam molestiae earum expedita quasi quia ex, debitis est similique. Harum aliquam quidem maiores rem at, amet soluta nobis voluptatibus nisi consequatur, porro dolore omnis cupiditate architecto! Cum, non, mollitia?'></textarea>
+
+        <label>Phone: </label>
+        <input type="text" ng-model="runner.phone" placeholder="phone">
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="saveBio(runner)">Save</button>
