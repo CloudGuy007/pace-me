@@ -64,7 +64,7 @@
   <div class="row">
 
     <div class="col-xs-12 col-sm-4 col-md-3 animate-repeat"
-        ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortMilePace as filtered track by $index">
+        ng-repeat="runner in runners track by $index">
       <div class="card card-list cursor list"  ng-click="open()">
       <div ng-if="!loggedIn" class="runner">
         <div class="col-xs-12">
