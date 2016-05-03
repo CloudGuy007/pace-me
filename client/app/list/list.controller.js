@@ -2,9 +2,10 @@
 var app = angular.module('paceMeApp');
 
 app.controller('listCtrl', function($scope, $state, ListService) {
-
+  
+  $scope.selectedGender = 'both';
+  $scope.selectedAgeRange = 'all';
   $scope.runners = [];
-
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
 
 
@@ -69,4 +70,20 @@ app.controller('listCtrl', function($scope, $state, ListService) {
     console.log("getting radius?");
   }
   console.log("listCtrl");
+
+  $scope.newGender = function() {
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
 });
