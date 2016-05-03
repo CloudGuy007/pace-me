@@ -24,11 +24,6 @@ var apiKey = new stormpath.ApiKey(
 
 var sclient = new stormpath.Client({ apiKey: apiKey });
 
-
-
-
-
-
 client.on("error", function(err) {
   console.log("Error: ", err);
 });
@@ -49,37 +44,34 @@ router.get('/', function(req, res, next) {
 
 //matches for guests
 router.get("/guest/:zipCode", function(req, res, next) {
-  var deferred = Q.defer();
   geocoder.geocode(`${req.params.zipCode}`, function(err, data) {
-    var locObj = data.results[0].geometry.location; //locObj =  {lat: x, lng: y}
-    client.georadius("UserLocs", locObj.lng, locObj.lat, 10, "mi", "withdist", "ASC", function(err, users) {
-      var result = [];
-      if (err) {
-        deferred.reject(err);
-      } else {
-        if (users.length === 0) {
-          deferred.resolve([]);
+    if(err || !data.results.length) {
+      res.send(err || []);
+    } else {
+      var locObj = data.results[0].geometry.location; //locObj =  {lat: x, lng: y}
+      client.georadius("UserLocs", locObj.lng, locObj.lat, 10, "mi", "withdist", "ASC", function(err2, users) {
+        if (err2 || !users.length) {
+          res.send(err2 || []);
         } else {
+          var result = [];
           async.forEach(users, function(user, callback) {
             client.hset(user[0], "dist", user[1]);
-            client.hgetall(user[0], function(err, reply) {
+            client.hgetall(user[0], function(err3, reply) {
               result.push(reply);
-              callback();
+              callback(err3);
             });
-          }, function(err) {
-            if (err) {
-              deferred.reject(err);
-              return;
+          }, function(err3) {
+            if (err3) {
+              res.send(err3);
             }
+            //georadius returns the original user as well, shift out of array
             result.shift();
             console.log('RESULT', result);
-            deferred.resolve(result);
             res.send(result);
           });
         }
-      }
-    })
-    return deferred.promise;
+      })
+    }
   })
 })
 
