@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('paceMeApp');
 
-app.controller('listCtrl', function($scope, $state, ListService) {
+app.controller('listCtrl', function($scope, $state, ListService, $uibModal, $log) {
 
   $scope.runners = [];
 
@@ -68,5 +68,40 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   $scope.getRadius = function() {
     console.log("getting radius?");
   }
-  console.log("listCtrl");
+
+
+
+
+
+    $scope.open = function (size) {
+      console.log('open');
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'listModalContent.html',
+        controller: 'listModalCtrl',
+        size: size,
+
+      });
+
+      modalInstance.result.then(function() {
+        // $scope.selected = selectedItem;
+      }, function() {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+}
+
+
+});
+
+
+app.controller('listModalCtrl', function ($scope, $uibModalInstance, $state) {
+  $scope.login = function () {
+    $state.go('login')
+    $uibModalInstance.close();
+  };
+
+  $scope.register = function () {
+    $state.go('register.initial')
+    $uibModalInstance.dismiss('cancel');
+  };
 });
