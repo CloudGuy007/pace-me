@@ -40,7 +40,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-3" ng-repeat="runner in runners | orderBy: sortMilePace track by $index">
-      <div class="card">
+      <div class="card cursor list"  ng-click="viewProfile(runner)">
       <div ng-if="!loggedIn" class="runner">
         <div class="col-xs-12">
           <h3>{{runner.firstName}}<h3>
@@ -74,19 +74,18 @@
           <img ng-src="{{runner.photo}}" width="100%">
           <br><br>
           <div class="col-xs-12">
-            <div><strong>Location:</strong> {{runner.dist | distance}}</div>
+            <div class="gray"><strong>Location:</strong> {{runner.dist | distance}}</div>
             <br>
-            <div><strong>Mile Pace:</strong> {{runner.milePace | minutes2Seconds | date:'mm:ss'}}
+            <div class="gray"><strong>Mile Pace:</strong> {{runner.milePace | minutes2Seconds | date:'mm:ss'}}
               <br>({{ runner.milePace | paceDiff:loggedInUser.milePace }})</div>
             <br>
-            <div ng-if="runner.runEvent !== 'undefined'"><strong>Weekly Mileage:</strong> {{runner.wklyMileage}}</div>
+            <div class="gray" ng-if="runner.runEvent !== 'undefined'"><strong>Weekly Mileage:</strong> {{runner.wklyMileage}}</div>
             <br>
-            <div ng-if="runner.runEvent !== 'undefined'"><strong>Training for:</strong> {{runner.runEvent}}</div>
+            <div class="gray" ng-if="runner.runEvent !== 'undefined'"><strong>Training for:</strong> {{runner.runEvent}}</div>
 
           </div>
         </div>
-        <div class="new-view cursor" ng-click="viewProfile(runner)">
-        </div>
+      
       </div>
       <!--end if loggedIn-->
     </div>
