@@ -25,7 +25,7 @@
           <option value="40">within 40 miles</option>
           <option value="50">within 50 miles</option>
         </select>
-        
+
         <!-- Message to show if 5 or LESS users apear -->
         <p ng-show="filtered.length <= 5 && selectedRadius != '50'">Try a larger radius!</p>
 
@@ -57,36 +57,23 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
+
 </div>
 
 <div class="container">
   <div class="row">
-  
-    <div class="col-xs-12 col-sm-4 col-md-3 animate-repeat" 
+
+    <div class="col-xs-12 col-sm-4 col-md-3 animate-repeat"
         ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortMilePace as filtered track by $index">
-      <div class="card card-list cursor list"  ng-click="viewProfile(runner)">
+      <div class="card card-list cursor list"  ng-click="open()">
       <div ng-if="!loggedIn" class="runner">
         <div class="col-xs-12">
           <h3>{{runner.firstName}}<h3>
           <div class="card-img"><img class="blur" ng-src="{{runner.photo}}" width="100%"></div>
         </div>
         <div class="col-xs-12 list-info">
-=======
->>>>>>> master
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-3" ng-repeat="runner in runners | orderBy: sortMilePace track by $index">
-        <div class="card card-list cursor list" ng-click='open()'>
-          <div ng-if="!loggedIn" class="runner">
-            <div class="col-xs-12">
-              <h3>{{runner.firstName}}<h3>
-              <div class="card-img">
-                <img class="blur" ng-src="{{runner.photo}}" width="100%">
-              </div>
-            </div>
-            <div class="col-xs-12 list-info">
+
               <div>{{runner.dist}} miles away</div>
               <div>Mile Pace: {{runner.milePace}}</div>
             </div>
