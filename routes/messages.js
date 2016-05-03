@@ -6,7 +6,6 @@ require('dotenv').config();
 
 nexmo.initialize(process.env.NEXMO_API_KEY, process.env.NEXMO_API_SECRET);
 
-
 router.post('/new', function(req, res) {
   console.log("req.body", req.body);
   var profile = ` & check out my PaceMe profile here: http://localhost:3000/#/profile/${req.body.link}`;
