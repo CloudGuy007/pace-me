@@ -7,7 +7,6 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
   $scope.runner = {};
 
   $scope.sendText = function(number) {
-    number = number.replace(/-|\s/g, '');
     console.log(number);
     if(number.length !== 10) {
       $scope.tenDigits = true;
