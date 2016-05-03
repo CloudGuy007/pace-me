@@ -33,13 +33,13 @@ angular
     $scope.getGuestMatches = function(zip) {
       if (zip.length === 5) {
         ListService.getMatchesGuest(zip)
-        .then(function(res) {
-          var jumbo = document.querySelector('div.jumbotron')
-          jumbo.classList.remove('fullview')
-          jumbo.classList.add('slide-up')
-          console.log("guest data", res.data)
-          $scope.runners = res.data
-        })
+          .then(function(res) {
+            var jumbo = document.querySelector('div.jumbotron')
+            jumbo.classList.remove('fullview')
+            jumbo.classList.add('slide-up')
+            console.log("guest data", res.data)
+            $scope.runners = res.data
+          })
       }
     }
 
