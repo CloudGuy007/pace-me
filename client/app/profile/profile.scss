@@ -25,6 +25,20 @@ $limeGreen: #58CE87;
     margin:0 auto;
     border:1px solid #333;
   }
+  .card-img {
+    position:relative;
+    border:3px solid #333;
+    border-radius:5px;
+    height:220px;
+    width:220px;
+  }
+  .card-img img {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+  }
 }
 .profile i {
   color:#333;
