@@ -27,7 +27,7 @@ app.filter('paceDiff', function() {
     if (time > 0){
       return '+ ' + diff;
     } else {
-      return diff;
+      return '-' + diff;
     }
 	}
 });
