@@ -48,9 +48,9 @@ router.get('/', function(req, res, next) {
 });
 
 //matches for guests
-router.get("/guest/:zipcode", function(req, res, next) {
+router.get("/guest/:zipCode", function(req, res, next) {
   var deferred = Q.defer();
-  geocoder.geocode(`${req.params.zipcode}`, function(err, data) {
+  geocoder.geocode(`${req.params.zipCode}`, function(err, data) {
     var locObj = data.results[0].geometry.location; //locObj =  {lat: x, lng: y}
     client.georadius("UserLocs", locObj.lng, locObj.lat, 10, "mi", "withdist", "ASC", function(err, users) {
       var result = [];
@@ -131,7 +131,7 @@ router.get('/:id', function(req, res, next) {
 
 //can be used to create or edit user
 router.post('/new', function(req, res, next) {
-  geocoder.geocode(`${req.params.zipcode}`, function(err, data) {
+  geocoder.geocode(`${req.body.zipCode}`, function(err, data) {
     if (err) return res.send(err)
     var locObj = data.results[0].geometry.location; //locObj =  {lat: x, lng: y}
     client.hmset(`user:${req.body._id}`,

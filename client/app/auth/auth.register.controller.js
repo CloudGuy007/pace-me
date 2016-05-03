@@ -64,11 +64,10 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
     $scope.runner._id = id[id.length - 1];
 
     console.log('$scope.runner', $scope.runner);
-
     AuthService.newUser($scope.runner)
       .then(function(res) {
+        console.log('auth service new user res', res);
         $state.go('list')
-        console.log('res', res);
       }, function(err) {
         console.log('err', err);
       })

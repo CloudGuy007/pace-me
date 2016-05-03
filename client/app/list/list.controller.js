@@ -14,19 +14,20 @@ app.controller('listCtrl', function($scope, $state, ListService) {
   // }
 
   if ($scope.loggedIn) {
+    console.log("$scope.user", $scope.user);
     var hsplits = $scope.user.href.split('/');
     var id = hsplits[hsplits.length - 1];
-    ListService.getUserStats(id)
-    .then(function(stats){
-      $scope.loggedInUser = stats.data;
-    }, function(err){
-      console.log(err);
-    });
+    // ListService.getUserStats(id)
+    // .then(function(stats){
+    //   $scope.loggedInUser = stats.data;
+    // }, function(err){
+    //   console.log(err);
+    // });
     ListService.getMatches(id, 10)
       .then(function(res) {
         console.log("res.data", res.data);
         $scope.runners = res.data;
-        
+
 
       }, function(err) {
         console.log("err", err);
