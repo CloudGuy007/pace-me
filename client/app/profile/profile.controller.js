@@ -4,6 +4,7 @@ var app = angular.module('paceMeApp');
 app.controller('profileCtrl', function($scope, $state, $uibModal, $log, ListService, ProfileService) {
 
 console.log("$scope.user", $scope.user);
+
   ProfileService.getProfile($state.params.id)
     .then(function(res) {
       $scope.runner = res.data;
@@ -11,6 +12,7 @@ console.log("$scope.user", $scope.user);
       id = id[id.length-1];
         if (id != $scope.runner._id){
           $scope.editable = false;
+          console.log("$scope.runner", $scope.runner);
         } else {
           $scope.editable = true;
         }
@@ -18,13 +20,14 @@ console.log("$scope.user", $scope.user);
       console.log("err", err);
     });
 
-  $scope.animationsEnabled = true;
-  $scope.open = function() {
+  $scope.open = function(runner) {
+
     var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
+      animation: true,
       templateUrl: 'sendMessage.html',
       controller: 'ModalInstanceCtrl',
-      size: 0
+      size: 0,
+      scope: $scope
     });
     modalInstance.result.then(function() {
       $log.info('Modal dismissed at: ' + new Date());

@@ -17,14 +17,35 @@
             <!-- <select class="" ng-options="item.value as item.name for item in items" ng-model="selectedRadius" ng-change="newRadius()">
         </select> -->
 
-            <select class="" ng-model="selectedRadius" ng-change="newRadius(selectedRadius)">
-              <option value="10" selected>within 10 miles</option>
-              <option value="15">within 15 miles</option>
-              <option value="20">within 20 miles</option>
-              <option value="30">within 30 miles</option>
-              <option value="40">within 40 miles</option>
-              <option value="50">within 50 miles</option>
-            </select>
+        <select class="" ng-model="selectedRadius" ng-change="newRadius(selectedRadius)">
+          <option value="10" selected>within 10 miles</option>
+          <option value="15">within 15 miles</option>
+          <option value="20">within 20 miles</option>
+          <option value="30">within 30 miles</option>
+          <option value="40">within 40 miles</option>
+          <option value="50">within 50 miles</option>
+        </select>
+        
+        <!-- Message to show if 5 or LESS users apear -->
+        <p ng-show="filtered.length <= 5 && selectedRadius != '50'">Try a larger radius!</p>
+
+        <select name="" ng-model="selectedGender">
+          <option value="both">Both</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+
+        <select name="" ng-model="selectedAgeRange">
+          <option value="all">All Ages</option>
+          <option value="18-25">18 - 25</option>
+          <option value="25-30">25 - 30</option>
+          <option value="30-35">30 - 35</option>
+          <option value="35-40">35 - 40</option>
+          <option value="40-45">40 - 45</option>
+          <option value="45-55">45 - 55</option>
+          <option value="50"> > 55</option>
+        </select>
+
 
 
             <h4>Displaying users within {{selectedRadius}} miles of {{runner.zipCode}}.</h4>
@@ -36,6 +57,23 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
+</div>
+
+<div class="container">
+  <div class="row">
+  
+    <div class="col-xs-12 col-sm-4 col-md-3 animate-repeat" 
+        ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortMilePace as filtered track by $index">
+      <div class="card card-list cursor list"  ng-click="viewProfile(runner)">
+      <div ng-if="!loggedIn" class="runner">
+        <div class="col-xs-12">
+          <h3>{{runner.firstName}}<h3>
+          <div class="card-img"><img class="blur" ng-src="{{runner.photo}}" width="100%"></div>
+        </div>
+        <div class="col-xs-12 list-info">
+=======
+>>>>>>> master
 
   <div class="container">
     <div class="row">
@@ -60,7 +98,7 @@
 
       <div ng-if="loggedIn" class="runner">
         <div class="col-xs-12">
-          <h3 >{{runner.firstName}} {{runner.lastName}}</h3>
+          <h3 >{{runner.firstName}} {{runner.lastName | limitTo:1}}.</h3>
 
               <h4>
             <span class="fa fa-mars" aria-hidden="true" ng-show="runner.gender === 'male'"></span>

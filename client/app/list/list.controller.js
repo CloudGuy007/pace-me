@@ -2,9 +2,11 @@
 var app = angular.module('paceMeApp');
 
 app.controller('listCtrl', function($scope, $state, ListService, $uibModal, $log) {
+  
+  $scope.selectedGender = 'both';
+  $scope.selectedAgeRange = 'all';
 
   $scope.runners = [];
-
   $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false;
 
 
@@ -68,6 +70,25 @@ app.controller('listCtrl', function($scope, $state, ListService, $uibModal, $log
   $scope.getRadius = function() {
     console.log("getting radius?");
   }
+<<<<<<< HEAD
+  console.log("listCtrl");
+
+  $scope.newGender = function() {
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+=======
 
 
 
@@ -104,4 +125,5 @@ app.controller('listModalCtrl', function ($scope, $uibModalInstance, $state) {
     $state.go('register.initial')
     $uibModalInstance.dismiss('cancel');
   };
+>>>>>>> master
 });
