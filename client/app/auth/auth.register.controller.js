@@ -7,10 +7,14 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
   $scope.runner = {};
 
   $scope.sendText = function(number) {
-    $scope.enteringCode = true;
+    number = number.replace(/-|\s/g, '');
+    console.log(number);
+    if(number.length !== 10) {
+      $scope.tenDigits = true;
+      return;
+    }
     AuthService.sendVerifyText(number)
       .then(function(status) {
-
         if (status !== "0") return
         $scope.enterPin = true;
       }, function(err) {

@@ -9,7 +9,11 @@
 				<button ng-show='enterPin' ng-click='verifyPhone(verifyCode)' class='btn green auth'>Verify Phone</button>
 			</form>
 			<div ng-show='wrongPin'>
-				<h3>Wrong code</h3></div>
+				<h3>Wrong code</h3>
+			</div>
+			<div ng-show='tenDigits'>
+				<h3>Please enter your ten digit phone number including the area code.</h3>
+			</div>
 		</div>
 	</div>
 </div>
