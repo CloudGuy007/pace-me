@@ -37,7 +37,7 @@ nav.profile-nav {
   color:$limeGreen;
 }
 .dropdown-menu {
-  background-color: rgba(0,0,0,0);
+  background-color: #333;
   border: none;
   box-shadow: none;
 }
@@ -56,13 +56,13 @@ nav.profile-nav {
   color:#fff;
   text-align:right;
   padding: 10px 15px;
-  background: url('../img/home/layers/arrow.png') no-repeat 25% 50%;
+  background: url('../img/home/layers/arrow.png') no-repeat 5% 50%;
   background-size:10%;
 }
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
   background-color:rgba(0,0,0,0);
   color:#18B3B7;
-  background: url('../img/home/layers/arrow2.png') no-repeat 25% 50%;
+  background: url('../img/home/layers/arrow2.png') no-repeat 5% 50%;
 }
 .navbar-brand {
   -webkit-transition: 5s;
