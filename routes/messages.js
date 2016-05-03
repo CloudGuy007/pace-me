@@ -8,13 +8,18 @@ nexmo.initialize(process.env.NEXMO_API_KEY, process.env.NEXMO_API_SECRET);
 
 
 router.post('/new', function(req, res) {
-  var message = req.body.userMsg;
-  var sender = '12182615141';
-  var to = '19896009285';
+  console.log("req.body", req.body);
+  var profile = ` & check out my PaceMe profile here: http://localhost:3000/#/profile/${req.body.link}`;
+  var message = req.body.message + profile + phoneNumber;
+  var sender = '16572087372';
+  var to = '1'+req.body.phone;
 
-  nexmo.sendTextMessage(sender, to, message, function(req, responseData) {
-    console.log(responseData);
-    res.send();
+  nexmo.sendTextMessage(sender, to, message, function(err, responseData) {
+    if (err){
+      return res.send("text message error", err);
+    }
+    console.log("responseData", responseData);
+    res.send(req.body);
   })
 })
 

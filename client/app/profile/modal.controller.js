@@ -3,9 +3,22 @@ var app = angular.module('paceMeApp');
 
 
 app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileService) {
-  $scope.ok = function() {
+  $scope.sendMessage = function(message) {
     //send message
-    ProfileService.notifyUser($scope.message)
+    var number = $scope.runner.phone.match(/\d/g).join('');
+    var id = $scope.user.href.split('/');
+    id = id[id.length-1];
+    $scope.message.phone = number;
+    $scope.message.link = id;
+    console.log("$scope.message", $scope.message);
+    console.log("number", number);
+    ProfileService.notifyUser(message)
+    .then(function(res){
+      console.log("text messages res", res);
+    }, function(err){
+      console.log("text msg error", err);
+
+    });
     $uibModalInstance.close();
   };
 
