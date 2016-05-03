@@ -6,7 +6,7 @@
 
 <div class="row">
 
-
+<form>
   <div class="col-xs-6">
     <input class="form-control auth" placeholder="first name" ng-model="runner.firstName">
     <input class="form-control auth" placeholder="last name" ng-model="runner.lastName">
@@ -21,7 +21,7 @@
     <input class="form-control auth" placeholder='age' type='number' ng-model='runner.age' min="13" max="100">
 
 
-    <input class="form-control auth" placeholder='zip' type='number' ng-model='runner.zip' maxlength="5">
+    <input class="form-control auth" placeholder='zip' type='number' ng-model='runner.zip' maxlength="5" required>
   </div>
 </div>
 <hr>
@@ -39,15 +39,16 @@
     </div>
 
     <div class="col-xs-8">
-      <form>
+
         <div class='row'>
             <h3>Tell us about yourself!</h3>
             <textarea class="form-control" rows="5" ng-model='runner.about' width="100%" placeholder='cool examples for about me section'></textarea>
         </div>
 
-      </form>
       <br><br>
       <button class="btn green register-finish" ng-click="goToRunStats(runner)">submit</button>
+
+            </form>
 
     </div>
   </div>

@@ -3,6 +3,21 @@
 </div>
 <div class='container profile'>
   <div class='profile-main row'>
+    <div class="col-xs-12 col-sm-4 photo">
+    <img ng-src='{{runner.photo}}'>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    <div class="col-xs-12">
+    <h2 class="profile">{{runner.firstName}} {{runner.lastName | limitTo:1}}.</h2>
+  </div>
+    <div class="col-xs-6 profile">
+      <h3>{{runner.age}} |
+
+      <i class="fa fa-mars profile" ng-show="runner.gender === 'male'"></i>
+      <i class="fa fa-venus" ng-show="runner.gender === 'female'"></i></h3>
+    </div>
+  </div>
+
     <div class='col-xs-12 card'>
       <div class="editUser cursor" ng-if="editable" ng-click="editBasics(runner)">
       <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -54,8 +69,10 @@
     </div>
   </div>
 </div>
+</div>
 
 <footer-view></footer-view>
+
 
 
 <!--TEXT MESSAGE MODAL-->

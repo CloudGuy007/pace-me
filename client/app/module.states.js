@@ -30,19 +30,19 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '/html/register.initial.html'
 			})
 		.state('register.phone', {
-			url: '/phone',
+			url: '',
 			templateUrl: '/html/register.phone.html'
 		})
 		.state('register.person', {
-			url: '/user-info',
+			url: '',
 			templateUrl: '/html/register.person.html'
 		})
 		.state('register.bio', {
-			url:'/bio',
+			url:'',
 			templateUrl: '/html/register.bio.html'
 		})
 		.state('register.run', {
-			url: '/your-running-info',
+			url: '',
 			templateUrl: '/html/register.run.html'
 		})
 
