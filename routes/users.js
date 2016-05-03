@@ -12,6 +12,23 @@ var client = redis.createClient("redis://localhost:6379", {
 });
 var geocoder = require('geocoder');
 
+
+var stormpath = require('stormpath');
+
+// In this example, we'll reference the API credentials from environment
+// variables (*NEVER HARDCODE API KEY VALUES IN SOURCE CODE!*).
+var apiKey = new stormpath.ApiKey(
+  process.env['STORMPATH_CLIENT_APIKEY_ID'],
+  process.env['STORMPATH_CLIENT_APIKEY_SECRET']
+);
+
+var sclient = new stormpath.Client({ apiKey: apiKey });
+
+
+
+
+
+
 client.on("error", function(err) {
   console.log("Error: ", err);
 });
@@ -185,10 +202,18 @@ router.put('/:id',function(req, res, next){
 });
 
 router.delete('/delete/:id', function(req, res) {
-  console.log('id', req.params.id);
-  res.send(req.body)
+  client.zrem("UserLocs", `user:${req.params.id}`);
+  client.del(`user:${req.params.id}`);
+  var accountHref = `https://api.stormpath.com/v1/accounts/${req.params.id}`;
+  sclient.getAccount(accountHref, function(err, account) {
+    if(err) return res.status(400).send(err);
+    account.delete(function(err) {
+      if(err) return res.status(400).send(err);
+      res.send('user delete');
+    });
+  });
 })
 
 
 
-    module.exports = router;
+module.exports = router;
