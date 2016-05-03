@@ -40,7 +40,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-3" ng-repeat="runner in runners | orderBy: sortMilePace track by $index">
-      <div class="card cursor list"  ng-click="viewProfile(runner)">
+      <div class="card card-list cursor list"  ng-click="viewProfile(runner)">
       <div ng-if="!loggedIn" class="runner">
         <div class="col-xs-12">
           <h3>{{runner.firstName}}<h3>
