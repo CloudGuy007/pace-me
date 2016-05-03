@@ -7,7 +7,6 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
   $scope.runner = {};
 
   $scope.sendText = function(number) {
-    console.log(number);
     if(number.length !== 10) {
       $scope.tenDigits = true;
       return;
@@ -20,7 +19,6 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
         console.log('err', err);
       })
   }
-
   $scope.verifyPhone = function(code) {
     AuthService.verifyNumber(code)
       .then(function(res) {
@@ -33,7 +31,6 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
   }
 
   $scope.uploadPhoto = function(file) {
-    console.log("submit file", file);
 
     if (file) {
       $scope.upload(file);
@@ -49,7 +46,6 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
     }).then(function(res) {
       console.log('Success ' + res.config.data.file.name + 'uploaded. Response: ' + res.data);
       $scope.runner.photo = res.data;
-      console.log('scope.runner', $scope.runner);
     }, function(err) {
       console.log('Error status: ' + err.status);
     });
@@ -61,12 +57,9 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 
   $scope.getUser = function() {
     $scope.runner.email = $scope.user.email;
-    console.log("$scope.user", $scope.user);
     let id = $scope.user.href.split('/');
     $scope.runner._id = id[id.length - 1];
 
-    console.log('$scope.runner', $scope.runner);
-    debugger;
     AuthService.newUser($scope.runner)
       .then(function(res) {
         console.log('auth service new user res', res);

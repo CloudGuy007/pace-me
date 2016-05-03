@@ -13,10 +13,18 @@
       </div>
 
       <div class="col-xs-12" ng-show="loggedIn">
-        <div class="cs-select">
-        <!-- <select class="cs-select cs-skin-slide" ng-options="item.value as item.name for item in items" ng-model="selectedRadius" ng-change="newRadius()">
+        <div class="">
+        <!-- <select class="" ng-options="item.value as item.name for item in items" ng-model="selectedRadius" ng-change="newRadius()">
+        </select> -->
+
+        <select class="" ng-model="selectedRadius" ng-change="newRadius(selectedRadius)">
+          <option value="10">within 10 miles</option>
+          <option value="15">within 15 miles</option>
+          <option value="20">within 20 miles</option>
+          <option value="30">within 30 miles</option>
+          <option value="40">within 40 miles</option>
+          <option value="50">within 50 miles</option>
         </select>
-        {{selectedRadius.value}} -->
 
       </div>
 
