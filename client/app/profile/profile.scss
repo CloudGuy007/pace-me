@@ -55,23 +55,6 @@ $limeGreen: #58CE87;
   border:1px solid #333;
 }
 
-button {
-  outline:none !important;
-  color:#fff;
-}
-button.green {
-  background-color: $limeGreen;
-  box-shadow: 2px 2px #499971;
-  border:none !important;
-
-  color:#fff;
-}
-button.green:active {
-  transform:translate(2px, 2px);
-  box-shadow:none;
-  color:#fff;
-}
-
 .card-info {
   min-height: 415px !important;
   height:auto !important;

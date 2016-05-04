@@ -1,6 +1,6 @@
 footer {
-  height:150px;
-  background: #404040;
+  height:50px;
+  background: #fff;
 }
 footer h4 {
   font-weight:bold;
@@ -9,13 +9,9 @@ footer h4 {
 footer .footer-content {
   max-width:960px;
   margin:0 auto;
-  color:#fff;
+  color:#404040;
   padding:2%;
 }
-#footer-logo {
-  margin-top:35px;
-}
-
 @media only screen and (max-width: 768px) {
   footer {
     text-align:center;

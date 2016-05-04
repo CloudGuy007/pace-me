@@ -1,65 +1,70 @@
-<div class="row">
-  <div class="col-xs-12">
-    <h1>Basic Information</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Basic Information</h1>
+    </div>
   </div>
-</div>
 
-<div class="row">
+  <div class="row">
 
-  <div class="col-xs-6">
-    <input class="form-control auth" placeholder="first name" ng-model="runner.firstName">
-    <input class="form-control auth" placeholder="last name" ng-model="runner.lastName">
+    <div class="col-xs-6">
+      <input class="form-control auth" placeholder="first name" ng-model="runner.firstName">
+      <input class="form-control auth" placeholder="last name" ng-model="runner.lastName">
+      <div class="col-xs-4">
+        <label class="radio-inline">
+        <input class="inline auth" placeholder='gender' type="radio" ng-model='runner.gender' value="male"><br>
+        Male
+      </label>
+      <label class="radio-inline">
+        <input class="inline auth" placeholder='gender' type="radio" ng-model='runner.gender' value="female"><br>
+        Female
+      </label>
+      </div>
+      <div class="col-xs-4">
+        <input class="form-control auth" placeholder='age' type='number' ng-model='runner.age' min="13" max="100">
+      </div>
+      <div class="col-xs-4">
+        <input class="form-control auth" placeholder='zip' type='number' ng-model='runner.zipCode' maxlength="5" required>
+      </div>
 
-  </div>
-  <div class="col-xs-6">
+    </div>
+    <div class="col-xs-3">
 
-
-    <input class="form-control auth" placeholder='gender' ng-model='runner.gender'>
-
-
-    <input class="form-control auth" placeholder='age' type='number' ng-model='runner.age' min="13" max="100">
-
-
-    <input class="form-control auth" placeholder='zip' type='number' ng-model='runner.zipCode' maxlength="5" required>
-  </div>
-</div>
-<hr>
-
-<div class="row">
-
-  <h4>{{file}}</h4>
-  <div class='col-xs-12'>
-    <div class="col-xs-12 col-sm-4">
       <h3>Upload A Photo</h3>
+
+
+      <br>
       <form ng-app="fileUpload" name="photoform" ng-submit='uploadPhoto(file)'>
+        <button type="button" class="btn green" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="200" ngf-resize="{width: 200, height: 200}">
+          browse
+        </button>
         <button class="btn green">save photo</button>
       </form>
-      <button type="button" class="btn green" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="200" ngf-resize="{width: 200, height: 200}">
-        <h5>browse</h5>
-      </button>
-        <br>
-        <br>
-        <img ngf-src="file" width="200" alt="">
+      <br>
+      <br>
     </div>
 
-    <div class="col-xs-8">
+    <div class="col-xs-3">
 
-        <div class='row'>
-            <h3>Tell us about yourself!</h3>
-            <textarea class="form-control" rows="5" ng-model='runner.about' width="100%" placeholder='cool examples for about me section'></textarea>
-        </div>
-
-      <br><br>
-      <button type="button" class="btn green register-finish" ng-click="goToRunStats(runner)">submit</button>
-
-
+      <img ngf-src="file" width="200" alt="">
     </div>
   </div>
+  <hr>
 
-  <button ui-sref="register.run">run</button>
+  <div class="row">
 
+    <div class='col-xs-8'>
 
+      <h3>Tell us about yourself!</h3>
+      <textarea class="form-control" rows="5" ng-model='runner.about' width="100%" placeholder='Example bio here.'></textarea>
 
+      <br>
+      <br>
+      <button type="button" class="btn green register-finish" ng-click="goToRunStats(runner)">submit</button>
 
-</div>
+    </div>
+
+    <button ui-sref="register.run">run</button>
+
+  </div>
 </div>

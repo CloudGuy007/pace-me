@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-xs-12" ng-show="loggedIn">
-          <select class="" ng-model="selectedRadius" ng-change="newRadius(selectedRadius)">
+          <select  ng-model="selectedRadius" ng-change="newRadius(selectedRadius)">
             <option value="10" selected>within 10 miles</option>
             <option value="15">within 15 miles</option>
             <option value="20">within 20 miles</option>
@@ -56,7 +56,7 @@
                 <img class="blur" ng-src="{{runner.photo}}" width="100%">
               </div>
             </div>
-            <div class="col-xs-12 list-info">
+            <div class="col-xs-12 ">
               <div>
                 <p class='card-p'><strong>Location:</strong>&nbsp;{{runner.dist | distance}}</p>
               </div>
@@ -69,12 +69,12 @@
       </div>
       <!--end if !loggedIn-->
 
-      <div ng-if="loggedIn" class="col-xs-12 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortMilePace as filtered track by $index">
+      <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortMilePace as filtered track by $index">
         <div class="card card-list cursor list" ng-click="viewProfile(runner)">
           <div class="runner">
             <div class="col-xs-12">
               <h3 >{{runner.firstName}} {{runner.lastName | limitTo:1}}.</h3>
-              <h4>
+              <h4 >
                 <span class="fa fa-mars" aria-hidden="true" ng-show="runner.gender === 'male'"></span>
                 <span class="fa fa-venus" aria-hidden="true" ng-show="runner.gender === 'female'"></span>
                 |&nbsp;{{runner.age}}
@@ -84,7 +84,7 @@
                 <img ng-src="{{runner.photo}}" width="100%">
               </div>
 
-              <div class="col-xs-12">
+              <div class="col-xs-12 ">
                 <div class="gray">
                   <p class='card-p'><strong>Location:</strong>&nbsp;{{runner.dist | distance}}</p>
                 </div>
@@ -122,8 +122,8 @@
 
 <script type="text/ng-template" id="listModalContent.html">
   <div class='list-modal'>
-    <h3 class="modal-title black">You need to login to view profile</h3>
-    <button class="btn btn-primary" type="button" ng-click="login()">Login</button>
+    <h3 class="modal-title black">Please log in or register to view profile.</h3>
+    <button class="btn btn-primary" type="button" ng-click="login()">Log In</button>
     <button class="btn btn-primary" type="button" ng-click="register()">Register</button>
   </div>
 </script>

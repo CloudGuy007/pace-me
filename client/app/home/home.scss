@@ -65,18 +65,59 @@ background-color: #333;
 
 /*home welcome*/
 
-#welcome, #newSection{
+#welcome{
   position:relative;
-  height:500px;
+  height:250px;
   background-color: #fff;
   margin-top:-1px;
   z-index:2;
+  h2 {
+    color:#333;
+    margin-top:50px;
+  }
 }
-#welcome h2 {
-  color:#000;
+
+#team {
+  position:relative;
+  background-color: #fff;
+  z-index:2;
+  #team-arrow {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+  }
+  .row {
+    // padding-top:150px
+  }
+
+  .fa {
+    font-size:1.3em;
+    color:#333;
+  }
+
+  h2 {
+    // margin-bottom:50px;
+  }
 }
-#welcome img {
+
+#tech {
+  position:relative;
+  background-color:#fff;
+  z-index:2;
+  #tech-arrow {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+  }
+  .row {
+    // padding-top:150px
+  }
 }
+
 .jumbotron {
   margin-bottom:0;
 }
@@ -109,37 +150,37 @@ button {
   color: $white;
 }
 
-[ui-view] {
-  min-height:100vh;
-}
-
-[ui-view].ng-enter, [ui-view].ng-leave {
-  position: absolute;
-  -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
-}
-
-[ui-view].ng-enter {
-  left:-100%;
-  opacity: 1;
-}
-
-[ui-view].ng-enter-active {
-  left:0;
-  opacity: 0;
-}
-
-[ui-view].ng-leave {
-  left:0;
-  opacity: 1;
-}
-
-[ui-view].ng-leave-active {
-  left:100%;
-  opacity: 0;
-}
+// [ui-view] {
+//   min-height:100vh;
+// }
+//
+// [ui-view].ng-enter, [ui-view].ng-leave {
+//   position: absolute;
+//   -webkit-transition: .5s ease-in-out;
+//     -moz-transition: .5s ease-in-out;
+//     -o-transition: .5s ease-in-out;
+//     transition: .5s ease-in-out;
+// }
+//
+// [ui-view].ng-enter {
+//   left:-100%;
+//   opacity: 1;
+// }
+//
+// [ui-view].ng-enter-active {
+//   left:0;
+//   opacity: 0;
+// }
+//
+// [ui-view].ng-leave {
+//   left:0;
+//   opacity: 1;
+// }
+//
+// [ui-view].ng-leave-active {
+//   left:100%;
+//   opacity: 0;
+// }
 
 
 @media only screen and (max-width: 768px) {
@@ -152,13 +193,6 @@ button {
   }
 }
 
-.app-header {
-  // text-align: center;
-  // padding: 50px;
-}
-
-
-
 .tech-header {
   padding: 20px 0;
 }
@@ -167,8 +201,7 @@ button {
 }
 
 .tech-img {
-  height: 40px;
-  width: auto;
+  width:100%;
 }
 
 .us-img {
