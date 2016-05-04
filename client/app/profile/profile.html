@@ -22,10 +22,10 @@
         <i class="fa fa-pencil" aria-hidden="true"></i>
       </div>
       <h4><img src="../img/home/layers/arrow4.png" width="7"> Bio</h4>
+
       <p>{{runner.about}}</p>
+
     </div>
-
-
 
     <div class="col-xs-12 col-sm-9">
 
@@ -97,15 +97,15 @@
   <div class="modal-body">
     <label>Name:</label>
     <input type="text" ng-model="runner.firstName">
-    <input type="text" ng-model="runner.lastName">
+    <input type="text" ng-model="runner.lastName"><br>
     <label>Email: </label>
-    <input type="text" ng-model="runner.email">
+    <input type="text" ng-model="runner.email"><br>
 
     <label>Age: </label>
-    <input type="text" ng-model="runner.age" placeholder="average mile pace">
+    <input type="text" ng-model="runner.age" placeholder="average mile pace"><br>
 
     <label>Gender: </label>
-    <input type="text" ng-model="runner.gender" placeholder="weekly mileage">
+    <input type="text" ng-model="runner.gender" placeholder="weekly mileage"><br>
 
 
   </div>
@@ -144,29 +144,29 @@
   </div>
   <div class="modal-body">
 
-    <label>training for: </label>
-    <input type="text" ng-model="runner.runEvent">
+    <label>training for: </label><br>
+    <input class="edit" type="text" ng-model="runner.runEvent"><br>
 
-    <label>average one-mile pace</label>
-    <input type="text" ng-model="runner.milePace" placeholder="average mile pace">
+    <label>average one-mile pace</label><br>
+    <input class="edit" type="text" ng-model="runner.milePace | minutes2Seconds | date:'mm:ss'" placeholder="average mile pace"><br>
 
-    <label>weekly mileage</label>
-    <input type="text" ng-model="runner.wklyMileage" placeholder="weekly mileage">
+    <label>weekly mileage</label><Br>
+    <input class="edit" type="text" ng-model="runner.wklyMileage" placeholder="weekly mileage"><br>
 
-    <label>1 Mile PR</label>
-    <input type="text" ng-model="runner.onemiPR" placeholder="fastest mile">
+    <label>1 Mile PR</label><br>
+    <input class="edit" type="text" ng-model="runner.onemiPR" placeholder="{{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}"><br>
 
-    <label>5K PR</label>
-    <input type="text" ng-model='runner.fivekPR' placeholder="5K PR">
+    <label>5K PR</label><br>
+    <input class="edit" type="text" ng-model="runner.fivekPR" placeholder="{{runner.fivekPR | minutes2Seconds | date:'mm:ss'}}"><br>
 
-    <label>10K PR</label>
-    <input type="text" ng-model='runner.tenkPR' placeholder="10K PR">
+    <label>10K PR</label><br>
+    <input class="edit" type="text" ng-model='runner.tenkPR | minutes2Seconds | date:"mm:ss"' placeholder="10K PR"><br>
 
-    <label>Half Marathon PR</label>
-    <input type="text" ng-model='runner.halfPR' placeholder="Half Marathon PR">
+    <label>Half Marathon PR</label><br>
+    <input class="edit" type="text" ng-model='runner.halfPR | minutes2Seconds | date:"mm:ss"' placeholder="Half Marathon PR"><br>
 
-    <label>Marathon PR</label>
-    <input type="text" ng-model='runner.marathonPR' placeholder="Marathon PR">
+    <label>Marathon PR</label><br>
+    <input class="edit" type="text" ng-model='runner.marathonPR | minutes2Seconds | date:"mm:ss"' placeholder="Marathon PR"><br>
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="saveRun(runner)">Save</button>

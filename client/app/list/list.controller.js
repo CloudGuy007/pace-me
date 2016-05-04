@@ -1,4 +1,4 @@
-(function() {
+
 'use strict'
 
 angular
@@ -82,5 +82,3 @@ angular
       $uibModalInstance.dismiss('cancel')
     }
   })
-
-})()

@@ -1,4 +1,7 @@
 'use strict';
+
+// const angular = require('angular');
+
 var app = angular.module('paceMeApp');
 
 app.controller('profileCtrl', function($scope, $state, $uibModal, $log, ListService, ProfileService) {
@@ -46,7 +49,6 @@ console.log("$scope.user", $scope.user);
       size: 0,
       scope: $scope
     });
-    $scope.runner = runner;
   }
 
   $scope.editBasics = function(runner){

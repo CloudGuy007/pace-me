@@ -17,6 +17,9 @@ $limeGreen: #58CE87;
 .profile {
   margin-top: 100px;
 }
+.edit {
+  border:1px solid #404040;
+}
 .profile {
   h2, h3 {
     color:$navy1;
@@ -80,8 +83,6 @@ button.green:active {
 }
 .run-stats {
   h3, h4 {
-
-      text-align:center;
   line-height:1.5;
   margin-bottom:15px;
 }
