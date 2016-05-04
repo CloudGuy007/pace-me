@@ -1,6 +1,5 @@
 $limeGreen: #58CE87;
 [ui-view] {
-  // background: url('../img/home/layers/bg1.png');
   background-color: #fff;
   background-size: 100%;
   background-attachment: fixed;
@@ -47,7 +46,6 @@ $limeGreen: #58CE87;
   transition: 0.5s;
 }
 .card-list:hover {
-  // border-color:#18B3B7;
   box-shadow: 0 0 10px #18B3B7;
   -moz-transform: scale(1.02);
   -webkit-transform: scale(1.02);
@@ -85,20 +83,6 @@ $limeGreen: #58CE87;
 .blur {
   -webkit-filter: blur(6px);
   filter:blur(6px);
-}
-.black {
-  color: #000;
-}
-.new-view {
-  background: url('../img/home/layers/arrow3.png') no-repeat;
-  position: absolute;
-  bottom: 20px;
-  right: 10px;
-  width: 50px;
-  height: 50px;
-}
-.new-view:hover {
-  background: url('../img/home/layers/arrow4.png') no-repeat;
 }
 .list-info {
   position: relative;
