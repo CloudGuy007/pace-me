@@ -99,8 +99,8 @@ exports.runnerProfile = function(req, res, next) {
 };
 
 
-//Create a new user
-exports.createUser =  function(req, res, next) {
+//Create or update user
+exports.createOrUpdateUser =  function(req, res, next) {
   geocoder.geocode(`${req.body.zipCode}`, function(err, data) {
     if(err || !data.results.length) {
       return res.status(400).send(err || []);
@@ -144,60 +144,6 @@ exports.createUser =  function(req, res, next) {
                 return res.status(400).send(err3);
               } else {
                 return res.send('User Created!');
-              }
-          })
-        }
-      })
-    }
-  })
-};
-
-
-//Update user, almost identical to create user
-//except the userId is in the params
-exports.updateUser = function(req, res, next){
-  geocoder.geocode(`${req.body.zipCode}`, function(err, data) {
-    if(err || !data.results.length) {
-      return res.status(400).send(err || []);
-    } else {
-    var locObj = data.results[0].geometry.location; //locObj =  {lat: x, lng: y}
-    client.hmset(`user:${req.params.id}`,
-      "firstName", `${req.body.firstName}`,
-      "lastName", `${req.body.lastName}`,
-      "email", `${req.body.email}`,
-      "photo", `${req.body.photo}`,
-      "age", `${req.body.age}`,
-      "gender", `${req.body.gender}`,
-      "phone", `${req.body.phone}`,
-      "zipCode", `${req.body.zipCode}`,
-      "about", `${req.body.about}`,
-      "registered", `${req.body.registered}`,
-      "wklyMileage", `${req.body.wklyMileage}`,
-      "runEvent", `${req.body.runEvent}`,
-      "sixtyM", `${req.body.sixtyM}`,
-      "oneHundM", `${req.body.oneHundM}`,
-      "twoHundM", `${req.body.twoHundM}`,
-      "fourHundM", `${req.body.fourHundM}`,
-      "onemiPR", `${req.body.onemiPR}`,
-      "fivekPR", `${req.body.fivekPR}`,
-      "tenkPR", `${req.body.tenkPR}`,
-      "halfPR", `${req.body.halfPR}`,
-      "marathonPR", `${req.body.marathonPR}`,
-      "milePace", `${req.body.milePace}`,
-      "longestDistRun", `${req.body.longestDistRun}`,
-      "longitude", `${locObj.lng}`,
-      "latitude", `${locObj.lat}`,
-      function(err2) {
-        if(err2) {
-          return res.status(400).send(err2)
-        } else {
-          //add the user to the UserLocs geodata
-          client.geoadd("UserLocs", locObj.lng, locObj.lat,
-            `user:${req.body._id}`, function(err3, reply) {
-              if(err3) {
-                return res.status(400).send(err3);
-              } else {
-                return res.send('User Updated!');
               }
           })
         }

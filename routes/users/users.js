@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var controller = require('./users.controller');
+var controller = require('./users.route.controller');
 
 //matches for guests
 router.get('/guest/:zipCode', controller.guestSearch);
@@ -12,11 +12,11 @@ router.get('/matches/:id/:radius', controller.memberSearch);
 //get one users profile
 router.get('/:id', controller.runnerProfile);
 
-//can be used to create or edit user
-router.post('/new', controller.createUser);
+//can be used to create
+router.post('/new', controller.createOrUpdateUser);
 
 //edit user
-router.put('/:id', controller.updateUser);
+router.put('/:id', controller.createOrUpdateUser);
 
 // delete user from Redis and Stormpath
 router.delete('/delete/:id', controller.deleteUser);
