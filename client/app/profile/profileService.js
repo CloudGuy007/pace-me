@@ -7,8 +7,8 @@ app.service('ProfileService', function($http) {
     return $http.post('/messages/new', msg)
   }
 
-  this.getProfile = (email) => {
-    return $http.get(`/users/${email}`)
+  this.getProfile = (id) => {
+    return $http.get(`/users/${id}`)
   }
 
   this.saveProfile = (user) => {
