@@ -46,6 +46,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
     }).then(function(res) {
       console.log('Success ' + res.config.data.file.name + 'uploaded. Response: ' + res.data);
       $scope.runner.photo = res.data;
+      $scope.photoSavedMessage = true;
     }, function(err) {
       console.log('Error status: ' + err.status);
     });
