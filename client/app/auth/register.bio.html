@@ -36,9 +36,10 @@
       <br>
       <form ng-app="fileUpload" name="photoform" ng-submit='uploadPhoto(file)'>
         <button type="button" class="btn green" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="200" ngf-resize="{width: 200, height: 200}">
-          browse
+          Browse
         </button>
-        <button class="btn green">save photo</button>
+        <button class="btn green">Upload Photo</button>
+        <h4 ng-show="photoSavedMessage" >Photo Uploaded!</h4>
       </form>
       <br>
       <br>
