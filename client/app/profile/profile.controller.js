@@ -24,16 +24,12 @@ console.log("$scope.user", $scope.user);
     });
 
   $scope.open = function(runner) {
-
     var modalInstance = $uibModal.open({
       animation: true,
       templateUrl: 'sendMessage.html',
       controller: 'ModalInstanceCtrl',
       size: 0,
       scope: $scope
-    });
-    modalInstance.result.then(function() {
-      $log.info('Modal dismissed at: ' + new Date());
     });
   };
 
@@ -42,6 +38,16 @@ console.log("$scope.user", $scope.user);
   };
 
   $scope.editRun = function(runner){
+    // console.log('edit run');
+    $scope.runnerEdit = angular.copy(runner);
+    var mile = $scope.runnerEdit.milePace;
+    var min = Math.floor(mile / 60);
+    var sec = mile - min * 60;
+    $scope.runnerEdit.milePace = `${min}:${sec}`;
+    for(let key in $scope.runnerEdit) {
+      if($scope.runnerEdit[key] === 'undefined') $scope.runnerEdit[key] = '';
+    }
+
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'runModal.html',
@@ -49,9 +55,17 @@ console.log("$scope.user", $scope.user);
       size: 0,
       scope: $scope
     });
+    modalInstance.result.then(function() {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
   }
 
+  $scope.$on('saved-profile', function() {
+    $scope.runner = ProfileService.savedUser;
+  })
+
   $scope.editBasics = function(runner){
+    $scope.runnerEdit = angular.copy(runner);
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'basics.html',
@@ -59,17 +73,7 @@ console.log("$scope.user", $scope.user);
       size: 0,
       scope: $scope
     });
-    $scope.runner = runner;
   }
 
-  $scope.editAbout = function(runner){
-    var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'bio.html',
-      controller: 'ModalInstanceCtrl',
-      size: 0,
-      scope: $scope
-    });
-    $scope.runner = runner;
-  }
+
 }); //end profileCtrl

@@ -2,7 +2,8 @@
 
 var app = angular.module('paceMeApp');
 
-app.service('ProfileService', function($http) {
+app.service('ProfileService', function($http, $rootScope) {
+
   this.notifyUser = (msg) => {
     return $http.post('/messages/new', msg)
   }
@@ -12,9 +13,11 @@ app.service('ProfileService', function($http) {
   }
 
   this.saveProfile = (user) => {
-    console.log("saveProfile user", user);
     var id = user._id;
-    return $http.put(`/users/${id}`, user)
+    $http.put(`/users/${id}`, user)
+    .then(() => {
+      this.savedUser = user;
+      $rootScope.$broadcast('saved-profile')
+    })
   }
-
 })
