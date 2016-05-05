@@ -1,69 +1,33 @@
 $white: #fff;
 $navy1: #304A69;
 $limeGreen: #58CE87;
-/*parallax*/
-
-#parallax {
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-.parallax-bg {
-  background-color: #333;
-}
-.layer {
-  background-position: bottom center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  z-index: 1;
-}
-p {
-  font-family:'Helvetica','Arial', sans-serif;
-  font-size:16px;
-  line-height:20px;
-}
-.parallax-layer-logo {
-  background-image: url('../img/home/layers/logo.png');
-  background-size:30%;
-  margin-top:-25%;
-}
-.parallax-layer-0 {
-  background-image: url("../img/home/layers/layer0.png");
-}
-.parallax-layer-1 {
-  background-image: url("../img/home/layers/layer1.png");
-}
-.parallax-layer-2 {
-  background-image: url("../img/home/layers/layer2.png");
-  margin-top:-1%;
-}
-.parallax-layer-3 {
-  background-image: url("../img/home/layers/layer3.png");
-}
-.parallax-layer-running-man {
-  background-image: url("../img/home/layers/running-man.png");
-  background-size:8%;
-  margin-top:-10%;
-}
-.parallax-layer-overlay {
-  background-image: url("../img/home/layers/overlay.png");
-
-}
-.parallax-layer-bg {
-background-color: #333;
-
-}
-
-#parallax-mobile {
-  display: none;
-  background: url("../img/home/layers/mobile-bg.png") no-repeat center bottom/cover;
-  height: 320px;
-}
 
 /*home welcome*/
+#paceme {
+  background-color:#333;
+  background-size:100%;
+  height:100vh;
+  padding-left:0;
+  padding-right:0;
+  position:relative;
+  #mountains {
+    position:absolute;
+    bottom:0;
+  }
+  div{
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+  }
+  #logo{
+    width:25%;
+    margin-top:15%;
+  }
+  #findABuddy {
+    font-size:1.5em;
+    margin-top: 50px;
+  }
+}
 
 #welcome{
   position:relative;
@@ -149,38 +113,6 @@ button {
   border: 1px solid $white !important;
   color: $white;
 }
-
-// [ui-view] {
-//   min-height:100vh;
-// }
-//
-// [ui-view].ng-enter, [ui-view].ng-leave {
-//   position: absolute;
-//   -webkit-transition: .5s ease-in-out;
-//     -moz-transition: .5s ease-in-out;
-//     -o-transition: .5s ease-in-out;
-//     transition: .5s ease-in-out;
-// }
-//
-// [ui-view].ng-enter {
-//   left:-100%;
-//   opacity: 1;
-// }
-//
-// [ui-view].ng-enter-active {
-//   left:0;
-//   opacity: 0;
-// }
-//
-// [ui-view].ng-leave {
-//   left:0;
-//   opacity: 1;
-// }
-//
-// [ui-view].ng-leave-active {
-//   left:100%;
-//   opacity: 0;
-// }
 
 
 @media only screen and (max-width: 768px) {
