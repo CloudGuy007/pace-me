@@ -7,7 +7,8 @@
       <div class="card-img">
         <img class="profile-photo" ng-src='{{runner.photo}}'>
       </div>
-      <h2 class="profile">{{runner.firstName}} {{runner.lastName | limitTo:1}}.</h2>
+      <h2 class="profile name">{{runner.firstName}} {{runner.lastName | limitTo:1}}.</h2>
+      <i class="fa fa-pencil cursor" ng-if="editable" ng-click="editBasics(runner)" aria-hidden="true"></i>
       <br>
       <h3>{{runner.age}} |
           <i class="fa fa-mars" ng-if="runner.gender === 'male'"></i>
@@ -17,38 +18,36 @@
       <hr>
       <h4><img src="../img/home/layers/arrow4.png" width="7"> Bio</h4>
       <p>{{runner.about}}</p>
-      <div class="editUser cursor" ng-if="editable" ng-click="editBasics(runner)">
-        <i class="fa fa-pencil" aria-hidden="true"></i>
-      </div>
     </div>
 
     <div class="col-xs-12 col-sm-9">
       <div class='row card-profile'>
-
-        <h4>Run Stats</h4>
+        <div class='run-stats-header'>
+          <h3>Run Stats</h3>
+          <i class="cursor fa fa-pencil" ng-if="editable" aria-hidden="true" ng-click='editRun(runner)'></i>
+        </div>
         <hr>
-        <div class="editUser cursor" ng-if="editable" ng-click="editRun(runner)">
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-        </div>
+        <div class='row'>
+          <div class='col-xs-4 run-stats'>
+            <h3>Training</h3>
+            <h4 ng-if="runner.runEvent && runner.runEvent !== 'undefined'">Currently training for a: {{runner.runEvent}}</h4>
+            <h4>Avg Mile Time: {{runner.milePace | minutes2Seconds | date:'mm:ss'}}</h4>
+            <h4>Weekly Miles: {{runner.wklyMileage}}</h4>
+          </div>
 
-        <div class='col-xs-12 run-stats'>
-          <h4 ng-if="runner.runEvent !== 'undefined'">Currently training for a: {{runner.runEvent}}</h4>
-          <h4>Avg Mile Time: {{runner.milePace | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4>Weekly Miles: {{runner.wklyMileage}}</h4>
-        </div>
-
-        <div class="col-xs-12 run-stats">
-          <h3>Personal Records</h3>
-          <h4 ng-if='runner.longestDistRun && runner.longestDistRun !== "undefined"'>Longest Distance Run: {{runner.longestDistRun}}</h4>
-          <h4 ng-if='runner.onemiPR && runner.onemiPR !== "undefined"'>1 Mile: {{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.fivekPR && runner.fivekPR !== "undefined"'>5k: {{runner.fivekPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.tenkPR && runner.tenkPR !== "undefined"'>10k: {{runner.tenkPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.halfPR && runner.halfPR !== "undefined"'>Half Marathon: {{runner.halfPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.marathonPR && runner.marathonPR !== "undefined"'>Marathon: {{runner.marathonPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.sixtyM && runner.sixtyM !== "undefined"'>60 Meter PR: {{runner.sixtyM | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.oneHundM && runner.oneHundM !== "undefined"'>100 Meter PR: {{runner.oneHundM | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.twoHundM && runner.twoHundM !== "undefined"'>200 Meter PR: {{runner.twoHundM | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.fourHundM && runner.fourHundM !== "undefined"'>400 Meter PR: {{runner.fourHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+          <div class="col-xs-8 run-stats">
+            <h3>Personal Records</h3>
+            <h4 ng-if='runner.longestDistRun && runner.longestDistRun !== "undefined"'>Longest Distance Run: {{runner.longestDistRun}}</h4>
+            <h4 ng-if='runner.onemiPR && runner.onemiPR !== "undefined"'>1 Mile: {{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}</h4>
+            <h4 ng-if='runner.fivekPR && runner.fivekPR !== "undefined"'>5k: {{runner.fivekPR | minutes2Seconds | date:'mm:ss'}}</h4>
+            <h4 ng-if='runner.tenkPR && runner.tenkPR !== "undefined"'>10k: {{runner.tenkPR | minutes2Seconds | date:'mm:ss'}}</h4>
+            <h4 ng-if='runner.halfPR && runner.halfPR !== "undefined"'>Half Marathon: {{runner.halfPR | minutes2Seconds | date:'mm:ss'}}</h4>
+            <h4 ng-if='runner.marathonPR && runner.marathonPR !== "undefined"'>Marathon: {{runner.marathonPR | minutes2Seconds | date:'mm:ss'}}</h4>
+            <h4 ng-if='runner.sixtyM && runner.sixtyM !== "undefined"'>60 Meter PR: {{runner.sixtyM | minutes2Seconds | date:'mm:ss'}}</h4>
+            <h4 ng-if='runner.oneHundM && runner.oneHundM !== "undefined"'>100 Meter PR: {{runner.oneHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+            <h4 ng-if='runner.twoHundM && runner.twoHundM !== "undefined"'>200 Meter PR: {{runner.twoHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+            <h4 ng-if='runner.fourHundM && runner.fourHundM !== "undefined"'>400 Meter PR: {{runner.fourHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+          </div>
         </div>
       </div>
     </div>
