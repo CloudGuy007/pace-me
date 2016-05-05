@@ -113,46 +113,45 @@
     <h3 class="modal-title">Edit Run Stats</h3>
   </div>
   <div class="modal-body">
-
-    <label>training for: </label>
+    <div class="input-group col-xs-12">
+      <span class='input-group-addon'>training for: </span>
+      <input class='form-control' type="text" ng-model="runnerEdit.runEvent">
+    </div>
     <br>
-    <input class="edit" type="text" ng-model="runnerEdit.runEvent">
+    <div class="input-group col-xs-12">
+      <span class='input-group-addon'>average one-mile pace</span>
+      <input type="text" class='form-control' inputTime ng-model="runnerEdit.milePace" placeholder="average mile pace">
+    </div>
     <br>
-
-    <label>average one-mile pace</label>
+    <div class="input-group col-xs-12">
+      <span class='input-group-addon'>weekly mileage</span>
+      <input type="text" class='form-control' ng-model="runnerEdit.wklyMileage" placeholder="weekly mileage">
+    </div>
     <br>
-    <input class="edit" type="text" inputTime ng-model="runnerEdit.milePace" placeholder="average mile pace">
+    <div class="input-group col-xs-12">
+      <span class='input-group-addon'>1 Mile PR</span>
+      <input type="text" class='form-control' ng-model="runnerEdit.onemiPR" placeholder="one mile pr">
+    </div>
     <br>
-
-    <label>weekly mileage</label>
+    <div class="input-group col-xs-12">
+      <span class='input-group-addon'>5K PR</span>
+      <input type="text" class='form-control' ng-model="runnerEdit.fivekPR" placeholder="five k">
+    </div>
     <br>
-    <input class="edit" type="text" ng-model="runnerEdit.wklyMileage" placeholder="weekly mileage">
+    <div class="input-group col-xs-12">
+      <span class='input-group-addon'>10K PR</span>
+      <input type="text" class='form-control' ng-model='runnerEdit.tenkPR' placeholder="10K PR">
+    </div>
     <br>
-
-    <label>1 Mile PR</label>
+    <div class="input-group col-xs-12">
+      <span class='input-group-addon'>Half Marathon PR</span>
+      <input type="text" class='form-control' ng-model='runnerEdit.halfPR' placeholder="Half Marathon PR">
+    </div>
     <br>
-    <input class="edit" type="text" ng-model="runnerEdit.onemiPR" placeholder="one mile pr">
-    <br>
-
-    <label>5K PR</label>
-    <br>
-    <input class="edit" type="text" ng-model="runnerEdit.fivekPR" placeholder="five k">
-    <br>
-
-    <label>10K PR</label>
-    <br>
-    <input class="edit" type="text" ng-model='runnerEdit.tenkPR' placeholder="10K PR">
-    <br>
-
-    <label>Half Marathon PR</label>
-    <br>
-    <input class="edit" type="text" ng-model='runnerEdit.halfPR' placeholder="Half Marathon PR">
-    <br>
-
-    <label>Marathon PR</label>
-    <br>
-    <input class="edit" type="text" ng-model='runnerEdit.marathonPR' placeholder="Marathon PR">
-    <br>
+    <div class="input-group col-xs-12">
+      <span class='input-group-addon'>Marathon PR</span>
+      <input type="text" class='form-control' ng-model='runnerEdit.marathonPR' placeholder="Marathon PR">
+    </div>
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="saveRun(runnerEdit)">Save</button>

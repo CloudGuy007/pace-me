@@ -17,9 +17,7 @@ $limeGreen: #58CE87;
 .profile {
   margin-top: 100px;
 }
-.edit {
-  border:1px solid #404040;
-}
+
 .profile {
   h2, h3 {
     color:$navy1;
@@ -78,4 +76,12 @@ $limeGreen: #58CE87;
   position:absolute;
   top:30px;
   right:30px;
+}
+
+.form-control {
+  margin: 0;
+}
+
+.input-group-addon {
+  width: 200px;
 }
