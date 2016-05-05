@@ -44,6 +44,9 @@ console.log("$scope.user", $scope.user);
     var min = Math.floor(mile / 60);
     var sec = mile - min * 60;
     $scope.runnerEdit.milePace = `${min}:${sec}`;
+    for(let key in $scope.runnerEdit) {
+      if($scope.runnerEdit[key] === 'undefined') $scope.runnerEdit[key] = '';
+    }
 
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,

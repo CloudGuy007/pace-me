@@ -39,16 +39,16 @@
 
         <div class="col-xs-12 run-stats">
           <h3>Personal Records</h3>
-          <h4 ng-if='runner.longestDistRun !== "undefined"'>Longest Distance Run: {{runner.longestDistRun}}</h4>
-          <h4 ng-if='runner.onemiPR !== "undefined"'>1 Mile: {{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.fivekPR !== "undefined"'>5k: {{runner.fivekPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.tenkPR !== "undefined"'>10k: {{runner.tenkPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.halfPR !== "undefined"'>Half Marathon: {{runner.halfPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.marathonPR !== "undefined"'>Marathon: {{runner.marathonPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.sixtyM !== "undefined"'>60 Meter PR: {{runner.sixtyM | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.oneHundM !== "undefined"'>100 Meter PR: {{runner.oneHundM | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.twoHundM !== "undefined"'>200 Meter PR: {{runner.twoHundM | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.fourHundM !== "undefined"'>400 Meter PR: {{runner.fourHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.longestDistRun && runner.longestDistRun !== "undefined"'>Longest Distance Run: {{runner.longestDistRun}}</h4>
+          <h4 ng-if='runner.onemiPR && runner.onemiPR !== "undefined"'>1 Mile: {{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.fivekPR && runner.fivekPR !== "undefined"'>5k: {{runner.fivekPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.tenkPR && runner.tenkPR !== "undefined"'>10k: {{runner.tenkPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.halfPR && runner.halfPR !== "undefined"'>Half Marathon: {{runner.halfPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.marathonPR && runner.marathonPR !== "undefined"'>Marathon: {{runner.marathonPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.sixtyM && runner.sixtyM !== "undefined"'>60 Meter PR: {{runner.sixtyM | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.oneHundM && runner.oneHundM !== "undefined"'>100 Meter PR: {{runner.oneHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.twoHundM && runner.twoHundM !== "undefined"'>200 Meter PR: {{runner.twoHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.fourHundM && runner.fourHundM !== "undefined"'>400 Meter PR: {{runner.fourHundM | minutes2Seconds | date:'mm:ss'}}</h4>
         </div>
       </div>
     </div>
