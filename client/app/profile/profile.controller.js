@@ -53,10 +53,13 @@ console.log("$scope.user", $scope.user);
       scope: $scope
     });
     modalInstance.result.then(function() {
-      $scope.runner = ProfileService.getSavedUser();
       $log.info('Modal dismissed at: ' + new Date());
     });
   }
+
+  $scope.$on('saved-profile', function() {
+    $scope.runner = ProfileService.savedUser;
+  })
 
   $scope.editBasics = function(runner){
     $scope.runnerEdit = angular.copy(runner);
