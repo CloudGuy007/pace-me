@@ -15,7 +15,6 @@ app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileS
       console.log("text messages res", res);
     }, function(err){
       console.log("text msg error", err);
-
     });
     $uibModalInstance.close();
   };
@@ -27,30 +26,23 @@ app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileS
   $scope.saveBasics = function(runner){
     ProfileService.saveProfile(runner)
     .then(function(res){
+      console.log('res', res);
     }, function(err){
       console.error("edit profile error:", err);
     });
-
-    $uibModalInstance.close();
-  }
-
-  $scope.saveBio = function(runner){
-    ProfileService.saveProfile(runner)
-    .then(function(res){
-    }, function(err){
-      console.error("edit profile error:", err);
-    });
-
     $uibModalInstance.close();
   }
 
   $scope.saveRun = function(runner){
+    console.log('runner', runner);
+    var paceArr = runner.milePace.split(':');
+    runner.milePace = parseInt(paceArr[0]) * 60 + parseInt(paceArr[1]);
     ProfileService.saveProfile(runner)
     .then(function(res){
+      ProfileService.setUser(runner)
     }, function(err){
       console.error("edit profile error:", err);
     });
-
     $uibModalInstance.close();
   }
 });

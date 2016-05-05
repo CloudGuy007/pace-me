@@ -12,9 +12,19 @@ app.service('ProfileService', function($http) {
   }
 
   this.saveProfile = (user) => {
-    console.log("saveProfile user", user);
     var id = user._id;
     return $http.put(`/users/${id}`, user)
+    .then(() => {
+      this.setUser(user);
+    })
+  }
+
+  this.setUser = (user) => {
+    this.savedUser = user;
+    console.log('this.savedUser',this.savedUser);
+  }
+  this.getSavedUser = () => {
+    return this.savedUser;
   }
 
 })

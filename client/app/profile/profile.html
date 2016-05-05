@@ -12,56 +12,43 @@
       <h3>{{runner.age}} |
           <i class="fa fa-mars" ng-if="runner.gender === 'male'"></i>
           <i class="fa fa-venus" ng-if="runner.gender === 'female'"></i>
-        |
           <button class='btn green' ng-click="open(runner)">Send a message</button>
-</h3>
-
+      </h3>
       <hr>
-
-      <div class="editUser cursor" ng-if="editable" ng-click="editAbout(runner)">
+      <h4><img src="../img/home/layers/arrow4.png" width="7"> Bio</h4>
+      <p>{{runner.about}}</p>
+      <div class="editUser cursor" ng-if="editable" ng-click="editBasics(runner)">
         <i class="fa fa-pencil" aria-hidden="true"></i>
       </div>
-      <h4><img src="../img/home/layers/arrow4.png" width="7"> Bio</h4>
-
-      <p>{{runner.about}}</p>
-
     </div>
 
     <div class="col-xs-12 col-sm-9">
-
-      <div class='card-profile'>
+      <div class='row card-profile'>
 
         <h4>Run Stats</h4>
         <hr>
-
         <div class="editUser cursor" ng-if="editable" ng-click="editRun(runner)">
           <i class="fa fa-pencil" aria-hidden="true"></i>
         </div>
 
         <div class='col-xs-12 run-stats'>
-
           <h4 ng-if="runner.runEvent !== 'undefined'">Currently training for a: {{runner.runEvent}}</h4>
           <h4>Avg Mile Time: {{runner.milePace | minutes2Seconds | date:'mm:ss'}}</h4>
           <h4>Weekly Miles: {{runner.wklyMileage}}</h4>
-
         </div>
 
         <div class="col-xs-12 run-stats">
-
           <h3>Personal Records</h3>
-          <h4 ng-if='runner.longestDistRun'>Longest Distance Run: {{runner.longestDistRun}}</h4>
-
-          <h4 ng-if='runner.onemiPR'>1 Mile: {{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}</h4>
-
-          <h4 ng-if='runner.fivekPR'>5k: {{runner.fivekPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.tenkPR'>10k: {{runner.tenkPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.halfPR'>Half Marathon: {{runner.halfPR | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.marathonPR'>Marathon: {{runner.marathonPR | minutes2Seconds | date:'mm:ss'}}</h4>
-
-          <h4 ng-if='runner.sixtyM'>60 Meter PR: {{runner.sixtyM | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.oneHundM'>100 Meter PR: {{runner.oneHundM | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.twoHundM'>200 Meter PR: {{runner.twoHundM | minutes2Seconds | date:'mm:ss'}}</h4>
-          <h4 ng-if='runner.fourHundM'>400 Meter PR: {{runner.fourHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.longestDistRun !== "undefined"'>Longest Distance Run: {{runner.longestDistRun}}</h4>
+          <h4 ng-if='runner.onemiPR !== "undefined"'>1 Mile: {{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.fivekPR !== "undefined"'>5k: {{runner.fivekPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.tenkPR !== "undefined"'>10k: {{runner.tenkPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.halfPR !== "undefined"'>Half Marathon: {{runner.halfPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.marathonPR !== "undefined"'>Marathon: {{runner.marathonPR | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.sixtyM !== "undefined"'>60 Meter PR: {{runner.sixtyM | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.oneHundM !== "undefined"'>100 Meter PR: {{runner.oneHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.twoHundM !== "undefined"'>200 Meter PR: {{runner.twoHundM | minutes2Seconds | date:'mm:ss'}}</h4>
+          <h4 ng-if='runner.fourHundM !== "undefined"'>400 Meter PR: {{runner.fourHundM | minutes2Seconds | date:'mm:ss'}}</h4>
         </div>
       </div>
     </div>
@@ -96,44 +83,27 @@
   </div>
   <div class="modal-body">
     <label>Name:</label>
-    <input type="text" ng-model="runner.firstName">
-    <input type="text" ng-model="runner.lastName"><br>
-    <label>Email: </label>
-    <input type="text" ng-model="runner.email"><br>
+    <input type="text" ng-model="runnerEdit.firstName">
+    <input type="text" ng-model="runnerEdit.lastName">
+    <br>
 
     <label>Age: </label>
-    <input type="text" ng-model="runner.age" placeholder="average mile pace"><br>
+    <input type="text" ng-model="runnerEdit.age" placeholder="average mile pace">
+    <br>
 
     <label>Gender: </label>
-    <input type="text" ng-model="runner.gender" placeholder="weekly mileage"><br>
+    <input type="text" ng-model="runnerEdit.gender" placeholder="weekly mileage">
+    <br>
 
-
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="saveBasics(runner)">OK</button>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-  </div>
-</script>
-
-
-
-<!--BIO MODAL-->
-<script type="text/ng-template" id="bio.html">
-  <div class="modal-header">
-    <h3 class="modal-title">Edit Bio</h3>
-  </div>
-  <div class="modal-body">
     <label for="comment">Bio</label>
-    <textarea class="form-control" rows="5" ng-model="runner.about" placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora odio praesentium quidem illo magni alias suscipit adipisci blanditiis amet magnam molestiae earum expedita quasi quia ex, debitis est similique. Harum aliquam quidem maiores rem at, amet soluta nobis voluptatibus nisi consequatur, porro dolore omnis cupiditate architecto! Cum, non, mollitia?'></textarea>
-
-    <label>Phone: </label>
-    <input type="text" ng-model="runner.phone" placeholder="phone">
+    <textarea class="form-control" rows="5" ng-model="runnerEdit.about" placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora odio praesentium quidem illo magni alias suscipit adipisci blanditiis amet magnam molestiae earum expedita quasi quia ex, debitis est similique. Harum aliquam quidem maiores rem at, amet soluta nobis voluptatibus nisi consequatur, porro dolore omnis cupiditate architecto! Cum, non, mollitia?'></textarea>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="saveBio(runner)">Save</button>
+    <button class="btn btn-primary" type="button" ng-click="saveBasics(runnerEdit)">OK</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
   </div>
 </script>
+
 
 
 
@@ -144,32 +114,48 @@
   </div>
   <div class="modal-body">
 
-    <label>training for: </label><br>
-    <input class="edit" type="text" ng-model="runner.runEvent"><br>
+    <label>training for: </label>
+    <br>
+    <input class="edit" type="text" ng-model="runnerEdit.runEvent">
+    <br>
 
-    <label>average one-mile pace</label><br>
-    <input class="edit" type="text" ng-model="runner.milePace | minutes2Seconds | date:'mm:ss'" placeholder="average mile pace"><br>
+    <label>average one-mile pace</label>
+    <br>
+    <input class="edit" type="text" inputTime ng-model="runnerEdit.milePace" placeholder="average mile pace">
+    <br>
 
-    <label>weekly mileage</label><Br>
-    <input class="edit" type="text" ng-model="runner.wklyMileage" placeholder="weekly mileage"><br>
+    <label>weekly mileage</label>
+    <br>
+    <input class="edit" type="text" ng-model="runnerEdit.wklyMileage" placeholder="weekly mileage">
+    <br>
 
-    <label>1 Mile PR</label><br>
-    <input class="edit" type="text" ng-model="runner.onemiPR" placeholder="{{runner.onemiPR | minutes2Seconds | date:'mm:ss'}}"><br>
+    <label>1 Mile PR</label>
+    <br>
+    <input class="edit" type="text" ng-model="runnerEdit.onemiPR" placeholder="one mile pr">
+    <br>
 
-    <label>5K PR</label><br>
-    <input class="edit" type="text" ng-model="runner.fivekPR" placeholder="{{runner.fivekPR | minutes2Seconds | date:'mm:ss'}}"><br>
+    <label>5K PR</label>
+    <br>
+    <input class="edit" type="text" ng-model="runnerEdit.fivekPR" placeholder="five k">
+    <br>
 
-    <label>10K PR</label><br>
-    <input class="edit" type="text" ng-model='runner.tenkPR | minutes2Seconds | date:"mm:ss"' placeholder="10K PR"><br>
+    <label>10K PR</label>
+    <br>
+    <input class="edit" type="text" ng-model='runnerEdit.tenkPR' placeholder="10K PR">
+    <br>
 
-    <label>Half Marathon PR</label><br>
-    <input class="edit" type="text" ng-model='runner.halfPR | minutes2Seconds | date:"mm:ss"' placeholder="Half Marathon PR"><br>
+    <label>Half Marathon PR</label>
+    <br>
+    <input class="edit" type="text" ng-model='runnerEdit.halfPR' placeholder="Half Marathon PR">
+    <br>
 
-    <label>Marathon PR</label><br>
-    <input class="edit" type="text" ng-model='runner.marathonPR | minutes2Seconds | date:"mm:ss"' placeholder="Marathon PR"><br>
+    <label>Marathon PR</label>
+    <br>
+    <input class="edit" type="text" ng-model='runnerEdit.marathonPR' placeholder="Marathon PR">
+    <br>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="saveRun(runner)">Save</button>
+    <button class="btn btn-primary" type="button" ng-click="saveRun(runnerEdit)">Save</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
   </div>
 </script>

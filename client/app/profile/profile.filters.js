@@ -10,3 +10,10 @@ app.filter('minutes2Seconds', function() {
 		}
 	}
 });
+
+app.filter('nothing', function() {
+	return function(str) {
+		if(str === 'undefined') return "";
+		return str;
+	}
+})
