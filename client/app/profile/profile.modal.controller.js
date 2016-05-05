@@ -23,18 +23,16 @@ app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileS
     $uibModalInstance.dismiss('cancel');
   };
 
-  // $scope.saveBasics = function(runner){
-  //   ProfileService.saveProfile(runner)
-  //   .then(function(res){
-  //     console.log('res', res);
-  //   }, function(err){
-  //     console.error("edit profile error:", err);
-  //   });
-  //   $uibModalInstance.close();
-  // }
+  $scope.saveBasics = function(runner){
+    try{
+      ProfileService.saveProfile(runner)
+    } catch(err) {
+      console.log('err', err);
+    }
+    $uibModalInstance.close();
+  }
 
   $scope.saveRun = function(runner){
-    console.log('runner', runner);
     var paceArr = runner.milePace.split(':');
     runner.milePace = parseInt(paceArr[0]) * 60 + parseInt(paceArr[1]);
     try{
@@ -42,7 +40,6 @@ app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileS
     } catch(err) {
       console.log('err', err);
     }
-
     $uibModalInstance.close();
   }
 });
