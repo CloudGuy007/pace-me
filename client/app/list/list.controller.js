@@ -4,8 +4,9 @@
 angular
   .module('paceMeApp')
   .controller('listCtrl', function($scope, $state, ListService, $uibModal, $log) {
-    $scope.selectedGender = 'both'
-    $scope.selectedAgeRange = 'all'
+    $scope.selectedGender = 'both';
+    $scope.selectedAgeRange = 'all';
+    $scope.selectedSort = 'difMP';
     $scope.runners = []
     $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false
 
@@ -20,14 +21,35 @@ angular
         })
       ListService.getMatches(id, 10)
         .then(function(res) {
-          $scope.runners = res.data
+          $scope.runners = res.data.map(e => {
+            e.milePace = parseInt(e.milePace, 10);
+            e.age = parseInt(e.age, 10);
+            e.dist = parseInt(e.dist, 10);
+            return e;
+          });
+          console.log('$scope.runners: ', $scope.runners);
         }, function(err) {
           console.log("err", err)
         })
     }
 
-    $scope.sortMilePace = function(runner) {
-      return Math.abs(runner.milePace - $scope.loggedInUser.milePace)
+    
+    $scope.sortByMilePace = function(runner) {
+      if($scope.selectedSort === 'AMP'){
+          return runner.milePace;
+      } else if ($scope.selectedSort === 'DMP'){
+          return (-runner.milePace);
+      } else if($scope.selectedSort === 'difMP'){
+          return Math.abs(runner.milePace - $scope.loggedInUser.milePace)
+      } else if($scope.selectedSort === 'AA'){
+          return runner.age
+      } else if($scope.selectedSort === 'AD'){
+          return (-runner.age);
+      } else if($scope.selectedSort === 'DA'){
+          return runner.dist;
+      } else if($scope.selectedSort === 'DD'){
+          return (-runner.dist);
+      }
     }
 
     $scope.getGuestMatches = function(zip) {
@@ -38,7 +60,12 @@ angular
             jumbo.classList.remove('fullview')
             jumbo.classList.add('slide-up')
             console.log("guest data", res.data)
-            $scope.runners = res.data
+            $scope.runners = res.data.map(e => {
+              e.milePace = parseInt(e.milePace, 10);
+              e.age = parseInt(e.age, 10);
+              e.dist = parseInt(e.dist, 10);
+              return e;
+            });
           })
       }
     }
@@ -48,7 +75,12 @@ angular
       var id = hsplits[hsplits.length - 1]
       ListService.getMatches(id, radius)
       .then(function(res) {
-        $scope.runners = res.data
+        $scope.runners = res.data.map(e => {
+            e.milePace = parseInt(e.milePace, 10);
+            e.age = parseInt(e.age, 10);
+            e.dist = parseInt(e.dist, 10);
+            return e;
+          });
       }, function(err) {
         console.error("error", err)
       })

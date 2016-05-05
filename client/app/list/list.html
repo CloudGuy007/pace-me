@@ -40,6 +40,18 @@
           </select>
           <h2>You are looking for runners near ZIP : {{loggedInUser.zipCode}}</h2>
         </div>
+        <div class="col-xs-12">
+          <label for="sortSelector">Sort by: </label>
+          <select name="sortSelector" ng-model="selectedSort">
+            <option value="difMP">Mile Pace Difference</option>
+            <option value="AMP">Mile Pace Ascending</option>
+            <option value="DMP">Mile Pace Descending</option>
+            <option value="AA">Age Ascending</option>
+            <option value="AD">Age Descending</option>
+            <option value="DA">Distance from you Ascending</option>
+            <option value="DD">Distance from you Descending</option>
+          </select>
+        </div>
       </div>
     </div>
 
@@ -69,7 +81,7 @@
       </div>
       <!--end if !loggedIn-->
 
-      <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortMilePace as filtered track by $index">
+      <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortByMilePace as filtered track by $index">
         <div class="card card-list cursor list" ng-click="viewProfile(runner)">
           <div class="runner">
             <div class="col-xs-12">
@@ -90,6 +102,7 @@
                 </div>
 
                 <div class="gray">
+                  <!-- <p class='card-p'><strong>Mile Pace:</strong> {{runner.milePace}}&nbsp;({{ runner.milePace | paceDiff:loggedInUser.milePace }})</p> -->
                   <p class='card-p'><strong>Mile Pace:</strong> {{runner.milePace | minutes2Seconds | date:'mm:ss'}}&nbsp;({{ runner.milePace | paceDiff:loggedInUser.milePace }})</p>
                 </div>
 
