@@ -8,7 +8,7 @@
           <br>
           <button class="btn green" ng-click="">submit</button>
         </div>
-        
+
         <!-- <div class="col-xs-12 col-md-6" ng-show="loggedIn"> -->
         <div ng-show="loggedIn">
           <div class="col-xs-12 col-md-6">
@@ -68,7 +68,31 @@
   <div class="container">
     <div class="row">
       <div ng-if="!loggedIn" class="col-xs-12 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners track by $index">
-        <div class="card card-list cursor list" ng-click="open()">
+
+        <div class="card guest-card card-list cursor list" ng-click="open()">
+        <div class="runner">
+          <div class="col-xs-12">
+            <h3>{{runner.firstName}}<h3>
+              <div class="card-img">
+                <img ng-src="{{runner.photo}}" width="100%">
+              </div>
+            </div>
+            <div class="col-xs-12 ">
+              <div>
+                <p class='card-p'><strong>Location:</strong>&nbsp;{{runner.dist | distance}}</p>
+              </div>
+              <div>
+                <p class='card-p'><strong>Mile Pace:</strong>&nbsp;{{runner.milePace | minutes2Seconds | date:'mm:ss'}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end if !loggedIn-->
+
+      <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortByMilePace as filtered track by $index">
+        <div class="card card-list cursor list" ng-click="viewProfile(runner)">
+
           <div class="runner">
             <div class="col-xs-12">
               <h3>{{runner.firstName}}<h3>

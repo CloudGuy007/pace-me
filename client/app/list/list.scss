@@ -1,9 +1,8 @@
 $limeGreen: #58CE87;
-
 .jumbotron {
+  padding-top: 5%;
   -webkit-transition: height 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  height: 300px;
 }
 .jumbotron.fullview {
   height: 100vh;
@@ -76,10 +75,6 @@ $limeGreen: #58CE87;
     color: #222;
   }
 }
-.blur {
-  -webkit-filter: blur(6px);
-  filter:blur(6px);
-}
 .list-info {
   position: relative;
   height: 100%;
@@ -111,8 +106,6 @@ button.green:active {
 .list-modal button {
   margin-top: 20px;
 }
-
-
 @media only screen and (max-width: 1199px) {
   .card {
     height: 500px;
@@ -123,46 +116,45 @@ button.green:active {
   }
 }
 @media only screen and (max-width: 768px) {
+.jumbotron{
+    padding-top:10%;
+}
   #listInput {
-    width:100%;
+    width: 100%;
   }
   .card {
-    height: 450px;
+    height: 400px;
     text-align: center !important;
     margin: 20px auto;
   }
   .card .card-img {
-    margin-left: 70px;
+    margin:auto;
     height: 150px;
     width: 150px;
   }
   .jumbotron.slide-up {
-    padding-top:100px;
+    padding-top: 100px;
   }
 }
 @media only screen and (max-width: 440px) {
+  .jumbotron {
+    padding-top:20%;
+  }
   .col-xs-6 {
     width: 100%;
   }
-  .card .card-img {
-    margin-left: 80px;
+  .card{
+    .card-img {
+      img {
+        height: 146px;
+        width:auto;
+      }
   }
 }
-@media only screen and (max-width: 440px) {
+  .guest-card {
+    height: 300px;
+  }
   .col-xs-6 {
     width: 100%;
-  }
-  .card .card-img {
-    margin-left: 90px;
-  }
-}
-@media only screen and (max-width: 375px) {
-  .card .card-img {
-    margin-left: 70px;
-  }
-}
-@media only screen and (max-width: 320px) {
-  .card .card-img {
-    margin-left: 40px;
   }
 }

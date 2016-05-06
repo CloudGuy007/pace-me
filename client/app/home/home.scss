@@ -18,6 +18,9 @@ $limeGreen: #58CE87;
     width:100%;
     margin:0 auto;
     text-align:center;
+    h4 {
+      color:#fff;
+    }
   }
   #logo{
     width:20%;
@@ -146,8 +149,8 @@ button {
   #paceme {
     height:50vh;
     #logo{
-      width:45%;
-      margin-top:15%;
+      width:25%;
+      margin-top:10%;
     }
     #findABuddy {
       font-size:1.5em;
@@ -190,7 +193,7 @@ button {
     height:40vh;
     #logo{
       width:40%;
-      margin-top:15%;
+      margin-top:25%;
     }
     #findABuddy {
       font-size:1.2em;

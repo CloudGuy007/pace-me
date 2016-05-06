@@ -49,3 +49,9 @@ input.auth {
 .register-finish {
   float:right;
 }
+
+@media only screen and (max-width: 768px) {
+  .reg-template {
+    margin-top:50%;
+  }
+}
