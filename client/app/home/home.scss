@@ -1,73 +1,37 @@
 $white: #fff;
 $navy1: #304A69;
 $limeGreen: #58CE87;
-/*parallax*/
-
-#parallax {
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-.parallax-bg {
-  background-color: #333;
-}
-.layer {
-  background-position: bottom center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  z-index: 1;
-}
-p {
-  font-family:'Helvetica','Arial', sans-serif;
-  font-size:16px;
-  line-height:20px;
-}
-.parallax-layer-logo {
-  background-image: url('../img/home/layers/logo.png');
-  background-size:30%;
-  margin-top:-25%;
-}
-.parallax-layer-0 {
-  background-image: url("../img/home/layers/layer0.png");
-}
-.parallax-layer-1 {
-  background-image: url("../img/home/layers/layer1.png");
-}
-.parallax-layer-2 {
-  background-image: url("../img/home/layers/layer2.png");
-  margin-top:-1%;
-}
-.parallax-layer-3 {
-  background-image: url("../img/home/layers/layer3.png");
-}
-.parallax-layer-running-man {
-  background-image: url("../img/home/layers/running-man.png");
-  background-size:8%;
-  margin-top:-10%;
-}
-.parallax-layer-overlay {
-  background-image: url("../img/home/layers/overlay.png");
-
-}
-.parallax-layer-bg {
-background-color: #333;
-
-}
-
-#parallax-mobile {
-  display: none;
-  background: url("../img/home/layers/mobile-bg.png") no-repeat center bottom/cover;
-  height: 320px;
-}
 
 /*home welcome*/
+#paceme {
+  background-color:#333;
+  background-size:100%;
+  height:100vh;
+  padding-left:0;
+  padding-right:0;
+  position:relative;
+  #mountains {
+    position:absolute;
+    bottom:0;
+  }
+  div{
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+  }
+  #logo{
+    width:20%;
+    margin-top:10%;
+  }
+  #findABuddy {
+    font-size:1.5em;
+    margin-top: 50px;
+  }
+}
 
 #welcome{
   position:relative;
-  height:250px;
+  height:300px;
   background-color: #fff;
   margin-top:-1px;
   z-index:2;
@@ -75,11 +39,18 @@ background-color: #333;
     color:#333;
     margin-top:50px;
   }
+  p {
+    font-size:1.6em;
+    line-height:1.5em;
+    margin-top:50px;
+  }
 }
 
 #team {
   position:relative;
+  // background-color: #fff;
   background-color: #fff;
+
   z-index:2;
   #team-arrow {
     position:absolute;
@@ -89,16 +60,23 @@ background-color: #333;
     width:100%;
   }
   .row {
-    // padding-top:150px
+    padding-top:50px
   }
 
   .fa {
-    font-size:1.3em;
+    font-size:1.7em;
     color:#333;
+    margin:3px;
+  }
+  .fa:hover {
+    color:#18B3B7;
   }
 
-  h2 {
-    // margin-bottom:50px;
+  h3 {
+    margin-bottom:50px;
+  }
+  a:hover {
+    text-decoration:none;
   }
 }
 
@@ -114,7 +92,7 @@ background-color: #333;
     width:100%;
   }
   .row {
-    // padding-top:150px
+    padding-top:50px
   }
 }
 
@@ -150,46 +128,82 @@ button {
   color: $white;
 }
 
-// [ui-view] {
-//   min-height:100vh;
-// }
-//
-// [ui-view].ng-enter, [ui-view].ng-leave {
-//   position: absolute;
-//   -webkit-transition: .5s ease-in-out;
-//     -moz-transition: .5s ease-in-out;
-//     -o-transition: .5s ease-in-out;
-//     transition: .5s ease-in-out;
-// }
-//
-// [ui-view].ng-enter {
-//   left:-100%;
-//   opacity: 1;
-// }
-//
-// [ui-view].ng-enter-active {
-//   left:0;
-//   opacity: 0;
-// }
-//
-// [ui-view].ng-leave {
-//   left:0;
-//   opacity: 1;
-// }
-//
-// [ui-view].ng-leave-active {
-//   left:100%;
-//   opacity: 0;
-// }
 
-
-@media only screen and (max-width: 768px) {
-  #parallax {
-    display: none;
+@media only screen and (max-width: 1200px) {
+  #paceme {
+    #logo{
+      width:35%;
+      margin-top:25%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
   }
+}
 
-  #parallax-mobile {
-    display:block;
+@media only screen and (max-width: 960px) {
+  #paceme {
+    #logo{
+      width:35%;
+      margin-top:35%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  #paceme {
+    height:50vh;
+    #logo{
+      width:45%;
+      margin-top:15%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  #paceme {
+    height:40vh;
+    #logo{
+      width:40%;
+      margin-top:15%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
+  }
+}
+@media only screen and (max-width: 435px) {
+  #paceme {
+    height:40vh;
+    #logo{
+      width:40%;
+      margin-top:15%;
+    }
+    #findABuddy {
+      font-size:1.2em;
+      margin-top: 15px;
+    }
+  }
+}
+@media only screen and (max-width: 375px) {
+  #paceme {
+    height:40vh;
+    #logo{
+      width:40%;
+      margin-top:15%;
+    }
+    #findABuddy {
+      font-size:1.2em;
+      margin-top: 20px;
+    }
   }
 }
 

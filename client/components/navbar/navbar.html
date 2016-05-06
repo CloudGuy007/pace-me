@@ -10,7 +10,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a ng-class="{'logoshort':logoshort}" class="navbar-brand navbar-left" ui-sref="home"><img src="../img/home/layers/logo-short.png" alt="pace me" width="40"></a>
+        <a class="navbar-brand navbar-left" ui-sref="home"><img src="../img/home/layers/logo-short.png" alt="pace me" width="40"></a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -18,9 +18,9 @@
           <li><a ui-sref="register.initial" if-not-user>Register</a></li>
           <li><a ui-sref="login" if-not-user>Log In</a></li>
           <li><a ui-sref="list" if-user>List</a></li>
-          <li><a ui-sref="profile" if-user>Profile</a></li>
+          <li><a ng-click="editOwnProfile()" if-user>Profile</a></li>
           <li><a ui-sref="home" sp-logout if-user>Log Out</a></li>
-          <li class="dropdown cursor" if-user>
+          <!-- <li class="dropdown cursor" if-user>
             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-street-view" aria-hidden="true"></i>
 <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -28,7 +28,7 @@
               <li><a ng-click="editOwnProfile()">Edit Profile</a></li>
               <li><a ui-sref="login" sp-logout>Log Out</a></li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
