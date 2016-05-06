@@ -1,9 +1,10 @@
-"use strict";
+(function(){
+	angular
+		.module('paceMeApp')
+		.controller('loginCtrl', loginCtrl)
+		loginCtrl.$inject = ['$scope', 'AuthService'];
 
-var app = angular.module('paceMeApp');
+		function loginCtrl($scope, AuthService){
 
-app.controller('loginCtrl', function($scope, AuthService){
-
-	console.log('auth phone');
-
-})
+		}
+})();
