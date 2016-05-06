@@ -4,6 +4,7 @@
 angular
   .module('paceMeApp')
   .controller('listCtrl', function($scope, $state, ListService, $uibModal, $log) {
+    $scope.selectedRadius = '10';
     $scope.selectedGender = 'both';
     $scope.selectedAgeRange = 'all';
     $scope.selectedSort = 'difMP';
