@@ -20,8 +20,8 @@ $limeGreen: #58CE87;
     text-align:center;
   }
   #logo{
-    width:25%;
-    margin-top:15%;
+    width:20%;
+    margin-top:10%;
   }
   #findABuddy {
     font-size:1.5em;
@@ -126,19 +126,10 @@ input {
 button {
   border: 1px solid $white !important;
   color: $white;
-}@media only screen and (max-width: 960px) {
-  #paceme {
-    #logo{
-      width:35%;
-      margin-top:35%;
-    }
-    #findABuddy {
-      font-size:1.5em;
-      margin-top: 50px;
-    }
-  }
 }
-@media only screen and (max-width: 1440px) {
+
+
+@media only screen and (max-width: 1200px) {
   #paceme {
     #logo{
       width:35%;
@@ -150,6 +141,7 @@ button {
     }
   }
 }
+
 @media only screen and (max-width: 960px) {
   #paceme {
     #logo{
