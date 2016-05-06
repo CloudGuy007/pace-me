@@ -5,7 +5,7 @@
 
   adminCtrl.$inject = ['$scope', 'AdminService'];
 
-  function adminCtrl(){
+  function adminCtrl($scope, AdminService){
     AdminService.getUsers()
     .then(function(res) {
       $scope.users = res.data;
