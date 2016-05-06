@@ -28,5 +28,4 @@ app.service('AuthService', function($http) {
     return $http.post('/users/new', user)
   }
 
-
 })

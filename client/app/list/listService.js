@@ -10,9 +10,6 @@ app.service('ListService', function($http) {
 
   this.getMatches = (id, radius) => {
     return $http.get(`/users/matches/${id}/${radius}`)
-    // .then(function(res) {
-    //   this.users = res;
-    // })
   }
 
   this.getUserStats = (id) => {
@@ -25,7 +22,6 @@ app.service('ListService', function($http) {
 
   this.getStoredUsers = (users) => {
     if(this.users) return this.users;
-    //make get request
   }
 
 })

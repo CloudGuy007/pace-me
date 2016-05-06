@@ -17,7 +17,6 @@ angular
         .then(function(stats) {
           $scope.loggedInUser = stats.data
         }, function(err) {
-          console.log(err)
         })
       ListService.getMatches(id, 10)
         .then(function(res) {
@@ -27,13 +26,11 @@ angular
             e.dist = parseInt(e.dist, 10);
             return e;
           });
-          console.log('$scope.runners: ', $scope.runners);
         }, function(err) {
-          console.log("err", err)
         })
     }
 
-    
+
     $scope.sortByMilePace = function(runner) {
       if($scope.selectedSort === 'AMP'){
           return runner.milePace;
@@ -59,7 +56,6 @@ angular
             var jumbo = document.querySelector('div.jumbotron')
             jumbo.classList.remove('fullview')
             jumbo.classList.add('slide-up')
-            console.log("guest data", res.data)
             $scope.runners = res.data.map(e => {
               e.milePace = parseInt(e.milePace, 10);
               e.age = parseInt(e.age, 10);
@@ -93,7 +89,6 @@ angular
     }
 
     $scope.open = function(size) {
-      console.log('open')
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: 'listModalContent.html',

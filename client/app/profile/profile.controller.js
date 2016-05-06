@@ -6,7 +6,6 @@ var app = angular.module('paceMeApp');
 
 app.controller('profileCtrl', function($scope, $state, $uibModal, $log, ListService, ProfileService) {
 
-console.log("$scope.user", $scope.user);
 
   ProfileService.getProfile($state.params.id)
     .then(function(res) {
@@ -15,12 +14,10 @@ console.log("$scope.user", $scope.user);
       id = id[id.length-1];
         if (id != $scope.runner._id){
           $scope.editable = false;
-          console.log("$scope.runner", $scope.runner);
         } else {
           $scope.editable = true;
         }
     }, function(err) {
-      console.log("err", err);
     });
 
   $scope.open = function(runner) {
@@ -38,7 +35,6 @@ console.log("$scope.user", $scope.user);
   };
 
   $scope.editRun = function(runner){
-    // console.log('edit run');
     $scope.runnerEdit = angular.copy(runner);
     var mile = $scope.runnerEdit.milePace;
     var min = Math.floor(mile / 60);
