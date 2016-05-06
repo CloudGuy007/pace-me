@@ -61,12 +61,12 @@
   <div class="container">
     <div class="row">
       <div ng-if="!loggedIn" class="col-xs-12 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners track by $index">
-        <div class="card card-list cursor list" ng-click="open()">
+        <div class="card guest-card card-list cursor list" ng-click="open()">
         <div class="runner">
           <div class="col-xs-12">
             <h3>{{runner.firstName}}<h3>
               <div class="card-img">
-                <img class="blur" ng-src="{{runner.photo}}" width="100%">
+                <img ng-src="{{runner.photo}}" width="100%">
               </div>
             </div>
             <div class="col-xs-12 ">
