@@ -35,6 +35,7 @@ $limeGreen: #58CE87;
   background-color: #fff;
   margin-top:-1px;
   z-index:2;
+  padding: 0 15px;
   h2 {
     color:#333;
     margin-top:50px;
@@ -49,14 +50,8 @@ $limeGreen: #58CE87;
 #team {
   position:relative;
   z-index:2;
-
-  #team-arrow {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    width:100%;
-  }
+  padding: 0 15px;
+  padding-bottom:15px;
   .row {
     padding-top:50px
   }
@@ -82,13 +77,8 @@ $limeGreen: #58CE87;
   position:relative;
   background-color:#fff;
   z-index:2;
-  #tech-arrow {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    width:100%;
-  }
+  padding: 0 15px;
+
   .row {
     padding-top:50px
   }
@@ -166,6 +156,7 @@ button {
   }
 }
 @media only screen and (max-width: 500px) {
+
   #paceme {
     height:40vh;
     #logo{
@@ -176,6 +167,9 @@ button {
       font-size:1.5em;
       margin-top: 50px;
     }
+  }
+  #welcome{
+    height:auto;
   }
 }
 @media only screen and (max-width: 435px) {
