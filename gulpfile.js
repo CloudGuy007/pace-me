@@ -18,7 +18,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('jsprod', ['clean'], function(cb) {
-    gulp.src(['client/*.js','client/app/**/*.js'])
+    gulp.src(['client/*.js','client/app/**/*.js', 'client/components/**/*.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('bundle.js'))
         .pipe(ngAnnotate())
@@ -89,4 +89,4 @@ gulp.task('watch', ['clean', 'jsdev', 'statics'], function() {
 gulp.task('development', ['clean', 'jsdev', 'statics', 'watch']);
 gulp.task('production', ['clean', 'jsprod', 'statics']);
 
-gulp.task('default', [process.env.NODE_ENV === 'production' ? 'production' : 'development']);
+gulp.task('default', [process.env.NODE_ENV === 'production' ? 'production' : 'production']);

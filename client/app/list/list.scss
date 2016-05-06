@@ -123,6 +123,9 @@ button.green:active {
   }
 }
 @media only screen and (max-width: 768px) {
+  #listInput {
+    width:100%;
+  }
   .card {
     height: 450px;
     text-align: center !important;
@@ -132,6 +135,9 @@ button.green:active {
     margin-left: 70px;
     height: 150px;
     width: 150px;
+  }
+  .jumbotron.slide-up {
+    padding-top:100px;
   }
 }
 @media only screen and (max-width: 440px) {
