@@ -12,8 +12,9 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
       return;
     }
     AuthService.sendVerifyText(number)
-      .then(function(status) {
-        if (status !== "0") return
+      .then(function(res) {
+        console.log("res: ", res);
+        if (res !== "0") return $scope.badNumber = true;
         $scope.enterPin = true;
       }, function(err) {
         console.log('err', err);
