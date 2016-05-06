@@ -48,10 +48,8 @@ $limeGreen: #58CE87;
 
 #team {
   position:relative;
-  // background-color: #fff;
-  background-color: #fff;
-
   z-index:2;
+
   #team-arrow {
     position:absolute;
     top:0;
@@ -73,7 +71,7 @@ $limeGreen: #58CE87;
   }
 
   h3 {
-    margin-bottom:50px;
+    margin:10px;
   }
   a:hover {
     text-decoration:none;
@@ -207,6 +205,10 @@ button {
   }
 }
 
+.app-desc {
+  // line-height: 250%;
+}
+
 .tech-header {
   padding: 20px 0;
 }
@@ -229,5 +231,5 @@ button {
 .dev {
   text-align: center;
   color: #222;
-  margin-bottom: 30px;
+  margin-top: 30px;
 }
