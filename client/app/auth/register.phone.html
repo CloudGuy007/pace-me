@@ -5,11 +5,14 @@
 			<form>
 
 					<h3>Verify your phone number.</h3>
-				<input ng-hide='enterPin' class="auth" type='text' ng-model='runner.phone' placeholder='phone number (US Only)'>
+				<input ng-hide='enterPin' class="auth" type='text' ng-model='runner.phone' placeholder='phone number (US Only) 4445551234'>
 				<input ng-show='enterPin' class="auth" type='text' ng-model='verifyCode' placeholder="enter 4-digit verification code">
 				<button ng-hide='enterPin' ng-click='sendText(runner.phone)' class='btn green auth'>Send Verification Text</button>
 				<button ng-show='enterPin' ng-click='verifyPhone(verifyCode)' class='btn green auth'>Verify Phone</button>
 			</form>
+      <div ng-show='badNumber'>
+        <h3>There is an error with your number, or your network is not supported.</h3>
+      </div>
 			<div ng-show='wrongPin'>
 				<h3>Wrong code</h3>
 			</div>
