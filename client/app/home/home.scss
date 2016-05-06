@@ -31,7 +31,7 @@ $limeGreen: #58CE87;
 
 #welcome{
   position:relative;
-  height:250px;
+  height:300px;
   background-color: #fff;
   margin-top:-1px;
   z-index:2;
@@ -39,11 +39,18 @@ $limeGreen: #58CE87;
     color:#333;
     margin-top:50px;
   }
+  p {
+    font-size:1.6em;
+    line-height:1.5em;
+    margin-top:50px;
+  }
 }
 
 #team {
   position:relative;
+  // background-color: #fff;
   background-color: #fff;
+
   z-index:2;
   #team-arrow {
     position:absolute;
@@ -53,16 +60,23 @@ $limeGreen: #58CE87;
     width:100%;
   }
   .row {
-    // padding-top:150px
+    padding-top:50px
   }
 
   .fa {
-    font-size:1.3em;
+    font-size:1.7em;
     color:#333;
+    margin:3px;
+  }
+  .fa:hover {
+    color:#18B3B7;
   }
 
-  h2 {
-    // margin-bottom:50px;
+  h3 {
+    margin-bottom:50px;
+  }
+  a:hover {
+    text-decoration:none;
   }
 }
 
@@ -78,7 +92,7 @@ $limeGreen: #58CE87;
     width:100%;
   }
   .row {
-    // padding-top:150px
+    padding-top:50px
   }
 }
 
@@ -112,16 +126,92 @@ input {
 button {
   border: 1px solid $white !important;
   color: $white;
-}
-
-
-@media only screen and (max-width: 768px) {
-  #parallax {
-    display: none;
+}@media only screen and (max-width: 960px) {
+  #paceme {
+    #logo{
+      width:35%;
+      margin-top:35%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
   }
-
-  #parallax-mobile {
-    display:block;
+}
+@media only screen and (max-width: 1440px) {
+  #paceme {
+    #logo{
+      width:35%;
+      margin-top:25%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
+  }
+}
+@media only screen and (max-width: 960px) {
+  #paceme {
+    #logo{
+      width:35%;
+      margin-top:35%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  #paceme {
+    height:50vh;
+    #logo{
+      width:45%;
+      margin-top:15%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  #paceme {
+    height:40vh;
+    #logo{
+      width:40%;
+      margin-top:15%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
+  }
+}
+@media only screen and (max-width: 435px) {
+  #paceme {
+    height:40vh;
+    #logo{
+      width:40%;
+      margin-top:15%;
+    }
+    #findABuddy {
+      font-size:1.2em;
+      margin-top: 15px;
+    }
+  }
+}
+@media only screen and (max-width: 375px) {
+  #paceme {
+    height:40vh;
+    #logo{
+      width:40%;
+      margin-top:15%;
+    }
+    #findABuddy {
+      font-size:1.2em;
+      margin-top: 20px;
+    }
   }
 }
 
