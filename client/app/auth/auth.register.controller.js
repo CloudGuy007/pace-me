@@ -58,7 +58,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 
   $scope.getUser = function() {
     $scope.runner.email = $scope.user.email;
-    let id = $scope.user.href.split('/');
+    var id = $scope.user.href.split('/');
     $scope.runner._id = id[id.length - 1];
 
     AuthService.newUser($scope.runner)

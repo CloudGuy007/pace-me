@@ -1,8 +1,7 @@
 var app = angular.module('paceMeApp');
 
 app.controller('navCtrl', function($scope, $state, $location, $anchorScroll) {
-$scope.sticky = false;
-
+console.log("navbar loaded");
   $scope.$on('stateChange', function() {
     var nav = document.querySelector('nav');
 
@@ -10,18 +9,14 @@ $scope.sticky = false;
       var scrollPos = window.pageYOffset;
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 200) {
         nav.classList.add('sticky');
-        $scope.sticky = true;
       } else {
         nav.classList.remove('sticky');
-        $scope.sticky = false;
       }
     }
 
 
 
     if ($location.path() === '/profile') {
-      $scope.sticky = false;
-      $scope.logoshort = false;
 
     } else if ($location.path() === '/buddies' || $location.path() === '/') {
       console.log("current state", $location.path());
