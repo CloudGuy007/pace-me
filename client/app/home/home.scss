@@ -145,9 +145,23 @@ button {
     }
   }
 }
+
 @media only screen and (max-width: 768px) {
   #paceme {
     height:50vh;
+    #logo{
+      width:25%;
+      margin-top:10%;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top: 50px;
+    }
+  }
+}
+@media only screen and (max-width: 740px) {
+  #paceme {
+    height:100vh;
     #logo{
       width:25%;
       margin-top:10%;
@@ -179,11 +193,24 @@ button {
   #paceme {
     height:40vh;
     #logo{
-      width:40%;
-      margin-top:15%;
+      width:35%;
+      margin-top:13%;
     }
     #findABuddy {
       font-size:1.2em;
+      margin-top: 15px;
+    }
+  }
+}
+@media only screen and (max-width: 411px) {
+  #paceme {
+    height:40vh;
+    #logo{
+      width:30%;
+      margin-top:10%;
+    }
+    #findABuddy {
+      font-size:0.9em;
       margin-top: 15px;
     }
   }
@@ -193,14 +220,26 @@ button {
     height:40vh;
     #logo{
       width:40%;
-      margin-top:25%;
+      margin-top:15%;
     }
     #findABuddy {
-      font-size:1.2em;
       margin-top: 20px;
     }
   }
 }
+@media only screen and (max-width: 320px) {
+  #paceme {
+    height:40vh;
+    #logo{
+      width:30%;
+      margin-top:20%;
+    }
+    #findABuddy {
+      margin-top: 20px;
+    }
+  }
+}
+
 
 .app-desc {
   // line-height: 250%;
