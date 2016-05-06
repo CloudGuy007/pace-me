@@ -15,6 +15,9 @@ transition:1s;
   color:#fff;
   font-weight:100;
 }
+.navbar-brand>img {
+  margin-top:-5px;
+}
 nav.sticky {
 	background-color:rgba(0,0,0,0.7);
 	top:0;

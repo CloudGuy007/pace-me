@@ -7,19 +7,16 @@ $scope.sticky = false;
     var nav = document.querySelector('nav');
     var logoShort = document.querySelector('.navbar-brand');
 
-    $scope.logoshort = true;
     function getScrollPosition() {
       var scrollPos = window.pageYOffset;
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 200) {
         nav.classList.add('sticky');
         logoShort.classList.remove('logoshort');
         $scope.sticky = true;
-        $scope.logoshort = false;
       } else {
         nav.classList.remove('sticky');
         logoShort.classList.add('logoshort');
         $scope.sticky = false;
-        $scope.logoshort= true;
       }
     }
 
