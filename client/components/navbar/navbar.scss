@@ -1,5 +1,6 @@
 $navy1:#304A69;
 $limeGreen: #58CE87;
+
 nav {
   transition-duration:1s;
 -webkit-transition-duration:1s;
@@ -66,11 +67,4 @@ nav.profile-nav {
   background-color:rgba(0,0,0,0);
   color:#18B3B7;
   background: url('../img/home/layers/arrow2.png') no-repeat 5% 50%;
-}
-.navbar-brand {
-  -webkit-transition: 5s;
-  transition: 5s;
-}
-.logoshort {
-  display:none;
 }
