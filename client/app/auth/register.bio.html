@@ -6,7 +6,6 @@
   </div>
 
   <div class="row">
-
     <div class="col-xs-6">
       <div class="col-xs-12">
       <input class="form-control auth" placeholder="first name" ng-model="runner.firstName">
@@ -23,17 +22,17 @@
       </label>
       </div>
       <div class="col-xs-8">
-        <input class="form-control auth" placeholder='zip' type='number' ng-model='runner.zipCode' maxlength="5" required>
         <input class="form-control auth" placeholder='age' type='number' ng-model='runner.age' min="13" max="100">
+        <input class="form-control auth" placeholder='zip' type='number' ng-model='runner.zipCode' maxlength="5" required>
+        <div ng-show="noZip">Please enter your zip code before continuing.</div>
       </div>
       <div class="col-xs-4">
       </div>
 
     </div>
-    <div class="col-xs-3">
+    <div class="col-xs-6">
 
       <h3>Upload A Photo</h3>
-    {{file}}
 
       <br>
       <form name="photoform">
@@ -44,19 +43,16 @@
         <h4 ng-show="photoSavedMessage" class="auth" >Photo Uploaded!</h4>
       </form>
       <br>
-      <br>
+
+        <img ngf-src="file" width="200" alt="">
     </div>
 
-    <div class="col-xs-3">
-
-      <img ngf-src="file" width="200" alt="">
-    </div>
   </div>
   <hr>
 
   <div class="row">
 
-    <div class='col-xs-8'>
+    <div class='col-xs-12 col-md-8'>
 
       <h3>Tell us about yourself!</h3>
       <textarea class="form-control" rows="5" ng-model='runner.about' width="100%" placeholder='Example bio here.'></textarea>
@@ -67,7 +63,7 @@
 
     </div>
 
-    <button ui-sref="register.run">run</button>
 
   </div>
+<button ui-sref="register.run">run</button>
 </div>

@@ -36,21 +36,26 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
 
   $scope.goToRunStats = function(file) {
     console.log("goToRunStats file", file);
-    if (file) {
-    Upload.upload({
-      url: 'auth/upload',
-      data: {
-        file: file
+    if ($scope.runner.zipCode){
+      if (file) {
+        Upload.upload({
+          url: 'auth/upload',
+          data: {
+            file: file
+          }
+        }).then(function(res) {
+          console.log('Success ' + res.config.data.file.name + 'uploaded. Response: ' + res.data);
+          $scope.runner.photo = res.data;
+          $scope.photoSavedMessage = true;
+          $state.go('register.run');
+        }, function(err) {
+          console.log('Error status: ' + err.status);
+        });
+      } else {
+        $state.go('register.run');
       }
-    }).then(function(res) {
-      console.log('Success ' + res.config.data.file.name + 'uploaded. Response: ' + res.data);
-      $scope.runner.photo = res.data;
-      $scope.photoSavedMessage = true;
-      $state.go('register.run');
-
-    }, function(err) {
-      console.log('Error status: ' + err.status);
-    });
+    } else {
+      $scope.noZip = true;
     }
   }
 
@@ -58,14 +63,17 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
     $scope.runner.email = $scope.user.email;
     var id = $scope.user.href.split('/');
     $scope.runner._id = id[id.length - 1];
-
-    AuthService.newUser($scope.runner)
+    if ($scope.runner.milePace){
+      AuthService.newUser($scope.runner)
       .then(function(res) {
         console.log('auth service new user res', res);
         $state.go('list')
       }, function(err) {
         console.log('err', err);
       })
+    } else {
+      $scope.noMile = true;
+    }
   }
 
 });
