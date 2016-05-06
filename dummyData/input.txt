@@ -23,7 +23,7 @@
     halfPR: '{{integer(3600, 46800)}}',
     marathonPR: '{{integer(7200, 93)}}',
     milePace: '{{integer(210,1200)}}',
-    longestDistRun: '{{integer(1, 50)}}k'
+    longestDistRun: '{{integer(1, 50)}}k',
     longitude: '{{floating(-122.600001, -121.6)}}',
     latitude: '{{floating(38.100001, 36.93)}}'
   }

@@ -27,10 +27,9 @@ client.on("error", function(err) {
   console.log("Error: ", err);
 });
 
-
 //matches for guests
 exports.guestSearch = function(req, res, next) {
-  geocoder.geocode(`${req.params.zipCode}`, function(err, data) {
+  geocoder.geocode(req.params.zipCode, function(err, data) {
     if(err || !data.results.length) {
       return res.status(400).send(err || []);
     } else {
@@ -64,7 +63,7 @@ exports.guestSearch = function(req, res, next) {
 //get matches for member, must pass in id in params
 exports.memberSearch =  function(req, res, next) {
   client.georadiusbymember("UserLocs", `user:${req.params.id}`,
-        `${req.params.radius}`, "mi", "withdist", "ASC", function(err, users) {
+        req.params.radius, "mi", "withdist", "ASC", function(err, users) {
     if (err || !users.length) {
       return res.status(400).send(err || []);
     } else {
@@ -101,38 +100,38 @@ exports.runnerProfile = function(req, res, next) {
 
 //Create or update user
 exports.createOrUpdateUser =  function(req, res, next) {
-  geocoder.geocode(`${req.body.zipCode}`, function(err, data) {
+  geocoder.geocode(req.body.zipCode, function(err, data) {
     if(err || !data.results.length) {
       return res.status(400).send(err || []);
     } else {
     var locObj = data.results[0].geometry.location; //locObj =  {lat: x, lng: y}
     client.hmset(`user:${req.body._id}`,
-      "_id", `${req.body._id}`,
-      "firstName", `${req.body.firstName}`,
-      "lastName", `${req.body.lastName}`,
-      "email", `${req.body.email}`,
-      "photo", `${req.body.photo}`,
-      "age", `${req.body.age}`,
-      "gender", `${req.body.gender}`,
-      "phone", `${req.body.phone}`,
-      "zipCode", `${req.body.zipCode}`,
-      "about", `${req.body.about}`,
+      "_id", req.body._id,
+      "firstName", req.body.firstName,
+      "lastName", req.body.lastName,
+      "email", req.body.email,
+      "photo", req.body.photo,
+      "age", req.body.age,
+      "gender", req.body.gender,
+      "phone", req.body.phone,
+      "zipCode", req.body.zipCode,
+      "about", req.body.about,
       "registered", Date.now(),
-      "milePace", `${req.body.milePace}`,
-      "wklyMileage", `${req.body.wklyMileage}`,
-      "runEvent", `${req.body.runEvent}`,
-      "sixtyM", `${req.body.sixtyM}`,
-      "oneHundM", `${req.body.oneHundM}`,
-      "twoHundM", `${req.body.twoHundM}`,
-      "fourHundM", `${req.body.fourHundM}`,
-      "onemiPR", `${req.body.onemiPR}`,
-      "fivekPR", `${req.body.fivekPR}`,
-      "tenkPR", `${req.body.tenkPR}`,
-      "halfPR", `${req.body.halfPR}`,
-      "marathonPR", `${req.body.marathonPR}`,
-      "longestDistRun", `${req.body.longestDistRun}`,
-      "longitude", `${locObj.lng}`,
-      "latitude", `${locObj.lat}`,
+      "milePace", req.body.milePace,
+      "wklyMileage", req.body.wklyMileage,
+      "runEvent", req.body.runEvent,
+      "sixtyM", req.body.sixtyM,
+      "oneHundM", req.body.oneHundM,
+      "twoHundM", req.body.twoHundM,
+      "fourHundM", req.body.fourHundM,
+      "onemiPR", req.body.onemiPR,
+      "fivekPR", req.body.fivekPR,
+      "tenkPR", req.body.tenkPR,
+      "halfPR", req.body.halfPR,
+      "marathonPR", req.body.marathonPR,
+      "longestDistRun", req.body.longestDistRun,
+      "longitude", locObj.lng,
+      "latitude", locObj.lat,
       function(err2) {
         if(err2) {
           return res.status(400).send(err2)
