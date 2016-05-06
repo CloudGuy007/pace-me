@@ -34,13 +34,13 @@ input[type="number"] {
   font-size:auto;
 }
 input.auth {
-  width:100%;
   text-align:center;
   background-color: rgba(0,0,0,0);
   border: 1px solid #333;
   color:#333;
   padding: 6px 12px;
   border-radius:5px;
+  margin: 5px 0;
 }
 
 .run-dropdown {
@@ -52,6 +52,9 @@ input.auth {
 
 @media only screen and (max-width: 768px) {
   .reg-template {
-    margin-top:50%;
+    margin-top:25%;
+  }
+  .register-views {
+    margin-top:100px;
   }
 }

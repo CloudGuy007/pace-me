@@ -7,7 +7,7 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
   $scope.runner = {};
 
   $scope.sendText = function(number) {
-    if(number.length !== 10) {
+    if (number.length !== 10) {
       $scope.tenDigits = true;
       return;
     }
@@ -30,14 +30,13 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
       })
   }
 
-  $scope.uploadPhoto = function(file) {
-
-    if (file) {
-      $scope.upload(file);
-    }
+  $scope.upload = function(file) {
+    console.log("$scope.upload file", file);
   };
 
-  $scope.upload = function(file) {
+  $scope.goToRunStats = function(file) {
+    console.log("goToRunStats file", file);
+    if (file) {
     Upload.upload({
       url: 'auth/upload',
       data: {
@@ -47,13 +46,12 @@ app.controller('registerCtrl', function($scope, $state, AuthService, Upload, $ti
       console.log('Success ' + res.config.data.file.name + 'uploaded. Response: ' + res.data);
       $scope.runner.photo = res.data;
       $scope.photoSavedMessage = true;
+      $state.go('register.run');
+
     }, function(err) {
       console.log('Error status: ' + err.status);
     });
-  };
-
-  $scope.goToRunStats = function(runner){
-    $state.go('register.run');
+    }
   }
 
   $scope.getUser = function() {
