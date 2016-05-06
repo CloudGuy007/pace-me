@@ -90,7 +90,7 @@
       </div>
       <!--end if !loggedIn-->
 
-      <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortByMilePace as filtered track by $index">
+   <!--    <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortByMilePace as filtered track by $index">
         <div class="card card-list cursor list" ng-click="viewProfile(runner)">
 
           <div class="runner">
@@ -111,7 +111,7 @@
             </div>
           </div>
         </div>
-        <!--end if !loggedIn-->
+        end if !loggedIn-->
 
         <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortByMilePace as filtered track by $index">
           <div class="card card-list cursor list" ng-click="viewProfile(runner)">

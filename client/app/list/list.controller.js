@@ -9,7 +9,8 @@ angular
     $scope.selectedAgeRange = 'all';
     $scope.selectedSort = 'difMP';
     $scope.runners = []
-    $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false
+    // $scope.user ? $scope.loggedIn = true : $scope.loggedIn = false
+    $scope.loggedIn = $scope.user ?  true : false
 
     if ($scope.loggedIn) {
       var hsplits = $scope.user.href.split('/')
@@ -33,21 +34,26 @@ angular
 
 
     $scope.sortByMilePace = function(runner) {
-      if($scope.selectedSort === 'AMP'){
+      if($scope.loggedIn){
+        if($scope.selectedSort === 'AMP'){
           return runner.milePace;
-      } else if ($scope.selectedSort === 'DMP'){
-          return (-runner.milePace);
-      } else if($scope.selectedSort === 'difMP'){
-          return Math.abs(runner.milePace - $scope.loggedInUser.milePace)
-      } else if($scope.selectedSort === 'AA'){
-          return runner.age
-      } else if($scope.selectedSort === 'AD'){
-          return (-runner.age);
-      } else if($scope.selectedSort === 'DA'){
-          return runner.dist;
-      } else if($scope.selectedSort === 'DD'){
-          return (-runner.dist);
+        } else if ($scope.selectedSort === 'DMP'){
+            return (-runner.milePace);
+        } else if($scope.selectedSort === 'difMP'){
+            return Math.abs(runner.milePace - $scope.loggedInUser.milePace)
+        } else if($scope.selectedSort === 'AA'){
+            return runner.age
+        } else if($scope.selectedSort === 'AD'){
+            return (-runner.age);
+        } else if($scope.selectedSort === 'DA'){
+            return runner.dist;
+        } else if($scope.selectedSort === 'DD'){
+            return (-runner.dist);
+        }
+      } else{
+        return runner;
       }
+      
     }
 
     $scope.getGuestMatches = function(zip) {
