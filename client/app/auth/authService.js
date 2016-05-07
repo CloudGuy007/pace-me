@@ -10,7 +10,6 @@
       var number = {phoneNumber: phone}
       return $http.post('/auth/phone', number)
       .then((res) => {
-        console.log('serviceRes', res);
       //request_id is for nexmo, store to use for verifyNumber
         this.request_id = res.data.request_id;
         return res.data.status
