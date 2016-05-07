@@ -4,7 +4,7 @@ Welcome to PaceMe. This is a simple app designed to bring runners from all walks
 
 ## Getting Started
 
-This app is currently only available in the San Francisco Bay Area. Register now and sign up with a zip code in the Bay to start messaging other users in the area. **Disclaimer: until we have a sizable number of users in our database, there will be pre-generated dummy users with questionable data.**
+This app is currently only available in the San Francisco Bay Area. Register now and sign up with a zip code in the Bay to start messaging other users in the area. **Disclaimer: until we have a sizable number of users in our database, there will be pre-generated dummy users with slightly nonsensical data. :)**
 
 
 ## Guests
@@ -17,7 +17,7 @@ guests are registered and/or logged in. Type in a zip code (currently SF Bay Are
 Users may edit their own profile and visit the profiles of other users. The logged in user (SENDER) may then send a text message to another user (RECIPIENT)
 via PaceMe, which will attach a link to SENDER's profile. Unless SENDER provides own number in the message, RECIPIENT may contact back by visiting
 SENDER's profile in the link attached with the message. Users are encouraged to exchange numbers early on in the conversation as PaceMe is designed to get two
-or more runners in the area introduced, but they may feel free to keep texting each other through the app if they so desire. :)
+or more runners in the area introduced, but they may feel free to keep texting each other through the app if they so desire.
 
 Users are encouraged to fill out as much information as possible in their profile to give others a good idea of whom they may be running with next!
 
@@ -35,7 +35,7 @@ PaceMe is a full-stack app built with HTML5, CSS(SCSS), and JS.
 
 ## About The Team
 PaceMe was developed by:
-[Andrew Bass](http://andrewcbass.com)
-[Sergio Prada](http://sergioprada.com)
-[Deanna Shih](http://deannashih.com)
-[Sean Yesmunt](http://seanyesmunt.com)
+* [Andrew Bass](http://andrewcbass.com)
+* [Sergio Prada](http://sergioprada.com)
+* [Deanna Shih](http://deannashih.com)
+* [Sean Yesmunt](http://seanyesmunt.com)
