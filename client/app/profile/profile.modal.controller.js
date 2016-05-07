@@ -1,9 +1,12 @@
-'use strict';
-var app = angular.module('paceMeApp');
+(function(){
+  angular
+    .module('paceMeApp')
+    .controller('ModalInstanceCtrl', ModalInstanceCtrl)
 
+  ModalInstanceCtrl.$inject = ["$scope", "$uibModalInstance", "ProfileService"];
 
-app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileService) {
-  $scope.sendMessage = function(message) {
+  function ModalInstanceCtrl($scope, $uibModalInstance, ProfileService) {
+    $scope.sendMessage = function(message) {
     //send message
     var number = $scope.runner.phone.match(/\d/g).join('');
     var id = $scope.user.href.split('/');
@@ -42,4 +45,5 @@ app.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, ProfileS
     }
     $uibModalInstance.close();
   }
-});
+}
+})();

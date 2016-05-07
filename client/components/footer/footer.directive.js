@@ -1,7 +1,11 @@
-var app = angular.module('paceMeApp');
+(function(){
+	angular
+		.module('paceMeApp')
+		.directive('footerView', footerView)
 
-app.directive('footerView', function() {
-  return {
-    templateUrl: '/html/footer.html'
-  };
-});
+	function footerView() {
+		return {
+			templateUrl: '/html/footer.html'
+		};
+	}
+})();
