@@ -69,17 +69,22 @@ exports.memberSearch =  function(req, res, next) {
     } else {
       var result = [];
       async.forEach(users, function(user, callback) {
-        client.hset(user[0], "dist", user[1]);
-        client.hgetall(user[0], function(err2, reply) {
-          result.push(reply);
-          callback(err2);
-        });
+          client.hset(user[0], "dist", user[1]);
+          client.hgetall(user[0], function(err2, reply) {
+            result.push(reply);
+            callback(err2);
+          });
       }, function(err2) {
         if (err2) {
           return res.status(400).send(err2);
         }
-        // returns original user as well, shift out of array
-        result.shift();
+        if(result[0]._id === req.params.id) {
+          result.shift();
+          return res.send(result);
+        }
+        result = result.filter(function(user) {
+          return user._id !== req.params.id;
+        })
         return res.send(result);
       })
     }
