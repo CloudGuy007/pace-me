@@ -30,7 +30,7 @@
             <h3>Training</h3>
             <h4 ng-if="runner.runEvent && runner.runEvent !== 'undefined'">Currently training for a: {{runner.runEvent}}</h4>
             <h4>Avg Mile Time: {{runner.milePace | minutes2Seconds | date:'mm:ss'}}</h4>
-            <h4 ng-if="runner.weeklyMiles && runner.weeklyMiles !== 'undefined'">Weekly Miles: {{runner.wklyMileage}}</h4>
+            <h4 ng-if="runner.wklyMileage && runner.wklyMileage !== 'undefined'">Weekly Miles: {{runner.wklyMileage}}</h4>
           </div>
 
           <div class="col-xs-8 run-stats">
