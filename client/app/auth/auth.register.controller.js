@@ -20,6 +20,9 @@
         })
       }
       $scope.verifyPhone = function(code) {
+
+        if (code < 1000) code = '0' + code;
+
         AuthService.verifyNumber(code)
         .then(function(res) {
           if (res.data.status === "16") return $scope.wrongPin = true;
