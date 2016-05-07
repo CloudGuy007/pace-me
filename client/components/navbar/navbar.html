@@ -10,7 +10,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand navbar-left" ui-sref="home"><img src="../img/home/layers/logo-short.png" alt="pace me" width="40"></a>
+        <a class="navbar-brand navbar-left" ui-sref="home"><img src="assets/images/logo-short.png" alt="pace me" width="40"></a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -18,7 +18,7 @@
           <li><a ui-sref="register.initial" if-not-user>Register</a></li>
           <li><a ui-sref="login" if-not-user>Log In</a></li>
           <li><a ui-sref="list" if-user>List</a></li>
-          <li><a class="cursor" ng-click="editOwnProfile()" if-user>Profile</a></li>
+          <li><a class="cursor" ng-click="editOwnProfile()" if-user>My Profile</a></li>
           <li><a ui-sref="home" sp-logout if-user>Log Out</a></li>
 
         </ul>

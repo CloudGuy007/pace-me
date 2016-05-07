@@ -150,8 +150,7 @@ button.green:active {
   .card{
     .card-img {
       img {
-        height: 146px;
-        width:auto;
+        max-height:146px;
       }
   }
 }
