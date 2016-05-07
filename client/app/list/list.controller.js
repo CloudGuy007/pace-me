@@ -1,7 +1,7 @@
 (function(){
   angular
     .module('paceMeApp')
-    .controller('listCtrl', function($scope, $state, ListService, $uibModal, $log) {
+    .controller('listCtrl', listCtrl)
     listCtrl.$inject = ['$scope', '$state', 'ListService', '$uibModal', '$log']
 
     function listCtrl($scope, $state, ListService, $uibModal, $log) {
