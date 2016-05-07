@@ -1,8 +1,9 @@
-"use strict";
+(function(){
+angular
+	.module('paceMeApp')
+	.controller('homeCtrl', homeCtrl)
+	homeCtrl.$inject = ['$scope'];
+	function homeCtrl($scope){
 
-var app = angular.module('paceMeApp');
-
-app.controller('homeCtrl', function($scope){
-	
-
-});
+	}
+})();
