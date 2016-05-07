@@ -32,7 +32,7 @@
             <h3>Training</h3>
             <h4 ng-if="runner.runEvent && runner.runEvent !== 'undefined'">Currently training for a: {{runner.runEvent}}</h4>
             <h4>Avg Mile Time: {{runner.milePace | minutes2Seconds | date:'mm:ss'}}</h4>
-            <h4>Weekly Miles: {{runner.wklyMileage}}</h4>
+            <h4 ng-if="runner.weeklyMiles && runner.weeklyMiles !== 'undefined'">Weekly Miles: {{runner.wklyMileage}}</h4>
           </div>
 
           <div class="col-xs-8 run-stats">
@@ -92,16 +92,11 @@
     <br>
     <div class='input-group col-xs-12'>
       <span class='input-group-addon'>Age: </span>
-      <input type="text" class='form-control' ng-model="runnerEdit.age" placeholder="average mile pace">
-    </div>
-    <br>
-    <div class='input-group col-xs-12'>
-      <span class='input-group-addon'>Gender: </span>
-      <input type="text" class='form-control' ng-model="runnerEdit.gender" placeholder="weekly mileage">
+      <input type="text" class='form-control' ng-model="runnerEdit.age" placeholder="age">
     </div>
     <br>
     <span for="comment">Bio</span>
-    <textarea class="form-control" rows="5" ng-model="runnerEdit.about" placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam tempora odio praesentium quidem illo magni alias suscipit adipisci blanditiis amet magnam molestiae earum expedita quasi quia ex, debitis est similique. Harum aliquam quidem maiores rem at, amet soluta nobis voluptatibus nisi consequatur, porro dolore omnis cupiditate architecto! Cum, non, mollitia?'></textarea>
+    <textarea class="form-control" rows="5" ng-model="runnerEdit.about" placeholder="I love running!"></textarea>
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="saveBasics(runnerEdit)">OK</button>
