@@ -1,16 +1,18 @@
-'use strict';
-var app = angular.module('paceMeApp');
+(function() {
+  angular
+  .module('paceMeApp')
+  .controller('listModalCtrl', listModalCtrl)
 
+  listModalCtrl.$inject = ['$scope', '$uibModalInstance', '$state'];
 
-// app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
-//
-//
-//
-//   $scope.ok = function () {
-//     $uibModalInstance.close($scope.selected.item);
-//   };
-//
-//   $scope.cancel = function () {
-//     $uibModalInstance.dismiss('cancel');
-//   };
-// });
+  function listModalCtrl($scope, $uibModalInstance, $state){
+    $scope.login = function() {
+      $state.go('login')
+      $uibModalInstance.close()
+    }
+    $scope.register = function() {
+      $state.go('register.initial')
+      $uibModalInstance.dismiss('cancel')
+    }
+  }
+})();
