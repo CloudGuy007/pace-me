@@ -24,11 +24,13 @@ $limeGreen: #58CE87;
   }
   #logo{
     width:20%;
-    margin-top:10%;
+    margin-top:200px;
   }
   #findABuddy {
     font-size:1.5em;
     margin-top: 50px;
+    position:relative;
+    z-index:100;
   }
 }
 
@@ -124,24 +126,34 @@ button {
   #paceme {
     #logo{
       width:35%;
-      margin-top:25%;
+      // margin-top:70px;
     }
     #findABuddy {
       font-size:1.5em;
-      margin-top: 50px;
     }
   }
 }
-
+@media only screen and (max-width: 1024px) and (min-height:768px) {
+  #paceme {
+    height:100vh;
+    #logo{
+      width:25%;
+      margin-top:200px;
+    }
+    #findABuddy {
+      font-size:1.5em;
+      margin-top:100px;
+    }
+  }
+}
 @media only screen and (max-width: 960px) {
   #paceme {
     #logo{
       width:35%;
-      margin-top:35%;
+      margin-top:100px;
     }
     #findABuddy {
       font-size:1.5em;
-      margin-top: 50px;
     }
   }
 }
@@ -151,24 +163,22 @@ button {
     height:50vh;
     #logo{
       width:25%;
-      margin-top:10%;
+      // margin-top:10%;
     }
     #findABuddy {
       font-size:1.5em;
-      margin-top: 50px;
     }
   }
 }
+
 @media only screen and (max-width: 740px) {
   #paceme {
     height:100vh;
     #logo{
       width:25%;
-      margin-top:10%;
     }
     #findABuddy {
       font-size:1.5em;
-      margin-top: 50px;
     }
   }
 }
@@ -178,11 +188,9 @@ button {
     height:40vh;
     #logo{
       width:40%;
-      margin-top:15%;
     }
     #findABuddy {
       font-size:1.5em;
-      margin-top: 50px;
     }
   }
   #welcome{
@@ -194,11 +202,11 @@ button {
     height:40vh;
     #logo{
       width:35%;
-      margin-top:13%;
+      margin-top:70px;
     }
     #findABuddy {
       font-size:1.2em;
-      margin-top: 15px;
+      margin-top:10px;
     }
   }
 }
@@ -207,7 +215,6 @@ button {
     height:40vh;
     #logo{
       width:30%;
-      margin-top:10%;
     }
     #findABuddy {
       font-size:0.9em;
@@ -220,7 +227,6 @@ button {
     height:40vh;
     #logo{
       width:40%;
-      margin-top:15%;
     }
     #findABuddy {
       margin-top: 20px;
@@ -232,7 +238,6 @@ button {
     height:40vh;
     #logo{
       width:30%;
-      margin-top:20%;
     }
     #findABuddy {
       margin-top: 20px;
