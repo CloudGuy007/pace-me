@@ -50,8 +50,6 @@ exports.guestSearch = function(req, res, next) {
             if (err3) {
               return res.status(400).send(err3);
             }
-            //georadius returns the original user as well, shift out of array
-            result.shift();
             return res.send(result);
           })
         }
