@@ -13,7 +13,7 @@
       <h3>{{runner.age}} |
           <i class="fa fa-mars" ng-if="runner.gender === 'male'"></i>
           <i class="fa fa-venus" ng-if="runner.gender === 'female'"></i>
-          <button class='btn green' ng-click="open(runner)">Send a message</button>
+          <button class='btn green' ng-if="!editable" ng-click="open(runner)">Send a message</button>
       </h3>
       <hr>
       <h4><img src="../img/home/layers/arrow4.png" width="7"> Bio</h4>
