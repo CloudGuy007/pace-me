@@ -8,7 +8,7 @@ nexmo.initialize(process.env.NEXMO_API_KEY, process.env.NEXMO_API_SECRET);
 
 router.post('/new', function(req, res) {
   console.log("req.body", req.body);
-  var profile = ` & check out my PaceMe profile here: http://paceme.us/#/profile/${req.body.link}`;
+  var profile = `\nView my PaceMe profile: http://paceme.us/#/profile/${req.body.link}`;
   var message = req.body.message + profile;
   var sender = '16572087372';
   var to = '1'+req.body.phone;

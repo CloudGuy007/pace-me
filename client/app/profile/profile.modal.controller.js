@@ -37,6 +37,7 @@
 
   $scope.saveRun = function(runner){
     var paceArr = runner.milePace.split(':');
+    
     runner.milePace = parseInt(paceArr[0]) * 60 + parseInt(paceArr[1]);
     try{
       ProfileService.saveProfile(runner)

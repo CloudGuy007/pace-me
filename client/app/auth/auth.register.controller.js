@@ -35,7 +35,6 @@
       };
 
       $scope.goToRunStats = function(file) {
-        console.log("goToRunStats file", file);
         if ($scope.runner.zipCode){
           if (file) {
             Upload.upload({
@@ -44,7 +43,6 @@
                 file: file
               }
             }).then(function(res) {
-              console.log('Success ' + res.config.data.file.name + 'uploaded. Response: ' + res.data);
               $scope.runner.photo = res.data;
               $scope.photoSavedMessage = true;
               $state.go('register.run');
@@ -66,7 +64,6 @@
         if ($scope.runner.milePace){
           AuthService.newUser($scope.runner)
           .then(function(res) {
-            console.log('auth service new user res', res);
             $state.go('list')
           }, function(err) {
             console.log('err', err);
