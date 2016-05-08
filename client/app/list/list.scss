@@ -18,6 +18,9 @@ $limeGreen: #58CE87;
   -webkit-transition: height 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   height: 300px;
+  h2 {
+    margin-top: 50px;
+  }
 }
 #listInput {
   width: 450px;
