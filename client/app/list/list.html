@@ -70,9 +70,9 @@
       <div ng-if="!loggedIn" class="col-xs-12 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners track by $index">
 
         <div class="card guest-card card-list cursor list" ng-click="open()">
-        <div class="runner">
-          <div class="col-xs-12">
-            <h3>{{runner.firstName}}<h3>
+          <div class="runner">
+            <div class="col-xs-12">
+              <h3>{{runner.firstName}}<h3>
               <div class="card-img">
                 <img ng-src="{{runner.photo}}" width="100%">
               </div>
@@ -90,73 +90,50 @@
       </div>
       <!--end if !loggedIn-->
 
-   <!--    <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortByMilePace as filtered track by $index">
+      <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortByMilePace as filtered track by $index">
         <div class="card card-list cursor list" ng-click="viewProfile(runner)">
-
           <div class="runner">
             <div class="col-xs-12">
-              <h3>{{runner.firstName}}<h3>
-                <div class="card-img">
-                  <img class="blur" ng-src="{{runner.photo}}" width="100%">
-                </div>
+              <h3 >{{runner.firstName}} {{runner.lastName | limitTo:1}}.</h3>
+            <h4>
+                <span class="fa fa-mars" aria-hidden="true" ng-show="runner.gender === 'male'"></span>
+                <span class="fa fa-venus" aria-hidden="true" ng-show="runner.gender === 'female'"></span>
+                |&nbsp;{{runner.age}}
+              </h4>
+
+            <div class="card-img">
+              <img ng-src="{{runner.photo}}" width="100%">
+            </div>
+
+            <div class="col-xs-12 ">
+              <div class="gray">
+                <p class='card-p'><strong>Location:</strong>&nbsp;{{runner.dist | distance}}</p>
               </div>
-              <div class="col-xs-12 ">
-                <div>
-                  <p class='card-p'><strong>Location:</strong>&nbsp;{{runner.dist | distance}}</p>
-                </div>
-                <div>
-                  <p class='card-p'><strong>Mile Pace:</strong>&nbsp;{{runner.milePace | minutes2Seconds | date:'mm:ss'}}</p>
-                </div>
+
+              <div class="gray">
+                <!-- <p class='card-p'><strong>Mile Pace:</strong> {{runner.milePace}}&nbsp;({{ runner.milePace | paceDiff:loggedInUser.milePace }})</p> -->
+                <p class='card-p'><strong>Mile Pace:</strong> {{runner.milePace | minutes2Seconds | date:'mm:ss'}}&nbsp;({{ runner.milePace | paceDiff:loggedInUser.milePace }})</p>
+              </div>
+
+              <div class="gray" ng-if="runner.runEvent !== 'undefined'">
+                <p class='card-p'><strong>Weekly Mileage:</strong> {{runner.wklyMileage}}</p>
+              </div>
+
+              <div class="gray" ng-if="runner.runEvent !== 'undefined'">
+                <p class='card-p'><strong>Training for:</strong> {{runner.runEvent}}</p>
               </div>
             </div>
           </div>
-        </div>
-        end if !loggedIn-->
-
-        <div ng-if="loggedIn" class="col-xs-6 col-sm-4 col-md-3 animate-repeat" ng-repeat="runner in runners | genderFilter:(selectedGender) | ageFilter:(selectedAgeRange) | orderBy: sortByMilePace as filtered track by $index">
-          <div class="card card-list cursor list" ng-click="viewProfile(runner)">
-            <div class="runner">
-              <div class="col-xs-12">
-                <h3 >{{runner.firstName}} {{runner.lastName | limitTo:1}}.</h3>
-                <h4 >
-                  <span class="fa fa-mars" aria-hidden="true" ng-show="runner.gender === 'male'"></span>
-                  <span class="fa fa-venus" aria-hidden="true" ng-show="runner.gender === 'female'"></span>
-                  |&nbsp;{{runner.age}}
-                </h4>
-
-                <div class="card-img">
-                  <img ng-src="{{runner.photo}}" width="100%">
-                </div>
-
-                <div class="col-xs-12 ">
-                  <div class="gray">
-                    <p class='card-p'><strong>Location:</strong>&nbsp;{{runner.dist | distance}}</p>
-                  </div>
-
-                  <div class="gray">
-                    <!-- <p class='card-p'><strong>Mile Pace:</strong> {{runner.milePace}}&nbsp;({{ runner.milePace | paceDiff:loggedInUser.milePace }})</p> -->
-                    <p class='card-p'><strong>Mile Pace:</strong> {{runner.milePace | minutes2Seconds | date:'mm:ss'}}&nbsp;({{ runner.milePace | paceDiff:loggedInUser.milePace }})</p>
-                  </div>
-
-                  <div class="gray" ng-if="runner.runEvent !== 'undefined'">
-                    <p class='card-p'><strong>Weekly Mileage:</strong> {{runner.wklyMileage}}</p>
-                  </div>
-
-                  <div class="gray" ng-if="runner.runEvent !== 'undefined'">
-                    <p class='card-p'><strong>Training for:</strong> {{runner.runEvent}}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--end if loggedIn-->
         </div>
       </div>
-      <!--end card-->
+        <!--end if loggedIn-->
+      </div>
     </div>
-    <!--end row-->
+    <!--end card-->
   </div>
-  <!--end container-->
+  <!--end row-->
+</div>
+<!--end container-->
 </div>
 
 
